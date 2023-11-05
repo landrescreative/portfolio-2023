@@ -1,8 +1,36 @@
+@font-face {
+  font-family: "Geist";
+  src: local("Geist"),
+   url("./components/fonts/Geist-Regular.otf") format("truetype");
+  font-weight: 500;
+ }
+
+ @font-face {
+  font-family: "Geist";
+  src: local("Geist"),
+   url("./components/fonts/Geist-Light.otf") format("truetype");
+  font-weight: 300;
+ }
+
+ @font-face {
+  font-family: "Geist";
+  src: local("Geist"),
+   url("./components/fonts/Geist-UltraLight.otf") format("truetype");
+  font-weight: 100;
+ }
+
+ @font-face {
+  font-family: "Geist";
+  src: local("Geist"),
+   url("./components/fonts/Geist-Bold.otf") format("truetype");
+  font-weight: 700;
+ }
+
 body {
+  color: white;
+  background-color: #070707;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Geist", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

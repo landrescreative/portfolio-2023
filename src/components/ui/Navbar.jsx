@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FaBars } from "react-icons/fa6";
 
 const Navbar = (props) => {
   // This creates a state for the button
@@ -7,57 +8,71 @@ const Navbar = (props) => {
 
   return (
     <Container_Navbar>
-      <h1>LANDRES</h1>
+      <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
-        <a>Inicio</a>
-        <a>Proyectos</a>
-        <a>Acerca de</a>
+        <a>Home</a>
+        <a>Work</a>
+        <a>About</a>
       </div>
-      <button onClick={() => setToggle(!toggle)}>X</button>
+      <button onClick={() => setToggle(!toggle)}>
+        <FaBars />
+      </button>
     </Container_Navbar>
   );
 };
 
 const Container_Navbar = styled.div`
-  background-color: #f2f2f2;
+  z-index: 1000;
+  width: 100vw;
   height: 60px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
+  background-color: #070707;
+  position: fixed;
+
+  // LANDRES text
 
   h1 {
-    font-size: 1.5em;
-    color: #000000;
-    grid-column: 1 / 2;
+    font-size: 22px;
+    font-weight: 100;
+    grid-column: 1 / 4;
     text-align: center;
+    letter-spacing: 0px;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / 8;
+    }
   }
 
   div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    grid-column: 3 / 4;
+    grid-column: 9/12;
 
     // Media queries
     @media (max-width: 768px) {
       width: 100vw;
-      height: 100vh;
-      grid-column: 1 / 4;
+      height: 100dvh;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-around;
       position: fixed;
       left: -100vw;
-      background-color: #fff;
+      background-color: #070707;
       transition: left 0.5s ease-in-out;
     }
 
+    // LINKS TEXT
+
     a {
       text-decoration: none;
-      color: #000000;
-      font-size: 1.2em;
-      font-weight: bold;
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0px;
     }
 
     &.active {
@@ -70,9 +85,9 @@ const Container_Navbar = styled.div`
   button {
     background-color: transparent;
     border: none;
-    font-size: 1.5em;
-    color: #000000;
-    grid-column: 3 / 4;
+    font-size: 1.5rem;
+    color: #ffffff;
+    grid-column: 11 / 13;
     justify-self: center;
     z-index: 2;
     cursor: pointer;
