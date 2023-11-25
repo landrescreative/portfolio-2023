@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaArrowDownLong,
 } from "react-icons/fa6";
+import SocialButtons from "../SocialButtons";
 
 const Container = styled.div`
   height: 100dvh;
@@ -120,28 +121,14 @@ const Header = () => {
       <div>
         <h1>Hello, i'm alex.</h1>
         <div className="test">IMG</div>
-        <div>
-          <a href="https://www.instagram.com/landrescreative/">
-            <FaInstagram />
-          </a>
-          <a href="https://www.behance.net/landrescreative">
-            <FaBehance />
-          </a>
-          <a href="https://www.behance.net/landrescreative">
-            <FaGithub />
-          </a>
-          <a href="https://www.behance.net/landrescreative">
-            <FaLinkedin />
-          </a>
-        </div>
+        <SocialButtons />
       </div>
       <div>
         <h1>CREATIVE</h1>
       </div>
       <div>
         <a href="#about">
-          {" "}
-          <FaArrowDownLong />{" "}
+          <FaArrowDownLong />
         </a>
       </div>
     </Container>

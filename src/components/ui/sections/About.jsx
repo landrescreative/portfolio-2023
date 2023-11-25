@@ -32,11 +32,14 @@ const Container = styled.div`
   }
 
   .about_img {
+    margin: 0px;
     grid-column: 2 / 5;
     width: 100%;
+    text-align: center;
 
     @media (max-width: 768px) {
       grid-column: 1 / 13;
+      margin: 0px;
     }
   }
 
@@ -82,7 +85,7 @@ const About = () => {
       <h1>About</h1>
       <span></span>
       <div className="about">
-        <div className="about_img">a</div>
+        <div className="about_img">IMAGEN</div>
         <div className="about_texts">
           <div className="about_texts_container">
             <h1>ABOUT ME</h1>
