@@ -59,13 +59,13 @@ const SocialButtons = () => {
           <span>Social</span>
         </div>
       </a>
-      <a className="icon" href="https://www.behance.net/landrescreative">
+      <a className="icon" href="https://github.com/landrescreative">
         <FaGithub />
         <div className="overlay">
           <span>Social</span>
         </div>
       </a>
-      <a className="icon" href="https://www.behance.net/landrescreative">
+      <a className="icon" href="https://www.linkedin.com/in/landrescreative/">
         <FaLinkedin />
         <div className="overlay">
           <span>Social</span>
