@@ -38,7 +38,7 @@ const Container_Navbar = styled.div`
   h1 {
     font-size: 22px;
     font-weight: 100;
-    grid-column: 1 / 4;
+    grid-column: 1 / 3;
     text-align: center;
     letter-spacing: 0px;
 
@@ -51,7 +51,7 @@ const Container_Navbar = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    grid-column: 9/12;
+    grid-column: 9/13;
 
     // Media queries
     @media (max-width: 768px) {
@@ -69,10 +69,10 @@ const Container_Navbar = styled.div`
 
     a {
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 14px;
+      font-weight: 100;
       text-transform: uppercase;
-      letter-spacing: 0px;
+      letter-spacing: 2px;
     }
 
     &.active {
