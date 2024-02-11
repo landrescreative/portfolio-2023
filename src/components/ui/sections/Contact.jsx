@@ -13,6 +13,10 @@ const Container = styled.div`
     font-size: 22px;
     font-weight: 300;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   span {
@@ -73,7 +77,7 @@ const Container = styled.div`
 const Contact = () => {
   return (
     <Container>
-      <h1>About</h1>
+      <h1>Contact</h1>
       <span></span>
       <div className="contact_container">
         <h1>Let's talk about your project</h1>

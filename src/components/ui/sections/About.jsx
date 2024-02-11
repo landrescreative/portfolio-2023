@@ -13,6 +13,11 @@ const Container = styled.div`
     font-size: 22px;
     font-weight: 300;
     text-align: center;
+    align-self: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   span {
@@ -20,6 +25,8 @@ const Container = styled.div`
     grid-row: 1 / 2;
     border-bottom: 2px solid #ffffff;
     transform: translateY(-55%);
+    text-align: center;
+    align-self: center;
   }
 
   .about {

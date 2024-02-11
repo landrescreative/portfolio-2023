@@ -16,9 +16,14 @@ const Container = styled.div`
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   align-content: center;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    grid-template-rows: repeat(1, 1fr);
+  }
 
   div:nth-child(1) {
     grid-column: 2/5;
