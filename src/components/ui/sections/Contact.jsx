@@ -27,10 +27,16 @@ const Container = styled.div`
   }
 
   .contact_container {
+    min-height: 98vh;
     display: grid;
+    margin: 0;
     grid-column: 1 / 13;
     justify-items: center;
-    align-content: center;
+    align-content: flex-end;
+
+    @media screen and (max-width: 768px) {
+      margin: 0px 0px;
+    }
 
     h1 {
       grid-column: 1 / 13;

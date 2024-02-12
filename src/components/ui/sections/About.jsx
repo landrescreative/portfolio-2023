@@ -5,7 +5,6 @@ const Container = styled.div`
   display: grid;
   margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(7, 1fr);
 
   h1 {
     grid-column: 1 / 3;
@@ -30,12 +29,12 @@ const Container = styled.div`
   }
 
   .about {
+    height: 90vh;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-column: 1 / 13;
-    grid-row: 3 / 6;
+    grid-row: 2 / 3;
     justify-items: center;
-    align-content: center;
   }
 
   .about_img {

@@ -8,7 +8,7 @@ import {
   FaLinkedin,
   FaArrowDownLong,
 } from "react-icons/fa6";
-import SocialButtons from "../SocialButtons";
+import SocialButtons from "../components/SocialButtons";
 
 const Container = styled.div`
   height: 100dvh;
@@ -16,7 +16,7 @@ const Container = styled.div`
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   align-content: center;
   justify-content: center;
 
@@ -27,7 +27,7 @@ const Container = styled.div`
 
   div:nth-child(1) {
     grid-column: 2/5;
-    grid-row: 2 / 3;
+    grid-row: 1 / 2;
     text-align: left;
     align-self: center;
     justify-content: center;
@@ -45,7 +45,7 @@ const Container = styled.div`
   div:nth-child(2) {
     display: flex;
     grid-column: 2/5;
-    grid-row: 3 / 4;
+    grid-row: 2 / 4;
     text-align: center;
     align-self: center;
     justify-content: center;
@@ -68,7 +68,6 @@ const Container = styled.div`
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background-color: #f2f2f2;
 
       @media (max-width: 768px) {
         margin: 15px 0;

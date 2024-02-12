@@ -6,23 +6,6 @@ const Container = styled.div`
   margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
 
-  h1 {
-    grid-column: 1 / 3;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  span {
-    grid-column: 3 / 12;
-    transform: translateY(-50%);
-    border-bottom: 2px solid #ffffff;
-  }
-
   .gallery {
     grid-column: 1 / 13;
     display: grid;
@@ -72,36 +55,10 @@ const Container = styled.div`
   }
 `;
 
-const Work = () => {
+const Gallery = () => {
   return (
     <Container>
-      <h1>Work</h1>
-      <span></span>
       <div className="gallery">
-        <div className="thumbnails">
-          <div className="overlay">
-            <h1>Project Name</h1>
-            <p>Project Description</p>
-            <a>View Project</a>
-          </div>
-          <img></img>
-        </div>
-        <div className="thumbnails">
-          <div className="overlay">
-            <h1>Project Name</h1>
-            <p>Project Description</p>
-            <a>View Project</a>
-          </div>
-          <img></img>
-        </div>
-        <div className="thumbnails">
-          <div className="overlay">
-            <h1>Project Name</h1>
-            <p>Project Description</p>
-            <a>View Project</a>
-          </div>
-          <img></img>
-        </div>
         <div className="thumbnails">
           <div className="overlay">
             <h1>Project Name</h1>
@@ -131,4 +88,4 @@ const Work = () => {
   );
 };
 
-export default Work;
+export default Gallery;

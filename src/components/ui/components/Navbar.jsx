@@ -23,7 +23,6 @@ const Navbar = (props) => {
 
 const Container_Navbar = styled.div`
   z-index: 1000;
-  width: 100vw;
   height: 60px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -31,7 +30,7 @@ const Container_Navbar = styled.div`
   align-content: center;
   justify-content: center;
   background-color: #070707;
-  position: fixed;
+  position: sticky;
 
   // LANDRES text
 
@@ -44,6 +43,7 @@ const Container_Navbar = styled.div`
 
     @media (max-width: 768px) {
       grid-column: 1 / 8;
+      display: none;
     }
   }
 
@@ -73,6 +73,33 @@ const Container_Navbar = styled.div`
       font-weight: 100;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      // Hover subline effect
+      position: relative;
+      color: #ffffff;
+      transition: all 0.5s ease-in-out;
+      transform: scale(1);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width 0.5s ease-in-out;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      // Media queries
     }
 
     &.active {
