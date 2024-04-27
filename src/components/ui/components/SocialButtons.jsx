@@ -10,8 +10,16 @@ import {
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  a {
+    margin: 0 5px;
+    color: #ffffff;
+    font-size: 28px;
+    transition: all 0.1s ease-in-out;
+    decoration: none;
+  }
 
   .overlay {
     position: relative;
@@ -27,6 +35,8 @@ const Container = styled.div`
     span {
       color: #ffffff;
       font-size: 14px;
+      text-align: center;
+      text-decoration: none;
     }
   }
 
@@ -50,25 +60,25 @@ const SocialButtons = () => {
       <a className="icon" href="https://www.instagram.com/landrescreative/">
         <FaInstagram />
         <div className="overlay">
-          <span>Social</span>
+          <span>Instagram</span>
         </div>
       </a>
       <a className="icon" href="https://www.behance.net/landrescreative">
         <FaBehance />
         <div className="overlay">
-          <span>Social</span>
+          <span>Behance</span>
         </div>
       </a>
       <a className="icon" href="https://github.com/landrescreative">
         <FaGithub />
         <div className="overlay">
-          <span>Social</span>
+          <span>Github</span>
         </div>
       </a>
       <a className="icon" href="https://www.linkedin.com/in/landrescreative/">
         <FaLinkedin />
         <div className="overlay">
-          <span>Social</span>
+          <span>Linkedin</span>
         </div>
       </a>
     </Container>

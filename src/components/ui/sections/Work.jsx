@@ -1,27 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Separator from "../components/Separator";
 
 const Container = styled.div`
   display: grid;
   margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
-
-  h1 {
-    grid-column: 1 / 3;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  span {
-    grid-column: 3 / 12;
-    transform: translateY(-50%);
-    border-bottom: 2px solid #ffffff;
-  }
 
   .gallery {
     grid-column: 1 / 13;
@@ -75,8 +59,7 @@ const Container = styled.div`
 const Work = () => {
   return (
     <Container>
-      <h1>Work</h1>
-      <span></span>
+      <Separator separador_texto="WORK" />
       <div className="gallery">
         <div className="thumbnails">
           <div className="overlay">

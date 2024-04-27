@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   // This creates a state for the button
@@ -10,9 +11,9 @@ const Navbar = (props) => {
     <Container_Navbar>
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
-        <a>Home</a>
-        <a>Work</a>
-        <a>About</a>
+        <Link to="/">Home</Link>
+        <Link to="/work">Work</Link>
+        <Link to="/about">About</Link>
       </div>
       <button onClick={() => setToggle(!toggle)}>
         <FaBars />

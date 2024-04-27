@@ -1,32 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Separator from "../components/Separator";
 
 const Container = styled.div`
   display: grid;
   margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
-
-  h1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-    align-self: center;
-
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  span {
-    grid-column: 3 / 12;
-    grid-row: 1 / 2;
-    border-bottom: 2px solid #ffffff;
-    transform: translateY(-55%);
-    text-align: center;
-    align-self: center;
-  }
 
   .about {
     height: 90vh;
@@ -88,8 +67,7 @@ const Container = styled.div`
 const About = () => {
   return (
     <Container>
-      <h1>About</h1>
-      <span></span>
+      <Separator separador_texto="ABOUT" />
       <div className="about">
         <div className="about_img">IMAGEN</div>
         <div className="about_texts">

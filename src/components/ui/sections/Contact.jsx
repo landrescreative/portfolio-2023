@@ -1,33 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
+import Separator from "../components/Separator";
 
 const Container = styled.div`
   display: grid;
-  margin: 0 0px;
+  margin: 15px 0px;
   grid-template-columns: repeat(12, 1fr);
 
-  h1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
-    font-size: 22px;
-    font-weight: 300;
-    text-align: center;
-
-    @media screen and (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  span {
-    grid-column: 3 / 12;
-    grid-row: 1 / 2;
-    border-bottom: 2px solid #ffffff;
-    transform: translateY(-55%);
-  }
-
   .contact_container {
-    min-height: 98vh;
+    min-height: 85vh;
     display: grid;
     margin: 0;
     grid-column: 1 / 13;
@@ -83,8 +65,7 @@ const Container = styled.div`
 const Contact = () => {
   return (
     <Container>
-      <h1>Contact</h1>
-      <span></span>
+      <Separator separador_texto="CONTACTO" />
       <div className="contact_container">
         <h1>Let's talk about your project</h1>
         <div className="contact_img">

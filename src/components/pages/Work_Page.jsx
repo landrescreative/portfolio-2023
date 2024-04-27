@@ -9,7 +9,7 @@ export default function Work_Page() {
     display: flex;
     flex-direction: column;
 
-    h1 {
+    .work_texts {
       color: #9c9c9c;
       font-size: 1.5rem;
       font-weight: 100;
@@ -20,11 +20,11 @@ export default function Work_Page() {
 
   return (
     <Container>
-      <h1>-UI/UX -</h1>
+      <h1 className="work_texts">-UI/UX -</h1>
       <Gallery />
-      <h1>-3D & Motion Graphics-</h1>
+      <h1 className="work_texts">-3D & Motion Graphics-</h1>
       <Gallery />
-      <h1>-Branding-</h1>
+      <h1 className="work_texts">-Branding-</h1>
       <Gallery />
       <Footer />
     </Container>
