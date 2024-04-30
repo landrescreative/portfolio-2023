@@ -9,6 +9,7 @@ import {
   FaArrowDownLong,
 } from "react-icons/fa6";
 import SocialButtons from "../components/SocialButtons";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   height: 100dvh;
@@ -117,13 +118,15 @@ const Container = styled.div`
 `;
 
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <div>
         <h1>LANDRES</h1>
       </div>
       <div>
-        <h1>Hello, i'm alex.</h1>
+        <h1> {t("welcome")} </h1>
         <div className="test">IMG</div>
         <SocialButtons />
       </div>

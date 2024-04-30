@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Separator from "../components/Separator";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: grid;
@@ -65,23 +66,17 @@ const Container = styled.div`
 `;
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <Separator separador_texto="ABOUT" />
       <div className="about">
         <div className="about_img">IMAGEN</div>
         <div className="about_texts">
           <div className="about_texts_container">
-            <h1>ABOUT ME</h1>
-            <p>
-              UI/UX Designer and Developer based on México. Student of Design,
-              Animation and Digital Art. I love to combine my knowledge of
-              design and 3D Modeling with my coding experience to help people to
-              show their products online. Love to create visual experiences and
-              creative freatures.
-            </p>
+            <h1>{t("aboutmeh1")}</h1>
+            <p>{t("aboutmep1")}</p>
             <h1>CV</h1>
-            <a>Resume</a>
+            <a>{t("aboutresume")}</a>
           </div>
         </div>
       </div>

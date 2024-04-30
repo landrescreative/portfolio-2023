@@ -59,7 +59,6 @@ const Container = styled.div`
 const Work = () => {
   return (
     <Container>
-      <Separator separador_texto="WORK" />
       <div className="gallery">
         <div className="thumbnails">
           <div className="overlay">

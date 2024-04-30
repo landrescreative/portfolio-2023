@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
 import Separator from "../components/Separator";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: grid;
@@ -17,7 +18,7 @@ const Container = styled.div`
     align-content: flex-end;
 
     @media screen and (max-width: 768px) {
-      margin: 0px 0px;
+      margin: 0px 0.5rem;
     }
 
     h1 {
@@ -63,11 +64,11 @@ const Container = styled.div`
 `;
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <Container>
-      <Separator separador_texto="CONTACTO" />
       <div className="contact_container">
-        <h1>Let's talk about your project</h1>
+        <h1>{t("contacth1")}</h1>
         <div className="contact_img">
           <FaRegPaperPlane />
         </div>

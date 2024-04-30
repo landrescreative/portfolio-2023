@@ -3,6 +3,7 @@ import Navbar from "./components/ui/components/Navbar";
 import Work_Page from "./components/pages/Work_Page";
 import { Routes, Route } from "react-router-dom";
 import AboutMePage from "./components/pages/AboutMePage";
+import SwitchLanguage from "./components/ui/components/SwitchLanguage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/work" element={<Work_Page />} />
         <Route path="/about" element={<AboutMePage />} />
       </Routes>
+      <SwitchLanguage></SwitchLanguage>
     </div>
   );
 }

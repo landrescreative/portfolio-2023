@@ -8,6 +8,7 @@ import "./components/fonts/Geist-UltraLight.otf";
 import "./components/fonts/Geist-Thin.otf";
 import "./components/fonts/Geist-Regular.otf";
 import "./components/fonts/Geist-Bold.otf";
+import "./config/i18next.config";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

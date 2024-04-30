@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import About from "../ui/sections/About";
+import Contact from "../ui/sections/Contact";
+import SocialButtons from "../ui/components/SocialButtons";
 
 export default function AboutMePage() {
   return (
     <div>
-      <h1>About Me</h1>
+      <About />
+      <Contact></Contact>
+      <SocialButtons></SocialButtons>
     </div>
   );
 }
