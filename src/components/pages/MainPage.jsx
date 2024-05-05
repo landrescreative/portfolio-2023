@@ -6,6 +6,7 @@ import About from "../ui/sections/About";
 import Contact from "../ui/sections/Contact";
 import Introduction from "../ui/sections/Introduction";
 import Separator from "../ui/components/Separator";
+import SocialButtons from "../ui/components/SocialButtons";
 
 const Container = styled.div`
   margin: 0;
@@ -21,6 +22,7 @@ export default function MainPage() {
       <Work></Work>
       <Separator separador_texto="CONTACT" />
       <Contact />
+      <SocialButtons />
     </Container>
   );
 }

@@ -10,9 +10,9 @@ const Container = styled.div`
   grid-template-columns: repeat(12, 1fr);
 
   .contact_container {
-    min-height: 85vh;
     display: grid;
     margin: 0;
+    margin-bottom: 25px;
     grid-column: 1 / 13;
     justify-items: center;
     align-content: flex-end;

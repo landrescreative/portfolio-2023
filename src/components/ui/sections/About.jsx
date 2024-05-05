@@ -9,7 +9,6 @@ const Container = styled.div`
   grid-template-columns: repeat(12, 1fr);
 
   .about {
-    height: 90vh;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-column: 1 / 13;

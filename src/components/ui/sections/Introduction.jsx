@@ -10,17 +10,16 @@ const Container = styled.div`
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 
   // First section
 
   .main-text {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     font-family: "kallisto";
-
     @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
