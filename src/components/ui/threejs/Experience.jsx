@@ -55,6 +55,7 @@ const Experience = () => {
       const elapsedTime = clock.getElapsedTime();
 
       cube.rotation.x = elapsedTime;
+      cube.rotation.y = elapsedTime;
 
       renderer.render(scene, camera);
       composer.render();
