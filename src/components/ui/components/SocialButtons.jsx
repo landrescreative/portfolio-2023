@@ -25,7 +25,7 @@ const Container = styled.div`
     position: relative;
     top: 0;
     width: 100%;
-    background-color: hsla(0, 0%, 100%, 0.3);
+    background-color: hsla(0, 0%, 100%, 0.6);
     border-radius: 5px;
     padding: 2px;
     height: 100%;

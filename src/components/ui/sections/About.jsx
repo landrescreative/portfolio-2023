@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Separator from "../components/Separator";
 import { useTranslation } from "react-i18next";
+import profilepicture from "../../assets/test.jpg";
 
 const Container = styled.div`
   display: grid;
@@ -21,6 +22,11 @@ const Container = styled.div`
     grid-column: 2 / 5;
     width: 100%;
     text-align: center;
+
+    img {
+      width: 80%;
+      border-radius: 50%;
+    }
 
     @media (max-width: 768px) {
       grid-column: 1 / 13;
@@ -69,7 +75,9 @@ const About = () => {
   return (
     <Container>
       <div className="about">
-        <div className="about_img">IMAGEN</div>
+        <div className="about_img">
+          <img src={profilepicture} alt="profile"></img>
+        </div>
         <div className="about_texts">
           <div className="about_texts_container">
             <h1>{t("aboutmeh1")}</h1>

@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d4d4d4;
+  background-color: #ffffff;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -16,9 +16,9 @@ const Container = styled.div`
   border-radius: 50px;
 
   button {
-    border-radius: 50%;
+    border-radius: 50px;
     border: none;
-    background-color: #d4d4d4;
+    background-color: #ffff;
     padding: 1rem 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -26,7 +26,8 @@ const Container = styled.div`
 
     &:hover {
       font-weight: 600;
-      background-color: #ffffff;
+      background-color: black;
+      color: #ffff;
     }
   }
 `;
@@ -34,16 +35,39 @@ const Container = styled.div`
 export default function SwitchLanguage() {
   const { i18n } = useTranslation();
 
+  const animateText = () => {
+    // Select all the H1 in the entire document
+    const h1 = document.querySelectorAll("h1");
+
+    // Loop through all the H1 and change his background color
+    h1.forEach((h) => {
+      h.style.transition = "all 1s ease";
+      h.style.opacity = "0";
+    });
+
+    setTimeout(() => {
+      h1.forEach((h) => {
+        h.style.opacity = "1";
+      });
+    }, 2000);
+  };
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
   const handleEnglish = () => {
-    changeLanguage("en");
+    animateText();
+    setTimeout(() => {
+      changeLanguage("en");
+    }, 2000);
   };
 
   const handleSpanish = () => {
-    changeLanguage("es");
+    animateText();
+    setTimeout(() => {
+      changeLanguage("es");
+    }, 2000);
   };
 
   return (

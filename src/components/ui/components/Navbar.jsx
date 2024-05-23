@@ -11,9 +11,13 @@ const Navbar = (props) => {
     <Container_Navbar>
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
-        <Link to="/">Home</Link>
-        <Link to="/work">Work</Link>
-        <Link to="/about">About</Link>
+        <Link onClick={() => setToggle(!toggle)} to="/">
+          Home
+        </Link>
+        {/* <Link to="/work">Work</Link> */}
+        <Link onClick={() => setToggle(!toggle)} to="/about">
+          About
+        </Link>
       </div>
       <button onClick={() => setToggle(!toggle)}>
         <FaBars />
@@ -30,7 +34,6 @@ const Container_Navbar = styled.div`
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  background-color: #070707;
   position: sticky;
 
   // LANDRES text

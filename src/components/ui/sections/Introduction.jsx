@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import { gsap } from "gsap";
 
 const Container = styled.div`
   display: grid;
@@ -10,16 +11,18 @@ const Container = styled.div`
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
   }
 
   // First section
 
   .main-text {
-    font-size: 2rem;
+    margin: 0;
+    font-size: 4rem;
     font-weight: 600;
     font-family: "kallisto";
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
@@ -35,6 +38,7 @@ const Container = styled.div`
     font-size: 4rem;
     font-weight: 500;
     font-family: "kallisto";
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     padding: 6rem 5rem;
 
     @media screen and (max-width: 768px) {
@@ -71,16 +75,33 @@ const Container = styled.div`
 const Introduction = () => {
   const { t } = useTranslation();
 
+  let mm = gsap.matchMedia();
+  mm.add("screen and (min-width: 768px)", () => {
+    const maxRot = 30;
+    function mouseMoveFunc(evt) {
+      const percent = gsap.utils.normalize(0, window.innerWidth, evt.pageX);
+      const percent2 = gsap.utils.normalize(0, window.innerWidth, evt.pageY);
+
+      gsap.to(".section", {
+        duration: 0.2,
+        rotationY: -(percent * maxRot - maxRot / 2),
+        rotationX: percent2 * maxRot - maxRot / 2,
+        overwrite: true,
+      });
+    }
+    window.addEventListener("mousemove", mouseMoveFunc);
+  });
+
   return (
     <Container>
       <div className="section">
-        <span className="main-text"> {t("who")} </span>
-        <span className="main-text"> {t("what")} </span>
+        <h1 className="main-text"> {t("who")} </h1>
+        <h1 className="main-text"> {t("what")} </h1>
       </div>
       <div className="section">
-        <span className="skills">{t("skillsn1")}</span>
-        <span className="skills">{t("skillsn2")}</span>
-        <span className="skills">{t("skillsn3")}</span>
+        <h1 className="skills">{t("skillsn1")}</h1>
+        <h1 className="skills">{t("skillsn2")}</h1>
+        <h1 className="skills">{t("skillsn3")}</h1>
       </div>
     </Container>
   );

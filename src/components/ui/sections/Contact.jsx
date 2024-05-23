@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
-import Separator from "../components/Separator";
 import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
@@ -39,11 +38,18 @@ const Container = styled.div`
       margin: 20px 0px;
       grid-column: 1 / 13;
       gap: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
 
       h1 {
         font-size: 20px;
         font-weight: 300;
         text-align: center;
+      }
+
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.6);
       }
     }
 
@@ -65,6 +71,23 @@ const Container = styled.div`
 
 const Contact = () => {
   const { t } = useTranslation();
+
+  function copyToClipboard() {
+    var ctaBox = document.getElementsByClassName("contact_cta")[0];
+    var cta = document.getElementsByClassName("cta_text")[0];
+    cta.innerHTML = "Copied!";
+    cta.style.color = "#000000";
+    ctaBox.style.backgroundColor = "#ffffff";
+
+    setTimeout(() => {
+      cta.innerHTML = "landres.creative@gmail.com";
+      cta.style.color = "#ffffff";
+      ctaBox.style.backgroundColor = "hsla(0, 0%, 100%, 0.2)";
+    }, 3000);
+
+    navigator.clipboard.writeText("landres.creative@gmail.com");
+  }
+
   return (
     <Container>
       <div className="contact_container">
@@ -73,8 +96,16 @@ const Contact = () => {
           <FaRegPaperPlane />
         </div>
         <div className="contact_cta">
-          <h1>landres.creative@gmail.com</h1>
-          <FaArrowRightLong />
+          <div className="contact_cta_effect">
+            <h1
+              className="cta_text"
+              onClick={() => {
+                copyToClipboard();
+              }}
+            >
+              landres.creative@gmail.com
+            </h1>
+          </div>
         </div>
       </div>
     </Container>

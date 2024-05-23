@@ -10,9 +10,10 @@ import {
 } from "react-icons/fa6";
 import SocialButtons from "../components/SocialButtons";
 import { useTranslation } from "react-i18next";
+import profilepicture from "../../assets/test.jpg";
 
 const Container = styled.div`
-  height: 100dvh;
+  height: 100vh;
   margin: 0;
   padding: 0;
   display: grid;
@@ -21,7 +22,7 @@ const Container = styled.div`
   align-content: center;
   justify-content: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     height: auto;
     grid-template-rows: repeat(1, 1fr);
   }
@@ -34,9 +35,10 @@ const Container = styled.div`
     justify-content: center;
     font-family: "kallisto";
     font-weight: 800;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     font-size: 50px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       text-align: center;
       grid-column: 1/6;
       font-size: 26px;
@@ -49,11 +51,13 @@ const Container = styled.div`
     grid-row: 2 / 4;
     text-align: center;
     align-self: center;
-    justify-content: center;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+    justify-content: space-around;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       grid-column: 1/6;
       flex-direction: column;
+      justify-content: center;
     }
 
     // Hello im alex text
@@ -61,17 +65,22 @@ const Container = styled.div`
       font-size: 20px;
       font-weight: 300;
       align-self: center;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     }
 
     // IMG
     .test {
       margin: 0 25px;
-      width: 100px;
-      height: 100px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
+      background-color: #f2f2f2;
+      border: 2px solid #f2f2f2;
+      align-self: center;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         margin: 15px 0;
+        width: 200px;
         height: 200px;
       }
     }
@@ -94,9 +103,10 @@ const Container = styled.div`
     justify-content: center;
     font-size: 50px;
     font-family: "kallisto";
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     font-weight: 800;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       text-align: center;
       grid-column: 1/6;
       font-size: 26px;
@@ -123,11 +133,11 @@ const Header = () => {
   return (
     <Container>
       <div>
-        <h1>LANDRES</h1>
+        <h1 className="landres-text">LANDRES</h1>
       </div>
       <div>
         <h1> {t("welcome")} </h1>
-        <div className="test">IMG</div>
+        <img className="test" src={profilepicture}></img>
         <SocialButtons />
       </div>
       <div>

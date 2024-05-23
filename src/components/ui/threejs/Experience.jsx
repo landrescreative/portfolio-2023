@@ -3,9 +3,16 @@ import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
+import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
+import { GlitchPass } from "../../assets/GlitchPass";
+import { gsap } from "gsap/gsap-core";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Stats from "stats.js";
 
 const Experience = () => {
   const mountRef = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -24,16 +31,111 @@ const Experience = () => {
     mountRef.current.appendChild(renderer.domElement);
 
     // Test Geometry
-    const geometry = new THREE.BoxGeometry(3, 3, 3);
-    const material = new THREE.MeshNormalMaterial();
-    const cube = new THREE.Mesh(geometry, material);
+    const cube = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(1),
+      new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        wireframe: true,
+      })
+    );
     scene.add(cube);
 
-    // Background
-    const background = new THREE.Mesh(
-      new THREE.PlaneGeometry(2, 2, 2),
-      new THREE.MeshNormalMaterial()
+    // Backgorund graident
+
+    var testshader = new THREE.ShaderMaterial({
+      uniforms: {
+        color1: {
+          value: new THREE.Color("#191714"),
+        },
+        color2: {
+          value: new THREE.Color("#2e2e2e"),
+        },
+      },
+      vertexShader: `
+        varying vec2 vUv;
+    
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 color1;
+        uniform vec3 color2;
+      
+        varying vec2 vUv;
+        
+        void main() {
+          
+          gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+        }
+      `,
+    });
+
+    // Shader uniforms
+
+    // Textures
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load("/assets/star_08.png");
+
+    // Add Particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const count = 100;
+
+    const positions = new Float32Array(count * 3);
+
+    for (let i = 0; i < count * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 15;
+    }
+
+    particlesGeometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
     );
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.2,
+      map: texture,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      color: 0xffffff,
+    });
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    function setupScrollAnimation() {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".landres-text",
+          endTrigger: ".contact_cta",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      tl.to(
+        testshader.uniforms.color2.value,
+        {
+          r: 0.0,
+          g: 0.0,
+          b: 0.0,
+          duration: 1,
+        },
+        0
+      );
+    }
+    setupScrollAnimation();
+
+    // Make a timer to change the color of the shader
+
+    var backgroundTest = new THREE.Mesh(
+      new THREE.PlaneGeometry(1000, 40),
+      testshader
+    );
+    backgroundTest.position.z = -20;
+    scene.add(backgroundTest);
 
     // Post Processing
 
@@ -43,22 +145,68 @@ const Experience = () => {
     composer.setPixelRatio(window.devicePixelRatio);
     composer.addPass(renderPass);
 
+    // Lights
+    const amblientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(amblientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 20);
+    pointLight.position.x = 0;
+    pointLight.position.y = 0;
+
+    scene.add(pointLight);
+
+    const pointLighthelper = new THREE.PointLightHelper(pointLight);
+    scene.add(pointLighthelper);
+
     // Fiml grain pass
-    var filmPass = new FilmPass(0.35, 0.025, 648, false);
+    var filmPass = new FilmPass(1, false);
     composer.addPass(filmPass);
 
-    // Animation
+    // Glitch pass
+    var glitchPass = new GlitchPass();
+    composer.addPass(glitchPass);
+
+    // After Image pass
+    var afterImagePass = new AfterimagePass();
+    composer.addPass(afterImagePass);
+    afterImagePass.uniforms["damp"].value = 0.9;
+
+    // Geoemtry follows mouse
+    var mouse = new THREE.Vector3(0, 0, 0);
+
+    const onMouseMove = (event) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      var vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+      vector.unproject(camera);
+      var dir = vector.sub(camera.position).normalize();
+      var distance = -camera.position.z / dir.z;
+      var pos = camera.position.clone().add(dir.multiplyScalar(distance));
+
+      mouse = pos;
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
 
     const clock = new THREE.Clock();
     const animate = () => {
-      requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
+      setTimeout(() => {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
 
-      cube.rotation.x = elapsedTime;
-      cube.rotation.y = elapsedTime;
+        // Make particles follow mouse position but tiny movement
+        particles.rotation.y = elapsedTime * 0.05;
 
-      renderer.render(scene, camera);
-      composer.render();
+        cube.rotation.x = elapsedTime;
+        cube.rotation.y = elapsedTime;
+
+        cube.position.x = mouse.x;
+        cube.position.y = mouse.y;
+
+        renderer.render(scene, camera);
+        composer.render();
+      }, 1000 / 72);
     };
 
     // Reize Event
@@ -81,10 +229,15 @@ const Experience = () => {
   return (
     <div
       ref={mountRef}
-      style={{ width: "100vw", height: "100vh", position: "fixed", zIndex: -1 }}
-    >
-      <h1></h1>
-    </div>
+      style={{
+        width: "100dvw",
+        height: "100dvh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: -1,
+      }}
+    ></div>
   );
 };
 
