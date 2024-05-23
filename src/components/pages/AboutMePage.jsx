@@ -19,7 +19,6 @@ export default function AboutMePage() {
 
       <div>
         <Contact></Contact>
-        <SocialButtons></SocialButtons>
       </div>
     </Container>
   );

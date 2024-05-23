@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
   // This creates a state for the button
   const [toggle, setToggle] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <Container_Navbar>
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
         <Link onClick={() => setToggle(!toggle)} to="/">
-          Home
+          {t("Navbar_Home")}
         </Link>
         {/* <Link to="/work">Work</Link> */}
         <Link onClick={() => setToggle(!toggle)} to="/about">
-          About
+          {t("Navbar_About")}
         </Link>
       </div>
       <button onClick={() => setToggle(!toggle)}>

@@ -2,11 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import SocialButtons from "../components/SocialButtons";
 
 const Container = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   margin: 15px 0px;
   grid-template-columns: repeat(12, 1fr);
+  justify-items: center;
+  align-content: center;
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+    height: 80vh;
+  }
 
   .contact_container {
     display: grid;
@@ -108,6 +117,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <SocialButtons className="buttons" />
     </Container>
   );
 };

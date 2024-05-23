@@ -236,6 +236,9 @@ const Experience = () => {
         top: 0,
         left: 0,
         zIndex: -1,
+        filter: "blur(2px)",
+        backdropFilter: "blur(2px)",
+        webkitBackdropFilter: "blur(2px)",
       }}
     ></div>
   );

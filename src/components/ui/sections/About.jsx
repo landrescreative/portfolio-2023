@@ -56,8 +56,8 @@ const Container = styled.div`
 
     h1 {
       align-self: flex-start;
-      font-size: 18px;
-      color: #5d5d5d;
+      font-size: 22px;
+      color: #ffffff;
 
       @media (max-width: 768px) {
         align-self: center;

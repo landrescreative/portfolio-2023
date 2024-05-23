@@ -22,7 +22,6 @@ export default function MainPage() {
       <Work></Work>
       <Separator separador_texto="CONTACT" />
       <Contact />
-      <SocialButtons />
     </Container>
   );
 }

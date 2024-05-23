@@ -14,6 +14,7 @@ const Container = styled.div`
   color: #000;
   font-size: 1.2rem;
   border-radius: 50px;
+  z-index: 100;
 
   button {
     border-radius: 50px;
@@ -22,7 +23,7 @@ const Container = styled.div`
     padding: 1rem 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 200;
+    font-weight: 400;
 
     &:hover {
       font-weight: 600;

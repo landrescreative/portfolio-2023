@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Scroll } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
+import { useTranslation } from "react-i18next";
 
 // Images
 
@@ -177,6 +178,7 @@ const Container = styled.div`
 
     @media (max-width: 768px) {
       font-size: 2rem;
+      padding: 0 2rem;
     }
   }
 
@@ -241,6 +243,8 @@ const CaseStudy = () => {
   }
   window.addEventListener("mousemove", mouseMoveFunc);
 
+  const t = useTranslation().t;
+
   return (
     <Container>
       <div className="website-name">
@@ -258,52 +262,25 @@ const CaseStudy = () => {
             </a>
           </div>
           <div className="website-introduction">
-            <h1>Role: Design & Web Developemnt</h1>
-            <h1>Length: 4 weeks</h1>
-            <h1>Tag: UI/UX Design - Web Development</h1>
+            <h1>{t("veravitalize_role")}</h1>
+            <h1>{t("veravitalize_length")}</h1>
+            <h1>{t("veravitalize_tag")}</h1>
           </div>
         </div>
       </div>
       <div className="website-case-study " ref={stickyRef}>
         <div className="website-casestudy-section">
           <div className="website-casestudy-text">
-            <h1>THE MAIN IDEA</h1>
-            <p>
-              VeraVitalize is a brand about aloe vera skin care products, they
-              wanted to show to the internet their main product in a intuitive
-              and transparency way. There are a lot of skincare products out
-              there, including aloe vera products. However, one way to
-              distinguish a good product from anotheris their online
-              presentation. For VeraVitalize, the most appealing idea was to
-              showcase their product on the web using 3D modeling, with the aim
-              of inspiring confidence in users. This technique not only enhances
-              the visual experience for users, but also allows them to examine
-              the product from all angles, generating trust and transparency.
-            </p>
+            <h1>{t("veravitalize_tmit")}</h1>
+            <p>{t("veravitalize_tmi")}</p>
           </div>
           <div className="website-casestudy-text">
-            <h1>USED ​​TECHNOLOGY</h1>
-            <p>
-              Rearch: I analyzed current trends in product presentation and
-              gathered feedback from potential users about their expectations in
-              an online store. Sketching: 3D Modeling: We collaborated with 3D
-              modeling experts to create accurate and detailed representations
-              of the product. This included realistic texturing and animations
-              showing the use and benefits of aloe vera. Web Integration: We
-              implemented the 3D models on the website using technologies
-              compatible with most browsers, ensuring fast loading and smooth
-              navigation.
-            </p>
+            <h1>{t("veravitalize_techt")}</h1>
+            <p>{t("veravitalize_tech")}</p>
           </div>
           <div className="website-casestudy-text">
-            <h1>OBJETIVES</h1>
-            <p>
-              Differentiation: Create a unique way of presenting the product
-              online, to differentiate yourself within a saturated market. User
-              Experience: Implement 3D models so that customers interact in a
-              better way with the product. Follow the brand ideology: Its idea
-              of ​​being a transparent brand, creating a transparent product.
-            </p>
+            <h1>{t("veravitalize_objetivet")}</h1>
+            <p>{t("veravitalize_objetive")}</p>
           </div>
         </div>
         <div className="website-casestudy-scroll">

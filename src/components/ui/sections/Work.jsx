@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Separator from "../components/Separator";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
 
 // Images
 import img1 from "../../assets/Gif2.gif";
@@ -70,10 +71,6 @@ const Container = styled.div`
         padding: 20px;
         bottom: -100%;
 
-        @media screen and (max-width: 1100px) {
-          height: 50%;
-        }
-
         h1 {
           font-size: 1.2rem;
           font-weight: 700;
@@ -120,14 +117,16 @@ const Container = styled.div`
 `;
 
 const Work = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <div className="gallery">
         <div className="thumbnails" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect1_h1")}</h1>
+              <p>{t("proyect1_p")}</p>
               <div className="tags">
                 <span>React</span>
                 <span>ThreeJS</span>
@@ -139,25 +138,25 @@ const Work = () => {
           </Link>
         </div>
         <div className="thumbnails" id="work_images">
-          <Link to="/veravitalize">
+          <a href="https://youtu.be/yHKBqA1yWz0?si=2U3ddlahthod70O9">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect2_h1")}</h1>
+              <p>{t("proyect2_p")}</p>
               <div className="tags">
-                <span>React</span>
+                <span>Blender</span>
                 <span>ThreeJS</span>
-                <span>GSAP</span>
+                <span>Adobe Premiere</span>
               </div>
             </div>
 
             <img src={img2}></img>
-          </Link>
+          </a>
         </div>
         <div className="thumbnails" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect3_h1")}</h1>
+              <p>{t("proyect3_p")}</p>
               <div className="tags">
                 <span>React</span>
                 <span>ThreeJS</span>
@@ -171,8 +170,8 @@ const Work = () => {
         <div className="thumbnails" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect4_h1")}</h1>
+              <p>{t("proyect4_p")}</p>
               <div className="tags">
                 <span>React</span>
                 <span>ThreeJS</span>
@@ -186,8 +185,8 @@ const Work = () => {
         <div className="thumbnails" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect5_h1")}</h1>
+              <p>{t("proyect5_p")}</p>
               <div className="tags">
                 <span>React</span>
                 <span>ThreeJS</span>
@@ -201,8 +200,8 @@ const Work = () => {
         <div className="thumbnails" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
-              <h1>VeraVitalize</h1>
-              <p> A 3D interactive website for a aloe vera product.</p>
+              <h1>{t("proyect6_h1")}</h1>
+              <p>{t("proyect6_p")}</p>
               <div className="tags">
                 <span>React</span>
                 <span>ThreeJS</span>
