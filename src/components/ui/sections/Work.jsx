@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 // Images
 import img1 from "../../assets/Gif2.gif";
 import img2 from "../../assets/Gif The Old.gif";
+import img3 from "../../assets/launchsark.png";
+import img4 from "../../assets/Pringles.png";
 
 const Container = styled.div`
   display: grid;
@@ -17,12 +19,12 @@ const Container = styled.div`
   .gallery {
     grid-column: 1 / 13;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(30%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(calc(40%), 1fr));
     grid-gap: 10px;
     margin: 15px 10px;
 
     @media (max-width: 1024px) {
-      grid-template-columns: repeat(auto-fit, minmax(calc(80%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(calc(90%), 1fr));
       margin: 15px 0;
     }
 
@@ -31,8 +33,8 @@ const Container = styled.div`
       z-index: 1;
       background-color: #f2f2f2;
       position: relative;
-      border-radius: 20px;
       overflow: hidden;
+      border-radius: 40px;
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;
@@ -45,8 +47,8 @@ const Container = styled.div`
         overflow: hidden;
         object-fit: cover;
         z-index: -1;
-        border-radius: 20px;
         filter: grayscale(100%);
+        border-radius: 40px;
 
         @media screen and (max-width: 768px) {
           filter: grayscale(0%);
@@ -138,6 +140,25 @@ const Work = () => {
           </Link>
         </div>
         <div className="thumbnails" id="work_images">
+          <a
+            href="https://www.behance.net/gallery/199282107/LaunchShark-Logo"
+            target="_blank"
+          >
+            <div className="overlay">
+              <h1>{t("proyect3_h1")}</h1>
+              <p>{t("proyect3_p")}</p>
+              <div className="tags">
+                <span>Illustrator</span>
+                <span>Premiere</span>
+                <span>After Effects</span>
+                <span>Adobe Xd</span>
+              </div>
+            </div>
+
+            <img src={img3}></img>
+          </a>
+        </div>
+        <div className="thumbnails" id="work_images">
           <a href="https://youtu.be/yHKBqA1yWz0?si=2U3ddlahthod70O9">
             <div className="overlay">
               <h1>{t("proyect2_h1")}</h1>
@@ -153,64 +174,17 @@ const Work = () => {
           </a>
         </div>
         <div className="thumbnails" id="work_images">
-          <Link to="/veravitalize">
-            <div className="overlay">
-              <h1>{t("proyect3_h1")}</h1>
-              <p>{t("proyect3_p")}</p>
-              <div className="tags">
-                <span>React</span>
-                <span>ThreeJS</span>
-                <span>GSAP</span>
-              </div>
-            </div>
-
-            <img src={img1}></img>
-          </Link>
-        </div>
-        <div className="thumbnails" id="work_images">
-          <Link to="/veravitalize">
+          <a>
             <div className="overlay">
               <h1>{t("proyect4_h1")}</h1>
               <p>{t("proyect4_p")}</p>
               <div className="tags">
-                <span>React</span>
-                <span>ThreeJS</span>
-                <span>GSAP</span>
+                <span>Adobe Photoshop</span>
+                <span>Lightroom</span>
               </div>
             </div>
-
-            <img src={img1}></img>
-          </Link>
-        </div>
-        <div className="thumbnails" id="work_images">
-          <Link to="/veravitalize">
-            <div className="overlay">
-              <h1>{t("proyect5_h1")}</h1>
-              <p>{t("proyect5_p")}</p>
-              <div className="tags">
-                <span>React</span>
-                <span>ThreeJS</span>
-                <span>GSAP</span>
-              </div>
-            </div>
-
-            <img src={img1}></img>
-          </Link>
-        </div>
-        <div className="thumbnails" id="work_images">
-          <Link to="/veravitalize">
-            <div className="overlay">
-              <h1>{t("proyect6_h1")}</h1>
-              <p>{t("proyect6_p")}</p>
-              <div className="tags">
-                <span>React</span>
-                <span>ThreeJS</span>
-                <span>GSAP</span>
-              </div>
-            </div>
-
-            <img src={img1}></img>
-          </Link>
+            <img src={img4}></img>
+          </a>
         </div>
       </div>
     </Container>
