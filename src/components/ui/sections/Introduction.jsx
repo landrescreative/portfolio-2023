@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 
+import mask from "../../assets/123.png";
+import mask2 from "../../assets/1234.png";
+
 const Container = styled.div`
   display: grid;
   text-align: center;
@@ -15,6 +18,38 @@ const Container = styled.div`
     align-items: center;
   }
 
+  .section:nth-child(1) {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-color: hsla(0, 0%, 100%, 0.9);
+      -webkit-mask-image: url(${mask});
+      mask-image: url(${mask});
+      mask-clip: content-box;
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+
+      @media screen and (max-width: 768px) {
+        -webkit-mask-image: url(${mask2});
+        mask-image: url(${mask2});
+      }
+    }
+  }
+
+  .section:nth-child(2) {
+    background-color: hsla(0, 0%, 100%, 0.9);
+    color: #000000;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 1rem;
+  }
   // First section
 
   .main-text {
@@ -38,7 +73,6 @@ const Container = styled.div`
     font-size: 4rem;
     font-weight: 500;
     font-family: "kallisto";
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     padding: 6rem 5rem;
 
     @media screen and (max-width: 768px) {
@@ -75,26 +109,9 @@ const Container = styled.div`
 const Introduction = () => {
   const { t } = useTranslation();
 
-  let mm = gsap.matchMedia();
-  mm.add("screen and (min-width: 768px)", () => {
-    const maxRot = 30;
-    function mouseMoveFunc(evt) {
-      const percent = gsap.utils.normalize(0, window.innerWidth, evt.pageX);
-      const percent2 = gsap.utils.normalize(0, window.innerWidth, evt.pageY);
-
-      gsap.to(".section", {
-        duration: 0.2,
-        rotationY: -(percent * maxRot - maxRot / 2),
-        rotationX: percent2 * maxRot - maxRot / 2,
-        overwrite: true,
-      });
-    }
-    window.addEventListener("mousemove", mouseMoveFunc);
-  });
-
   return (
     <Container>
-      <div className="section">
+      <div className="section whocontainer">
         <h1 className="main-text"> {t("who")} </h1>
         <h1 className="main-text"> {t("what")} </h1>
       </div>

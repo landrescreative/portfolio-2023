@@ -38,6 +38,8 @@ const Experience = () => {
     );
     scene.add(cube);
 
+    // Change cube color on click
+
     // Backgorund graident
 
     var testshader = new THREE.ShaderMaterial({
@@ -164,6 +166,43 @@ const Experience = () => {
     var afterImagePass = new AfterimagePass();
     composer.addPass(afterImagePass);
     afterImagePass.uniforms["damp"].value = 0.9;
+
+    // on click
+
+    var geometryGroup = new THREE.Group();
+
+    function addGeometry() {
+      const geom = new THREE.Mesh(
+        new THREE.DodecahedronGeometry(1),
+        new THREE.MeshStandardMaterial({
+          color: 0xffffff,
+          wireframe: true,
+        })
+      );
+      geom.material.color.setHex(Math.random() * 0xffffff);
+      geom.position.x = (Math.random() - 0.5) * 10;
+      geom.position.y = (Math.random() - 0.5) * 10;
+      geometryGroup.add(geom);
+    }
+
+    scene.add(geometryGroup);
+
+    var container = document.getElementsByClassName("whocontainer");
+
+    container[0].addEventListener("click", () => {
+      cube.material.color.setHex(Math.random() * 0xffffff);
+      particlesMaterial.color.setHex(Math.random() * 0xffffff);
+      addGeometry();
+
+      if (geometryGroup.children.length > 10) {
+        geometryGroup.remove(geometryGroup.children[0]);
+      } else
+        setTimeout(() => {
+          geometryGroup.remove(geometryGroup.children[0]);
+          cube.material.color.setHex(0xffffff);
+          particlesMaterial.color.setHex(0xffffff);
+        }, 5000);
+    });
 
     // Geoemtry follows mouse
     var mouse = new THREE.Vector3(0, 0, 0);

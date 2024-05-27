@@ -13,14 +13,14 @@ import { useTranslation } from "react-i18next";
 import profilepicture from "../../assets/test.jpg";
 
 const Container = styled.div`
-  height: 100vh;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   align-content: center;
   justify-content: center;
+  background-color: hsla(0, 0%, 100%, 0.9);
+  color: #000000;
 
   @media screen and (max-width: 1024px) {
     height: auto;
@@ -35,7 +35,6 @@ const Container = styled.div`
     justify-content: center;
     font-family: "kallisto";
     font-weight: 800;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     font-size: 50px;
 
     @media (max-width: 1024px) {
@@ -51,7 +50,6 @@ const Container = styled.div`
     grid-row: 2 / 4;
     text-align: center;
     align-self: center;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     justify-content: space-around;
 
     @media (max-width: 1024px) {
@@ -65,7 +63,6 @@ const Container = styled.div`
       font-size: 20px;
       font-weight: 300;
       align-self: center;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     }
 
     // IMG
@@ -90,7 +87,7 @@ const Container = styled.div`
     a {
       font-size: 34px;
       align-self: center;
-      color: white;
+      color: #000000;
       text-decoration: none;
       margin: 0 5px;
     }
@@ -104,7 +101,6 @@ const Container = styled.div`
     justify-content: center;
     font-size: 50px;
     font-family: "kallisto";
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
     font-weight: 800;
 
     @media (max-width: 1024px) {
@@ -143,11 +139,6 @@ const Header = () => {
       </div>
       <div>
         <h1>CREATIVE</h1>
-      </div>
-      <div>
-        <a href="#about">
-          <FaArrowDownLong />
-        </a>
       </div>
     </Container>
   );

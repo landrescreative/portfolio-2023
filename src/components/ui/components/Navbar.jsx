@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
-  // This creates a state for the button
   const [toggle, setToggle] = useState(false);
   const { t } = useTranslation();
 
   return (
-    <Container_Navbar>
+    <Container_Navbar className="navbar-color">
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
         <Link onClick={() => setToggle(!toggle)} to="/">
@@ -30,22 +29,25 @@ const Navbar = (props) => {
 
 const Container_Navbar = styled.div`
   z-index: 1000;
+  width: 100vw;
   height: 60px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  position: sticky;
+  position: fixed;
 
   // LANDRES text
 
   h1 {
     font-size: 22px;
-    font-weight: 100;
+    font-weight: 400;
     grid-column: 1 / 3;
     text-align: center;
     letter-spacing: 0px;
+    align-self: center;
+    color: #000000;
 
     @media (max-width: 768px) {
       grid-column: 1 / 8;
@@ -76,15 +78,17 @@ const Container_Navbar = styled.div`
     a {
       text-decoration: none;
       font-size: 14px;
-      font-weight: 100;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 2px;
-
-      // Hover subline effect
       position: relative;
-      color: #ffffff;
+      color: #000000;
       transition: all 0.5s ease-in-out;
       transform: scale(1);
+
+      @media (max-width: 768px) {
+        color: #ffffff;
+      }
 
       &::after {
         content: "";
@@ -93,7 +97,7 @@ const Container_Navbar = styled.div`
         left: 0;
         width: 0;
         height: 2px;
-        background-color: #ffffff;
+        background-color: #000000;
         transition: width 0.5s ease-in-out;
       }
 
@@ -119,7 +123,7 @@ const Container_Navbar = styled.div`
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
-    color: #ffffff;
+    color: #000000;
     grid-column: 11 / 13;
     justify-self: center;
     z-index: 2;
