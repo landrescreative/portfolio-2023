@@ -4,10 +4,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
-import { GlitchPass } from "../../assets/GlitchPass";
 import { gsap } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Stats from "stats.js";
 
 const Experience = () => {
   const mountRef = useRef(null);
@@ -161,10 +159,6 @@ const Experience = () => {
     // Fiml grain pass
     var filmPass = new FilmPass(1, false);
     composer.addPass(filmPass);
-
-    // Glitch pass
-    var glitchPass = new GlitchPass();
-    composer.addPass(glitchPass);
 
     // After Image pass
     var afterImagePass = new AfterimagePass();

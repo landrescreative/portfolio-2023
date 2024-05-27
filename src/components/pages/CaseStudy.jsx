@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Scroll } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 // Images
-
 import veravitalize from "../../components/assets/veravitalize.png";
+import mockup from "../../components/assets/Clay_Mockup.png";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -191,6 +191,7 @@ const Container = styled.div`
     background-color: #71d878;
     color: #000;
     height: 100vh;
+    position: relative;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -198,9 +199,14 @@ const Container = styled.div`
   }
 
   .photos-test {
-    height: 200px;
-    width: 200px;
-    background-color: #000;
+    position: absolute;
+    top: -300px;
+    height: 800px;
+    width: 800px;
+
+    @media (max-width: 768px) {
+      top: 0;
+    }
   }
 `;
 // This create a sticky effect on the scroll section
@@ -246,7 +252,12 @@ const CaseStudy = () => {
   const t = useTranslation().t;
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <div className="website-name">
         <h1>VERAVITALIZE</h1>
       </div>
@@ -284,7 +295,7 @@ const CaseStudy = () => {
           </div>
         </div>
         <div className="website-casestudy-scroll">
-          <div className="photos-test"></div>
+          <img className="photos-test" src={mockup}></img>
         </div>
       </div>
     </Container>

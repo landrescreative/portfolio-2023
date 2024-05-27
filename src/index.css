@@ -44,6 +44,10 @@
 }
  }
 
+ #root{
+  white-space: pre-line;
+ }
+
 body {
 overflow-x: hidden;
   color: white;

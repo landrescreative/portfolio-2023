@@ -3,6 +3,7 @@ import Navbar from "../ui/components/Navbar";
 import Gallery from "../ui/components/Gallery";
 import styled from "styled-components";
 import Footer from "../ui/sections/Footer";
+import Transition from "./Transition";
 
 export default function Work_Page() {
   const Container = styled.div`
@@ -20,13 +21,15 @@ export default function Work_Page() {
 
   return (
     <Container>
-      <h1 className="work_texts">-UI/UX -</h1>
-      <Gallery />
-      <h1 className="work_texts">-3D & Motion Graphics-</h1>
-      <Gallery />
-      <h1 className="work_texts">-Branding-</h1>
-      <Gallery />
-      <Footer />
+      <Transition>
+        <h1 className="work_texts">-UI/UX -</h1>
+        <Gallery />
+        <h1 className="work_texts">-3D & Motion Graphics-</h1>
+        <Gallery />
+        <h1 className="work_texts">-Branding-</h1>
+        <Gallery />
+        <Footer />
+      </Transition>
     </Container>
   );
 }

@@ -47,7 +47,7 @@ const Container = styled.div`
 
   div:nth-child(2) {
     display: flex;
-    grid-column: 2/5;
+    grid-column: 3/4;
     grid-row: 2 / 4;
     text-align: center;
     align-self: center;
@@ -77,6 +77,7 @@ const Container = styled.div`
       background-color: #f2f2f2;
       border: 2px solid #f2f2f2;
       align-self: center;
+      justify-self: center;
 
       @media (max-width: 1024px) {
         margin: 15px 0;

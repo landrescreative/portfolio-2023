@@ -49,6 +49,8 @@ const Container = styled.div`
         z-index: -1;
         filter: grayscale(100%);
         border-radius: 40px;
+        transition: transform 0.4s ease-in-out;
+        transform: scale(1);
 
         @media screen and (max-width: 768px) {
           filter: grayscale(0%);
@@ -112,6 +114,7 @@ const Container = styled.div`
       }
 
       &:hover img {
+        transform: scale(1.1);
         filter: grayscale(0%);
       }
     }

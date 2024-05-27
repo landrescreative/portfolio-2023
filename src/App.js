@@ -7,13 +7,20 @@ import SwitchLanguage from "./components/ui/components/SwitchLanguage";
 import Experience from "./components/ui/threejs/Experience";
 import CaseStudy from "./components/pages/CaseStudy";
 import ScrollTop from "./components/ui/components/ScrollTop";
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import Preloader from "./components/pages/Preloader";
 
 function App() {
+  const location = useLocation();
+
   return (
     <div>
+      <Preloader></Preloader>
       <Navbar></Navbar>
       <Experience></Experience>
-      <Routes>
+
+      <Routes location={location} key={location.key}>
         <Route path="/" element={<MainPage />} />
         <Route path="/work" element={<Work_Page />} />
         <Route path="/about" element={<AboutMePage />} />

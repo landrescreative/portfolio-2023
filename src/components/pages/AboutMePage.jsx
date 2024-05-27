@@ -3,8 +3,9 @@ import styled from "styled-components";
 import About from "../ui/sections/About";
 import Contact from "../ui/sections/Contact";
 import SocialButtons from "../ui/components/SocialButtons";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,12 @@ const Container = styled.div`
 
 export default function AboutMePage() {
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 2 }}
+    >
       <About />
 
       <div>
