@@ -36,7 +36,7 @@ const Container_Navbar = styled.div`
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
 
   // LANDRES text
 

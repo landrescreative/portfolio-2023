@@ -10,6 +10,8 @@ import img1 from "../../assets/Gif2.gif";
 import img2 from "../../assets/Gif The Old.gif";
 import img3 from "../../assets/launchsark.png";
 import img4 from "../../assets/Pringles.png";
+import img5 from "../../assets/Software-Agecny.gif";
+import img6 from "../../assets/Powerkick.png";
 
 const Container = styled.div`
   display: grid;
@@ -19,7 +21,7 @@ const Container = styled.div`
   .gallery {
     grid-column: 1 / 13;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(40%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(calc(30%), 1fr));
     grid-gap: 10px;
     margin: 15px 10px;
 
@@ -187,6 +189,34 @@ const Work = () => {
               </div>
             </div>
             <img src={img4}></img>
+          </a>
+        </div>
+        <div className="thumbnails" id="work_images">
+          <a>
+            <div className="overlay">
+              <h1>Codica Landing Page</h1>
+              <p>Software Agency Website</p>
+              <div className="tags">
+                <span>Figma</span>
+                <span>React</span>
+                <span>ThreeJS</span>
+              </div>
+            </div>
+            <img src={img5}></img>
+          </a>
+        </div>
+        <div className="thumbnails" id="work_images">
+          <a>
+            <div className="overlay">
+              <h1>Powerkick Website</h1>
+              <p>Snakers shop website | UNDER DEVELOPMENT</p>
+              <div className="tags">
+                <span>Figma</span>
+                <span>Blender</span>
+                <span>Web Development</span>
+              </div>
+            </div>
+            <img src={img6}></img>
           </a>
         </div>
       </div>
