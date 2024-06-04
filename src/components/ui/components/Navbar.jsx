@@ -12,13 +12,26 @@ const Navbar = (props) => {
     <Container_Navbar className="navbar-color">
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
-        <Link onClick={() => setToggle(!toggle)} to="/">
-          {t("Navbar_Home")}
-        </Link>
-        {/* <Link to="/work">Work</Link> */}
-        <Link onClick={() => setToggle(!toggle)} to="/about">
-          {t("Navbar_About")}
-        </Link>
+        <a href="https://www.linkedin.com/in/landrescreative/" target="_blank">
+          LinkedIn
+        </a>
+        <a
+          href="
+        https://www.behance.net/luishernandez303"
+          target="_blank"
+        >
+          Behance
+        </a>
+        <a
+          href="
+        https://www.instagram.com/landrescreative/"
+          target="_blank"
+        >
+          Instagram
+        </a>
+        <a href="https://twitter.com/landrescreative" target="_blank">
+          Twitter
+        </a>
       </div>
       <button onClick={() => setToggle(!toggle)}>
         <FaBars />

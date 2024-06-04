@@ -21,6 +21,8 @@ export default function MainPage() {
       <Introduction></Introduction>
       <Separator separador_texto="WORK" />
       <Work></Work>
+      <Separator separador_texto="ABOUT ME" />
+      <About />
       <Separator separador_texto="CONTACT" />
       <Contact />
     </Container>
