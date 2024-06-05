@@ -6,6 +6,9 @@ import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
 import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass";
 import { gsap } from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
+import { GlitchPass } from "../../assets/GlitchPass";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const Experience = () => {
   const mountRef = useRef(null);
@@ -26,54 +29,37 @@ const Experience = () => {
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    scene.background = null;
     mountRef.current.appendChild(renderer.domElement);
 
-    // Test Geometry
-    const cube = new THREE.Mesh(
-      new THREE.DodecahedronGeometry(1),
-      new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        wireframe: true,
-      })
-    );
-    scene.add(cube);
+    // Load hdr
+    const hdriLoader = new RGBELoader();
+    hdriLoader.load("assets/hdr/studio.hdr", function (texture) {
+      texture.mapping = THREE.EquirectangularReflectionMapping;
+      scene.environment = texture;
+    });
+    // Load gltf model
 
-    // Change cube color on click
-
-    // Backgorund graident
-
-    var testshader = new THREE.ShaderMaterial({
-      uniforms: {
-        color1: {
-          value: new THREE.Color("#191714"),
-        },
-        color2: {
-          value: new THREE.Color("#2e2e2e"),
-        },
-      },
-      vertexShader: `
-        varying vec2 vUv;
-    
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    var gltfModelGroup = new THREE.Group();
+    var model = null;
+    const gltfloader = new GLTFLoader();
+    gltfloader.load("/assets/LC Letras.gltf", (gltf) => {
+      model = gltf.scene;
+      model.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            roughness: 0.1,
+            envMapIntensity: 0.01,
+            envMap: scene.environment,
+          });
         }
-      `,
-      fragmentShader: `
-        uniform vec3 color1;
-        uniform vec3 color2;
-      
-        varying vec2 vUv;
-        
-        void main() {
-          
-          gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
-        }
-      `,
+      });
+      model.scale.set(0.3, 0.3, 0.3);
+      gltfModelGroup.add(model);
     });
 
-    // Shader uniforms
-
+    scene.add(gltfModelGroup);
     // Textures
     const loader = new THREE.TextureLoader();
     const texture = loader.load("/assets/star_08.png");
@@ -104,39 +90,6 @@ const Experience = () => {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
-    function setupScrollAnimation() {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".landres-text",
-          endTrigger: ".contact_cta",
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-
-      tl.to(
-        testshader.uniforms.color2.value,
-        {
-          r: 0.0,
-          g: 0.0,
-          b: 0.0,
-          duration: 1,
-        },
-        0
-      );
-    }
-    setupScrollAnimation();
-
-    // Make a timer to change the color of the shader
-
-    var backgroundTest = new THREE.Mesh(
-      new THREE.PlaneGeometry(1000, 40),
-      testshader
-    );
-    backgroundTest.position.z = -20;
-    scene.add(backgroundTest);
-
     // Post Processing
 
     const composer = new EffectComposer(renderer);
@@ -146,17 +99,14 @@ const Experience = () => {
     composer.addPass(renderPass);
 
     // Lights
-    const amblientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const amblientLight = new THREE.AmbientLight(0xffffff, 1);
     scene.add(amblientLight);
 
-    const pointLight = new THREE.PointLight(0xffffff, 20);
+    const pointLight = new THREE.PointLight(0xffffff, 10, 0, 2);
     pointLight.position.x = 0;
     pointLight.position.y = 0;
 
     scene.add(pointLight);
-
-    const pointLighthelper = new THREE.PointLightHelper(pointLight);
-    scene.add(pointLighthelper);
 
     // Fiml grain pass
     var filmPass = new FilmPass(1, false);
@@ -167,39 +117,37 @@ const Experience = () => {
     composer.addPass(afterImagePass);
     afterImagePass.uniforms["damp"].value = 0.9;
 
-    // on click
-
-    var geometryGroup = new THREE.Group();
-
-    function addGeometry() {
-      const geom = new THREE.Mesh(
-        new THREE.DodecahedronGeometry(1),
-        new THREE.MeshStandardMaterial({
-          color: 0xffffff,
-          wireframe: true,
-        })
-      );
-      geom.material.color.setHex(Math.random() * 0xffffff);
-      geom.position.x = (Math.random() - 0.5) * 10;
-      geom.position.y = (Math.random() - 0.5) * 10;
-      geometryGroup.add(geom);
+    var modelInstance = new THREE.Group();
+    function addModelGroup() {
+      const modelGroup = model.clone();
+      modelGroup.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: Math.random() * 0xffffff,
+            roughness: 0.1,
+            envMapIntensity: 0.01,
+            envMap: scene.environment,
+          });
+        }
+      });
+      modelGroup.scale.set(0.3, 0.3, 0.3);
+      modelGroup.position.x = (Math.random() - 0.5) * 10;
+      modelGroup.position.y = (Math.random() - 0.5) * 10;
+      modelInstance.add(modelGroup);
     }
 
-    scene.add(geometryGroup);
-
+    scene.add(modelInstance);
     var container = document.getElementsByClassName("whocontainer");
 
     container[0].addEventListener("click", () => {
-      cube.material.color.setHex(Math.random() * 0xffffff);
       particlesMaterial.color.setHex(Math.random() * 0xffffff);
-      addGeometry();
+      addModelGroup();
 
-      if (geometryGroup.children.length > 10) {
-        geometryGroup.remove(geometryGroup.children[0]);
+      if (modelInstance.children.length > 10) {
+        modelInstance.remove(modelInstance.children[0]);
       } else
         setTimeout(() => {
-          geometryGroup.remove(geometryGroup.children[0]);
-          cube.material.color.setHex(0xffffff);
+          modelInstance.remove(modelInstance.children[0]);
           particlesMaterial.color.setHex(0xffffff);
         }, 5000);
     });
@@ -231,11 +179,11 @@ const Experience = () => {
         // Make particles follow mouse position but tiny movement
         particles.rotation.y = elapsedTime * 0.05;
 
-        cube.rotation.x = elapsedTime;
-        cube.rotation.y = elapsedTime;
+        gltfModelGroup.rotation.x = elapsedTime;
+        gltfModelGroup.rotation.y = elapsedTime;
 
-        cube.position.x = mouse.x;
-        cube.position.y = mouse.y;
+        gltfModelGroup.position.x = mouse.x;
+        gltfModelGroup.position.y = mouse.y;
 
         renderer.render(scene, camera);
         composer.render();

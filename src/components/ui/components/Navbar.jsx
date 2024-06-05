@@ -3,17 +3,19 @@ import styled from "styled-components";
 import { FaBars } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const Navbar = (props) => {
   const [toggle, setToggle] = useState(false);
   const { t } = useTranslation();
 
   return (
-    <Container_Navbar className="navbar-color">
+    <Container_Navbar>
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
         <a href="https://www.linkedin.com/in/landrescreative/" target="_blank">
           LinkedIn
+          <MdOutlineArrowOutward />
         </a>
         <a
           href="
@@ -21,6 +23,7 @@ const Navbar = (props) => {
           target="_blank"
         >
           Behance
+          <MdOutlineArrowOutward />
         </a>
         <a
           href="
@@ -28,12 +31,17 @@ const Navbar = (props) => {
           target="_blank"
         >
           Instagram
+          <MdOutlineArrowOutward />
         </a>
         <a href="https://twitter.com/landrescreative" target="_blank">
           Twitter
+          <MdOutlineArrowOutward />
         </a>
       </div>
-      <button onClick={() => setToggle(!toggle)}>
+      <button
+        className={toggle ? "active" : ""}
+        onClick={() => setToggle(!toggle)}
+      >
         <FaBars />
       </button>
     </Container_Navbar>
@@ -41,7 +49,6 @@ const Navbar = (props) => {
 };
 
 const Container_Navbar = styled.div`
-  z-index: 1000;
   width: 100vw;
   height: 60px;
   display: grid;
@@ -49,7 +56,8 @@ const Container_Navbar = styled.div`
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.94);
+  z-index: 100;
 
   // LANDRES text
 
@@ -73,6 +81,7 @@ const Container_Navbar = styled.div`
     justify-content: space-around;
     align-items: center;
     grid-column: 9/13;
+    z-index: 1;
 
     // Media queries
     @media (max-width: 768px) {
@@ -128,6 +137,7 @@ const Container_Navbar = styled.div`
     &.active {
       @media (max-width: 768px) {
         left: 0;
+        overflow: hidden;
       }
     }
   }
@@ -139,12 +149,18 @@ const Container_Navbar = styled.div`
     color: #000000;
     grid-column: 11 / 13;
     justify-self: center;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 
     // Media queries
     @media (min-width: 768px) {
       display: none;
+    }
+
+    &.active {
+      transform: rotate(90deg);
+      color: #ffffff;
     }
   }
 `;

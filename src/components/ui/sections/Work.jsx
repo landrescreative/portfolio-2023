@@ -36,7 +36,7 @@ const Container = styled.div`
       background-color: #f2f2f2;
       position: relative;
       overflow: hidden;
-      border-radius: 40px;
+      border-radius: 16px;
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;
@@ -50,7 +50,7 @@ const Container = styled.div`
         object-fit: cover;
         z-index: -1;
         filter: grayscale(100%);
-        border-radius: 40px;
+        border-radius: 16px;
         transition: transform 0.4s ease-in-out;
         transform: scale(1);
 

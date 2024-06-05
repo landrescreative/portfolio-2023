@@ -19,7 +19,10 @@ const Container = styled.div`
   grid-template-columns: repeat(5, 1fr);
   align-content: center;
   justify-content: center;
-  background-color: hsla(0, 0%, 100%, 0.9);
+  background-color: hsla(0, 0%, 100%, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   color: #000000;
 
   @media screen and (max-width: 1024px) {
@@ -63,6 +66,7 @@ const Container = styled.div`
       font-size: 20px;
       font-weight: 300;
       align-self: center;
+      font-family: "Montserrat";
     }
 
     // IMG

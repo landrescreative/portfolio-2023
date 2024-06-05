@@ -29,7 +29,7 @@ const Container = styled.div`
       width: 100%;
       height: 100%;
 
-      background-color: hsla(0, 0%, 100%, 0.9);
+      background-color: hsla(0, 0%, 100%, 0.94);
       -webkit-mask-image: url(${mask});
       mask-image: url(${mask});
       mask-clip: content-box;
@@ -44,7 +44,9 @@ const Container = styled.div`
   }
 
   .section:nth-child(2) {
-    background-color: hsla(0, 0%, 100%, 0.9);
+    background-color: hsla(0, 0%, 100%, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #000000;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;

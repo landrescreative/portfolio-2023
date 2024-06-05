@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Separator from "../components/Separator";
 import { useTranslation } from "react-i18next";
-import profilepicture from "../../assets/test.jpg";
+
+// Img
+import profilepicture from "../../assets/prof1.jpg";
 
 const Container = styled.div`
   display: grid;
-  margin: 0 0px;
+  margin: 2rem 0px;
   grid-template-columns: repeat(12, 1fr);
 
   .about {
@@ -26,6 +28,12 @@ const Container = styled.div`
     img {
       width: 80%;
       border-radius: 50%;
+      transition: all 0.5s;
+      filter: grayscale(100%);
+
+      &:hover {
+        filter: grayscale(0%);
+      }
     }
 
     @media (max-width: 768px) {
