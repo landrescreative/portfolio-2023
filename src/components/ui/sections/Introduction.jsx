@@ -63,10 +63,11 @@ const Container = styled.div`
     @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
+    width: 80%;
   }
 
   .main-text:nth-child(2) {
-    width: 50%;
+    width: 70%;
   }
 
   // Second section

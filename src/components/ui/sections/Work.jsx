@@ -129,7 +129,7 @@ const Work = () => {
   return (
     <Container>
       <div className="gallery">
-        <div className="thumbnails" id="work_images">
+        <div className="thumbnails veravitalize" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
               <h1>{t("proyect1_h1")}</h1>

@@ -33,11 +33,11 @@ const Experience = () => {
     mountRef.current.appendChild(renderer.domElement);
 
     // Load hdr
-    const hdriLoader = new RGBELoader();
-    hdriLoader.load("assets/hdr/studio.hdr", function (texture) {
-      texture.mapping = THREE.EquirectangularReflectionMapping;
-      scene.environment = texture;
-    });
+    // const hdriLoader = new RGBELoader();
+    // hdriLoader.load("assets/hdr/studio.hdr", function (texture) {
+    //   texture.mapping = THREE.EquirectangularReflectionMapping;
+    //   scene.environment = texture;
+    // });
     // Load gltf model
 
     var gltfModelGroup = new THREE.Group();
@@ -90,6 +90,25 @@ const Experience = () => {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
+    // Creates a loop of cubes
+    const cubes = new THREE.Group();
+    scene.add(cubes);
+
+    const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+    const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0xf2f2f2 });
+
+    for (let i = 0; i < 100; i++) {
+      const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+      cube.position.x = (Math.random() - 0.5) * 10;
+      cube.position.y = (Math.random() - 0.5) * 10;
+      cube.position.z = (Math.random() - 0.5) * 10;
+      cube.rotation.x = Math.random() * Math.PI;
+      cube.rotation.y = Math.random() * Math.PI;
+      const scale = Math.random() * 0.5;
+      cube.scale.set(scale, scale, scale);
+      cubes.add(cube);
+    }
+
     // Post Processing
 
     const composer = new EffectComposer(renderer);
@@ -99,14 +118,24 @@ const Experience = () => {
     composer.addPass(renderPass);
 
     // Lights
-    const amblientLight = new THREE.AmbientLight(0xffffff, 1);
-    scene.add(amblientLight);
+    // const amblientLight = new THREE.AmbientLight(0xffffff, 0);
+    // scene.add(amblientLight);
 
-    const pointLight = new THREE.PointLight(0xffffff, 10, 0, 2);
-    pointLight.position.x = 0;
-    pointLight.position.y = 0;
+    // const pointLight = new THREE.PointLight(0xffffff, 10, 0, 2);
+    // pointLight.position.x = 0;
+    // pointLight.position.y = 0;
 
-    scene.add(pointLight);
+    // scene.add(pointLight);
+
+    const pointLightRed = new THREE.PointLight(0xff00ff, 30, 32);
+    pointLightRed.position.x = 5;
+    pointLightRed.position.z = 5;
+    scene.add(pointLightRed);
+
+    const pointLightBlue = new THREE.PointLight(0x00ffff, 30, 32);
+    pointLightBlue.position.x = -5;
+    pointLightBlue.position.z = 5;
+    scene.add(pointLightBlue);
 
     // Fiml grain pass
     var filmPass = new FilmPass(1, false);
@@ -114,7 +143,7 @@ const Experience = () => {
 
     // After Image pass
     var afterImagePass = new AfterimagePass();
-    composer.addPass(afterImagePass);
+    // composer.addPass(afterImagePass);
     afterImagePass.uniforms["damp"].value = 0.9;
 
     var modelInstance = new THREE.Group();
@@ -137,20 +166,41 @@ const Experience = () => {
     }
 
     scene.add(modelInstance);
+
+    // Click event
     var container = document.getElementsByClassName("whocontainer");
 
-    container[0].addEventListener("click", () => {
-      particlesMaterial.color.setHex(Math.random() * 0xffffff);
-      addModelGroup();
+    if (container && container.length > 0) {
+      container[0].addEventListener("click", () => {
+        particlesMaterial.color.setHex(Math.random() * 0xffffff);
+        addModelGroup();
 
-      if (modelInstance.children.length > 10) {
-        modelInstance.remove(modelInstance.children[0]);
-      } else
-        setTimeout(() => {
+        if (modelInstance.children.length > 10) {
           modelInstance.remove(modelInstance.children[0]);
-          particlesMaterial.color.setHex(0xffffff);
-        }, 5000);
-    });
+        } else
+          setTimeout(() => {
+            modelInstance.remove(modelInstance.children[0]);
+            particlesMaterial.color.setHex(0xffffff);
+          }, 5000);
+      });
+    } else {
+      console.log("No container found");
+    }
+
+    // Another click event
+    var workPage1 = document.getElementsByClassName("veravitalize");
+
+    if (workPage1 && workPage1.length > 0) {
+      workPage1[0].addEventListener("click", () => {
+        pointLightBlue.color.setHex(0x008000);
+        pointLightRed.color.setHex(0x008000);
+
+        pointLightBlue.intensity = 100;
+        pointLightRed.intensity = 100;
+      });
+    } else {
+      console.log("No workPage1 found");
+    }
 
     // Geoemtry follows mouse
     var mouse = new THREE.Vector3(0, 0, 0);
@@ -184,6 +234,9 @@ const Experience = () => {
 
         gltfModelGroup.position.x = mouse.x;
         gltfModelGroup.position.y = mouse.y;
+
+        // Make cubes rotate
+        cubes.rotation.x = elapsedTime * 0.01;
 
         renderer.render(scene, camera);
         composer.render();
