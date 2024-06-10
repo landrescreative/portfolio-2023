@@ -99,7 +99,6 @@ const SocialMedia = () => {
 const Container = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
   padding: 20px 0;
   text-align: center;
   justify-content: start;
@@ -202,8 +201,7 @@ const Container = styled.div`
     width: 100%;
     height: 70px;
     margin: 10px 0;
-
-    border-radius: 5px;
+    border-radius: 12px;
     background-color: #ffffff;
     border: none;
     cursor: pointer;
@@ -217,6 +215,7 @@ const Container = styled.div`
       height: 100%;
       transform: scale(1.2);
       transition: 0.5s;
+      border-radius: 5px;
 
       &:hover {
         background-color: #1c1c1c;
