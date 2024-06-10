@@ -9,8 +9,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import { GlitchPass } from "../../assets/GlitchPass";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { useLocation } from "react-router-dom";
 
 const Experience = () => {
+  const location = useLocation();
   const mountRef = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -264,6 +266,7 @@ const Experience = () => {
     <div
       ref={mountRef}
       style={{
+        display: location.pathname === "/socialmedia" ? "none" : "block",
         width: "100dvw",
         height: "100dvh",
         position: "fixed",

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Container = styled(motion.div)`
   margin: 0;
@@ -28,12 +29,17 @@ const Container = styled(motion.div)`
 `;
 
 export default function Preloader() {
+  const location = useLocation();
+
   return (
     <Container
       initial={{ y: 0 }}
       animate={{ y: "-100vh" }}
       exit={{ opacity: 0 }}
       transition={{ delay: 2, duration: 1 }}
+      style={{
+        display: location.pathname === "/socialmedia" ? "none" : "block",
+      }}
     >
       <h1>LANDRESCREATIVE</h1>
     </Container>

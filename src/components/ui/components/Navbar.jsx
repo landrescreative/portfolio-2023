@@ -4,13 +4,19 @@ import { FaBars } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
   const [toggle, setToggle] = useState(false);
   const { t } = useTranslation();
+  const location = useLocation();
 
   return (
-    <Container_Navbar>
+    <Container_Navbar
+      style={{
+        display: location.pathname === "/socialmedia" ? "none" : "block",
+      }}
+    >
       <h1>LANDRES CREATIVE</h1>
       <div className={toggle ? "active" : ""}>
         <a href="https://www.linkedin.com/in/landrescreative/" target="_blank">

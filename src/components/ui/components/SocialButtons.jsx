@@ -65,7 +65,7 @@ const SocialButtons = () => {
           <span>Instagram</span>
         </div>
       </a>
-      <a className="icon" href="https://www.behance.net/landrescreative">
+      <a className="icon" href="https://www.behance.net/luishernandez303">
         <FaBehance />
         <div className="overlay">
           <span>Behance</span>

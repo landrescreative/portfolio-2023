@@ -10,6 +10,7 @@ import ScrollTop from "./components/ui/components/ScrollTop";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Preloader from "./components/pages/Preloader";
+import SocialMedia from "./components/pages/SocialMedia";
 
 function App() {
   const location = useLocation();
@@ -19,12 +20,12 @@ function App() {
       <Preloader></Preloader>
       <Navbar></Navbar>
       <Experience></Experience>
-
       <Routes location={location} key={location.key}>
         <Route path="/" element={<MainPage />} />
         <Route path="/work" element={<Work_Page />} />
         <Route path="/about" element={<AboutMePage />} />
         <Route path="/veravitalize" element={<CaseStudy></CaseStudy>} />
+        <Route path="/socialmedia" element={<SocialMedia></SocialMedia>} />
       </Routes>
       <ScrollTop></ScrollTop>
       <SwitchLanguage></SwitchLanguage>
