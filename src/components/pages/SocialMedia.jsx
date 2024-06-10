@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 import {
   FaInstagram,
   FaBehance,
@@ -7,11 +8,9 @@ import {
   FaWhatsapp,
 } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
-
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-
-import profilepicture from "../assets/test.jpg";
+import profilepicture from "../assets/Paper-Profile-Pic.jpg";
 import backgroundImg from "../assets/LightBlue-Blue-Pink.png";
 
 const SocialMedia = () => {
@@ -92,25 +91,64 @@ const SocialMedia = () => {
         </button>
       </div>
       <div className="social-projects"></div>
+      <div class="blob"></div>
     </Container>
   );
 };
 
+const animate = keyframes`
+  0% {
+    translate: 40% -25%;
+    border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+  }
+  50% {
+    translate: 0% 100%;
+    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+    rotate: 41deg;
+    scale: 1.15;
+  }
+  100% {
+    translate: -45% 39%;
+    border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+    rotate: -60deg;
+    scale: 1.05;
+  }
+`;
+
 const Container = styled.div`
   display: flex;
   width: 100vw;
+  height: 100dvh;
   padding: 20px 0;
   text-align: center;
   justify-content: start;
   align-items: center;
   flex-direction: column;
-  background-color: #f2f4ff;
+  background-color: #ffffff;
+
+  .blob {
+    position: absolute;
+    opacity: 0.2;
+    width: 400px;
+    aspect-ratio: 1/1;
+    animation: ${animate} 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
+      alternate forwards;
+    filter: blur(60px);
+    z-index: 1;
+    background: linear-gradient(
+      47deg,
+      rgba(45, 86, 255, 1) 40%,
+      rgba(255, 0, 110, 1) 55%,
+      rgba(255, 0, 110, 1) 100%
+    );
+  }
 
   .social-user-info {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 2;
   }
 
   .social-img {
@@ -130,7 +168,7 @@ const Container = styled.div`
     font-size: 18px;
     font-weight: 600;
     font-family: "Garet";
-    color: #a8b1ff;
+    color: #2d56ff;
     padding: 0 30px;
     text-transform: uppercase;
   }
@@ -146,7 +184,7 @@ const Container = styled.div`
 
     svg {
       font-size: 23px;
-      color: #a8b1ff;
+      color: #2d56ff;
       margin-right: 5px;
     }
   }
@@ -157,6 +195,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
   }
 
   .social-contact-button {
@@ -167,7 +206,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background-color: #a8b1ff;
+    background-color: #2d56ff;
     color: #f2f2f2;
     text-decoration: none;
     font-weight: 600;
@@ -192,6 +231,7 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     width: 90%;
+    z-index: 2;
   }
 
   .social-button {

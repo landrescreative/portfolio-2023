@@ -14,7 +14,7 @@ const Navbar = (props) => {
   return (
     <Container_Navbar
       style={{
-        display: location.pathname === "/socialmedia" ? "none" : "block",
+        display: location.pathname === "/socialmedia" ? "none" : "grid",
       }}
     >
       <h1>LANDRES CREATIVE</h1>
