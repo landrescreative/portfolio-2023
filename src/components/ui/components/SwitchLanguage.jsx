@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ const Container = styled.div`
 
 export default function SwitchLanguage() {
   const { i18n } = useTranslation();
+  const location = useLocation();
 
   const animateText = () => {
     // Select all the H1 in the entire document
@@ -72,7 +74,11 @@ export default function SwitchLanguage() {
   };
 
   return (
-    <Container>
+    <Container
+      style={{
+        display: location.pathname === "/socialmedia" ? "none" : "flex",
+      }}
+    >
       <button onClick={handleEnglish}>EN</button>
       <span> / </span>
       <button onClick={handleSpanish}>ES</button>

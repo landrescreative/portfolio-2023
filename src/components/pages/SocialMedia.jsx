@@ -127,6 +127,10 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
 
+  @media (min-width: 1024px) {
+    height: 100vh;
+  }
+
   .blob {
     position: absolute;
     opacity: 0.2;

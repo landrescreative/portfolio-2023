@@ -19,7 +19,6 @@ export default function MainPage() {
     <Container>
       <Header></Header>
       <Introduction></Introduction>
-      <Separator separador_texto="WORK" />
       <Work></Work>
       <Separator separador_texto="ABOUT ME" />
       <About />

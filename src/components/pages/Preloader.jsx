@@ -17,7 +17,7 @@ const Container = styled(motion.div)`
   h1 {
     font-size: 2rem;
     color: #333;
-    font-family: "Monsterrat", sans-serif;
+    font-family: "Garet", sans-serif;
     font-weight: 200;
     letter-spacing: 0.3rem;
     text-align: center;
@@ -38,7 +38,7 @@ export default function Preloader() {
       exit={{ opacity: 0 }}
       transition={{ delay: 2, duration: 1 }}
       style={{
-        display: location.pathname === "/socialmedia" ? "none" : "block",
+        display: location.pathname === "/socialmedia" ? "none" : "flex",
       }}
     >
       <h1>LANDRESCREATIVE</h1>

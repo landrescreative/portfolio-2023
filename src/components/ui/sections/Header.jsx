@@ -19,10 +19,9 @@ const Container = styled.div`
   grid-template-columns: repeat(5, 1fr);
   align-content: center;
   justify-content: center;
-  background-color: hsla(0, 0%, 100%, 0.94);
+  background-color: hsla(0, 0%, 100%, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
   color: #000000;
 
   @media screen and (max-width: 1024px) {

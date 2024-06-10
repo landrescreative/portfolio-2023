@@ -17,6 +17,10 @@ const Container = styled.div`
   display: grid;
   margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
+  background-color: rgba(255, 255, 255, 0.94);
+  padding: 20px 0;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
 
   .gallery {
     grid-column: 1 / 13;
@@ -37,6 +41,7 @@ const Container = styled.div`
       position: relative;
       overflow: hidden;
       border-radius: 16px;
+      transition: all 0.4s ease-in-out;
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;

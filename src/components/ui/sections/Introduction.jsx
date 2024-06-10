@@ -29,7 +29,7 @@ const Container = styled.div`
       width: 100%;
       height: 100%;
 
-      background-color: hsla(0, 0%, 100%, 0.94);
+      background-color: hsla(0, 0%, 100%, 0.9);
       -webkit-mask-image: url(${mask});
       mask-image: url(${mask});
       mask-clip: content-box;
@@ -118,11 +118,11 @@ const Introduction = () => {
         <h1 className="main-text"> {t("who")} </h1>
         <h1 className="main-text"> {t("what")} </h1>
       </div>
-      <div className="section">
+      {/* <div className="section">
         <h1 className="skills">{t("skillsn1")}</h1>
         <h1 className="skills">{t("skillsn2")}</h1>
         <h1 className="skills">{t("skillsn3")}</h1>
-      </div>
+      </div> */}
     </Container>
   );
 };
