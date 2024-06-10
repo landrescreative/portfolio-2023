@@ -118,13 +118,14 @@ const animate = keyframes`
 const Container = styled.div`
   display: flex;
   width: 100vw;
-  height: 100dvh;
   padding: 20px 0;
   text-align: center;
   justify-content: start;
   align-items: center;
   flex-direction: column;
   background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
 
   .blob {
     position: absolute;
