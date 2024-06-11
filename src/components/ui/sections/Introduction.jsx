@@ -40,6 +40,7 @@ const Container = styled.div`
       mask-clip: content-box;
       mask-size: 100% 100%;
       mask-repeat: no-repeat;
+      // ADd Shadow
 
       @media screen and (max-width: 768px) {
         -webkit-mask-image: url(${mask2});

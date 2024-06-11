@@ -11,12 +11,12 @@ import img2 from "../../assets/Gif The Old.gif";
 import img3 from "../../assets/launchsark.png";
 import img4 from "../../assets/Pringles.png";
 import img5 from "../../assets/Software-Agecny.gif";
-import img6 from "../../assets/Powerkick.png";
+import img6 from "../../assets/Powerkick-mockup.jpg";
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  background-color: #edf0ff;
+  background-color: #000000;
   backdrop-filter: blur(10px);
   .gallery {
     grid-column: 1 / 13;
@@ -38,6 +38,7 @@ const Container = styled.div`
       overflow: hidden;
       border-radius: 16px;
       transition: all 0.4s ease-in-out;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;
