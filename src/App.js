@@ -17,9 +17,9 @@ function App() {
 
   return (
     <div>
-      <Preloader></Preloader>
+      {/* <Preloader></Preloader> */}
       <Navbar></Navbar>
-      <Experience></Experience>
+
       <Routes location={location} key={location.key}>
         <Route path="/" element={<MainPage />} />
         <Route path="/work" element={<Work_Page />} />

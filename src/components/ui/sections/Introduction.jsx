@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
+import Experience from "../threejs/Experience";
 
 import mask from "../../assets/123.png";
 import mask2 from "../../assets/1234.png";
@@ -9,6 +10,7 @@ import mask2 from "../../assets/1234.png";
 const Container = styled.div`
   display: grid;
   text-align: center;
+  position: relative;
 
   .section {
     min-height: 90vh;
@@ -20,6 +22,7 @@ const Container = styled.div`
 
   .section:nth-child(1) {
     position: relative;
+    color: #f2f2f2;
 
     &::before {
       content: "";
@@ -28,8 +31,10 @@ const Container = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-
-      background-color: hsla(0, 0%, 100%, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: #edf0ff;
+      color: #f2f2f2;
       -webkit-mask-image: url(${mask});
       mask-image: url(${mask});
       mask-clip: content-box;
@@ -47,7 +52,6 @@ const Container = styled.div`
     background-color: hsla(0, 0%, 100%, 0.94);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: #000000;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     margin-bottom: 1rem;
@@ -59,7 +63,8 @@ const Container = styled.div`
     font-size: 4rem;
     font-weight: 600;
     font-family: "kallisto";
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
     @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
@@ -117,6 +122,7 @@ const Introduction = () => {
       <div className="section whocontainer">
         <h1 className="main-text"> {t("who")} </h1>
         <h1 className="main-text"> {t("what")} </h1>
+        <Experience></Experience>
       </div>
       {/* <div className="section">
         <h1 className="skills">{t("skillsn1")}</h1>

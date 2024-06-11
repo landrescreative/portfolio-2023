@@ -17,25 +17,37 @@ const Container = styled.div`
 
   a {
     margin: 0 5px;
-    color: #ffffff;
+    color: #1c1c1c;
     font-size: 28px;
     transition: all 0.1s ease-in-out;
     decoration: none;
   }
 
   .overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     top: 0;
     width: 100%;
-    background-color: hsla(0, 0%, 100%, 0.6);
+    background-color: hsla(0, 0%, 0%, 1);
     border-radius: 5px;
     padding: 2px;
     height: 100%;
     opacity: 0;
+    text-decoration: none;
     transition: all 0.1s ease-in-out;
 
+    a {
+      font-size: 34px;
+      align-self: center;
+      color: #000000;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
     span {
-      color: #ffffff;
+      color: #f2f2f2;
       font-size: 14px;
       text-align: center;
       text-decoration: none;
@@ -48,7 +60,7 @@ const Container = styled.div`
 
   .icon:hover {
     transition: all 0.1s ease-in-out;
-    color: #a3a3a3;
+    color: #2d56ff;
   }
 
   .icon:hover .overlay {

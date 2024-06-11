@@ -8,8 +8,14 @@ import profilepicture from "../../assets/prof1.jpg";
 
 const Container = styled.div`
   display: grid;
-  margin: 2rem 0px;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
   grid-template-columns: repeat(12, 1fr);
+  background-color: #edf0ff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #000000;
 
   .about {
     display: grid;
@@ -65,7 +71,7 @@ const Container = styled.div`
     h1 {
       align-self: flex-start;
       font-size: 22px;
-      color: #ffffff;
+      color: #95beff;
 
       @media (max-width: 768px) {
         align-self: center;

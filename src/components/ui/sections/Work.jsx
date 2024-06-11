@@ -15,18 +15,14 @@ import img6 from "../../assets/Powerkick.png";
 
 const Container = styled.div`
   display: grid;
-  margin: 0 0px;
   grid-template-columns: repeat(12, 1fr);
-  background-color: rgba(255, 255, 255, 0.94);
-  padding: 20px 0;
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
-
+  background-color: #edf0ff;
+  backdrop-filter: blur(10px);
   .gallery {
     grid-column: 1 / 13;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(30%), 1fr));
-    grid-gap: 10px;
+    grid-gap: 15px;
     margin: 15px 10px;
 
     @media (max-width: 1024px) {
@@ -54,7 +50,7 @@ const Container = styled.div`
         overflow: hidden;
         object-fit: cover;
         z-index: -1;
-        filter: grayscale(100%);
+        /* filter: grayscale(100%); */
         border-radius: 16px;
         transition: transform 0.4s ease-in-out;
         transform: scale(1);

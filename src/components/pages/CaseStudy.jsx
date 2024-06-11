@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 // Images
 import veravitalize from "../../components/assets/veravitalize.png";
 import mockup from "../../components/assets/Clay_Mockup.png";
+import mockup2 from "../../components/assets/mockup-vera.png";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +18,7 @@ const Container = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #edf0ff;
 
   .website-name {
     height: 10vh;
@@ -27,7 +29,7 @@ const Container = styled(motion.div)`
 
     h1 {
       font-family: "Montserrat", sans-serif;
-      font-weight: 300;
+      font-weight: 600;
       font-size: 1.3rem;
       padding: 1rem;
     }
@@ -59,6 +61,10 @@ const Container = styled(motion.div)`
       object-fit: cover;
       transition: all 0.5s ease;
 
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
       &:hover {
         transform: scale(1.1);
       }
@@ -79,11 +85,9 @@ const Container = styled(motion.div)`
       width: 50%;
       padding: 1rem;
       h3 {
-        font-size: 1.5rem;
-        font-weight: 300;
+        font-size: 1.3rem;
+        font-weight: 600;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-
         @media (max-width: 768px) {
           font-size: 1rem;
         }
@@ -91,14 +95,20 @@ const Container = styled(motion.div)`
 
       button {
         padding: 1.5rem 3rem;
-        background-color: white;
-        color: black;
+        background-color: #000000;
+        color: white;
         border: none;
         border-radius: 40px;
         font-family: "Montserrat", sans-serif;
         font-size: 1rem;
         font-weight: 600;
         cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #71d878;
+          color: #000000;
+        }
 
         @media (max-width: 768px) {
           padding: 1rem 2rem;
@@ -114,9 +124,8 @@ const Container = styled(motion.div)`
 
       h1 {
         font-size: 1.2rem;
-        font-weight: 300;
+        font-weight: 600;
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
 
         @media (max-width: 768px) {
           font-size: 1rem;
@@ -141,20 +150,21 @@ const Container = styled(motion.div)`
     }
 
     h1 {
-      font-size: 1.5rem;
-      font-weight: 300;
+      font-size: 2rem;
+      font-weight: 600;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
       justify-self: flex-start;
       align-self: flex-start;
+      color: #95beff;
+
       @media (max-width: 768px) {
         font-size: 1.3rem;
       }
     }
 
     p {
-      font-size: 1rem;
-      font-weight: 300;
+      font-size: 1.2rem;
+      font-weight: 400;
       line-height: 1.5;
       text-align: justify;
 
@@ -174,7 +184,6 @@ const Container = styled(motion.div)`
     flex-direction: column;
     font-size: 3rem;
     font-weight: 300;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
 
     @media (max-width: 768px) {
       font-size: 2rem;
@@ -192,20 +201,33 @@ const Container = styled(motion.div)`
     color: #000;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 768px) {
       width: 100%;
     }
   }
 
-  .photos-test {
+  .photos-test-1 {
     position: absolute;
-    top: -300px;
-    height: 800px;
-    width: 800px;
+    top: -500px;
+    height: 1000px;
+    width: 1000px;
+    z-index: 1;
 
     @media (max-width: 768px) {
-      top: 0;
+      top: 100px;
+    }
+  }
+
+  .photos-test-2 {
+    position: absolute;
+    top: 00px;
+    height: 1000px;
+    width: 1000px;
+
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 `;
@@ -216,7 +238,7 @@ const CaseStudy = () => {
     let mm = gsap.matchMedia();
 
     mm.add("screen and (min-width: 768px)", () => {
-      const photos = gsap.utils.toArray(".photos-test");
+      const photos = gsap.utils.toArray(".photos-test-1");
       gsap.set(photos, { yPercent: 200 });
 
       const animation = gsap.to(photos, {
@@ -236,18 +258,6 @@ const CaseStudy = () => {
   });
 
   const maxRot = 30;
-  function mouseMoveFunc(evt) {
-    const percent = gsap.utils.normalize(0, window.innerWidth, evt.pageX);
-    const percent2 = gsap.utils.normalize(0, window.innerWidth, evt.pageY);
-
-    gsap.to(".website-img", {
-      duration: 0.2,
-      rotationY: -(percent * maxRot - maxRot / 2),
-      rotationX: percent2 * maxRot - maxRot / 2,
-      overwrite: true,
-    });
-  }
-  window.addEventListener("mousemove", mouseMoveFunc);
 
   const t = useTranslation().t;
 
@@ -295,7 +305,8 @@ const CaseStudy = () => {
           </div>
         </div>
         <div className="website-casestudy-scroll">
-          <img className="photos-test" src={mockup}></img>
+          <img className="photos-test-1" src={mockup}></img>
+          <img className="photos-test-2" src={mockup2}></img>
         </div>
       </div>
     </Container>

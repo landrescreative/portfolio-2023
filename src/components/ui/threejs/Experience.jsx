@@ -10,6 +10,7 @@ import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import { GlitchPass } from "../../assets/GlitchPass";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useLocation } from "react-router-dom";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
 
 const Experience = () => {
   const location = useLocation();
@@ -31,37 +32,14 @@ const Experience = () => {
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    scene.background = null;
     mountRef.current.appendChild(renderer.domElement);
 
     // Load hdr
-    // const hdriLoader = new RGBELoader();
-    // hdriLoader.load("assets/hdr/studio.hdr", function (texture) {
-    //   texture.mapping = THREE.EquirectangularReflectionMapping;
-    //   scene.environment = texture;
-    // });
-    // Load gltf model
-
-    var gltfModelGroup = new THREE.Group();
-    var model = null;
-    const gltfloader = new GLTFLoader();
-    gltfloader.load("/assets/LC Letras.gltf", (gltf) => {
-      model = gltf.scene;
-      model.traverse((child) => {
-        if (child.isMesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            roughness: 0.1,
-            envMapIntensity: 0.01,
-            envMap: scene.environment,
-          });
-        }
-      });
-      model.scale.set(0.3, 0.3, 0.3);
-      gltfModelGroup.add(model);
+    const hdriLoader = new RGBELoader();
+    hdriLoader.load("assets/hdr/studio.hdr", function (texture) {
+      texture.mapping = THREE.EquirectangularReflectionMapping;
+      scene.environment = texture;
     });
-
-    scene.add(gltfModelGroup);
     // Textures
     const loader = new THREE.TextureLoader();
     const texture = loader.load("/assets/star_08.png");
@@ -82,33 +60,85 @@ const Experience = () => {
     );
 
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.2,
+      size: 0.1,
       map: texture,
       transparent: true,
-      blending: THREE.AdditiveBlending,
       depthWrite: false,
-      color: 0xffffff,
+      blending: THREE.AdditiveBlending,
+      color: 0x2d56ff,
     });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
     // Creates a loop of cubes
     const cubes = new THREE.Group();
+    const cubes2 = new THREE.Group();
+    const cubes3 = new THREE.Group();
+    scene.add(cubes2);
     scene.add(cubes);
+    scene.add(cubes3);
 
-    const cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-    const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0xf2f2f2 });
+    const cubeGeometry = new THREE.DodecahedronGeometry(0.4, 0);
+    const cubeMaterial = new THREE.MeshPhysicalMaterial({
+      roughness: 0.1,
+      transmission: 1, // Add transparency
+      thickness: 0.5, // Add refraction!
+    });
 
-    for (let i = 0; i < 100; i++) {
+    const cubeGeometry2 = new THREE.TorusGeometry(1, 0.4, 16, 30);
+    const cubeMaterial2 = new THREE.MeshPhysicalMaterial({
+      roughness: 0.2,
+      transmission: 1, // Add transparency
+      thickness: 0.5, // Add refraction!
+    });
+
+    const cubeGeometry3 = new THREE.CapsuleGeometry(2, 3, 4, 18);
+    const cubeMaterial3 = new THREE.MeshPhysicalMaterial({
+      color: 0x2d56ff,
+      roughness: 0.2,
+      metalness: 0.2,
+      clearcoat: 1,
+      clearcoatRoughness: 0.1,
+      transmission: 1, // Add transparency
+      thickness: 0.5, // Add refraction!
+    });
+
+    for (let i = 0; i < 30; i++) {
       const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-      cube.position.x = (Math.random() - 0.5) * 10;
+      cube.position.x = (Math.random() - 0.5) * 15;
       cube.position.y = (Math.random() - 0.5) * 10;
-      cube.position.z = (Math.random() - 0.5) * 10;
       cube.rotation.x = Math.random() * Math.PI;
       cube.rotation.y = Math.random() * Math.PI;
-      const scale = Math.random() * 0.5;
+      cube.position.z = (Math.random() - 0.5) * 5;
+      const scale = Math.random() * 2;
+      cube.material.color.setHex(0x2d56ff);
       cube.scale.set(scale, scale, scale);
       cubes.add(cube);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const cube2 = new THREE.Mesh(cubeGeometry2, cubeMaterial2);
+      cube2.position.x = (Math.random() - 0.5) * 15;
+      cube2.position.y = (Math.random() - 0.5) * 10;
+      cube2.position.z = (Math.random() - 0.5) * 10;
+      cube2.rotation.x = Math.random() * Math.PI;
+      cube2.rotation.y = Math.random() * Math.PI;
+      const scale = Math.random() * 0.9;
+      cube2.scale.set(scale, scale, scale);
+      cubes2.add(cube2);
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const cube3 = new THREE.Mesh(cubeGeometry3, cubeMaterial3);
+      cube3.position.x = (Math.random() - 0.5) * 15;
+      cube3.position.y = (Math.random() - 0.5) * 10;
+      cube3.position.z = (Math.random() - 0.5) * 2;
+      cube3.rotation.x = Math.random() * Math.PI;
+      cube3.rotation.y = Math.random() * Math.PI;
+      cube3.material.color.setHex(0x00ff1a);
+      const scale = Math.random() * 0.2;
+      cube3.scale.set(scale, scale, scale);
+      cubes3.add(cube3);
     }
 
     // Post Processing
@@ -119,90 +149,35 @@ const Experience = () => {
     composer.setPixelRatio(window.devicePixelRatio);
     composer.addPass(renderPass);
 
-    // Lights
-    // const amblientLight = new THREE.AmbientLight(0xffffff, 0);
-    // scene.add(amblientLight);
-
-    // const pointLight = new THREE.PointLight(0xffffff, 10, 0, 2);
-    // pointLight.position.x = 0;
-    // pointLight.position.y = 0;
-
-    // scene.add(pointLight);
-
-    const pointLightRed = new THREE.PointLight(0xff00ff, 30, 32);
-    pointLightRed.position.x = 5;
-    pointLightRed.position.z = 5;
-    scene.add(pointLightRed);
-
-    const pointLightBlue = new THREE.PointLight(0x00ffff, 30, 32);
-    pointLightBlue.position.x = -5;
-    pointLightBlue.position.z = 5;
-    scene.add(pointLightBlue);
-
-    // Fiml grain pass
-    var filmPass = new FilmPass(1, false);
-    composer.addPass(filmPass);
-
-    // After Image pass
-    var afterImagePass = new AfterimagePass();
-    // composer.addPass(afterImagePass);
-    afterImagePass.uniforms["damp"].value = 0.9;
-
-    var modelInstance = new THREE.Group();
-    function addModelGroup() {
-      const modelGroup = model.clone();
-      modelGroup.traverse((child) => {
-        if (child.isMesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: Math.random() * 0xffffff,
-            roughness: 0.1,
-            envMapIntensity: 0.01,
-            envMap: scene.environment,
-          });
-        }
-      });
-      modelGroup.scale.set(0.3, 0.3, 0.3);
-      modelGroup.position.x = (Math.random() - 0.5) * 10;
-      modelGroup.position.y = (Math.random() - 0.5) * 10;
-      modelInstance.add(modelGroup);
-    }
-
-    scene.add(modelInstance);
+    // Add background plane
+    const planeGeometry = new THREE.PlaneGeometry(100, 100);
+    const planeMaterial = new THREE.MeshBasicMaterial({
+      color: 0xd9e7fc,
+      side: THREE.DoubleSide,
+    });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.position.z = -10;
+    scene.add(plane);
 
     // Click event
     var container = document.getElementsByClassName("whocontainer");
 
     if (container && container.length > 0) {
       container[0].addEventListener("click", () => {
-        particlesMaterial.color.setHex(Math.random() * 0xffffff);
-        addModelGroup();
-
-        if (modelInstance.children.length > 10) {
-          modelInstance.remove(modelInstance.children[0]);
-        } else
-          setTimeout(() => {
-            modelInstance.remove(modelInstance.children[0]);
-            particlesMaterial.color.setHex(0xffffff);
-          }, 5000);
+        // Change color of cubes group
+        cubes.children.forEach((cube) => {
+          cube.material.color.setHex(Math.random() * 0xffffff);
+        });
+        cubes2.children.forEach((cube) => {
+          cube.material.color.setHex(Math.random() * 0xffffff);
+        });
+        cubes3.children.forEach((cube) => {
+          cube.material.color.setHex(Math.random() * 0xffffff);
+        });
       });
-    } else {
-      console.log("No container found");
-    }
+    } else;
 
-    // Another click event
-    var workPage1 = document.getElementsByClassName("veravitalize");
-
-    if (workPage1 && workPage1.length > 0) {
-      workPage1[0].addEventListener("click", () => {
-        pointLightBlue.color.setHex(0x008000);
-        pointLightRed.color.setHex(0x008000);
-
-        pointLightBlue.intensity = 100;
-        pointLightRed.intensity = 100;
-      });
-    } else {
-      console.log("No workPage1 found");
-    }
+    // Add html element
 
     // Geoemtry follows mouse
     var mouse = new THREE.Vector3(0, 0, 0);
@@ -231,14 +206,13 @@ const Experience = () => {
         // Make particles follow mouse position but tiny movement
         particles.rotation.y = elapsedTime * 0.05;
 
-        gltfModelGroup.rotation.x = elapsedTime;
-        gltfModelGroup.rotation.y = elapsedTime;
-
-        gltfModelGroup.position.x = mouse.x;
-        gltfModelGroup.position.y = mouse.y;
-
         // Make cubes rotate
-        cubes.rotation.x = elapsedTime * 0.01;
+        cubes2.rotation.z = elapsedTime * 0.2;
+        cubes.rotation.z = -elapsedTime * 0.05;
+
+        // Camera parallax effect
+        camera.position.x += (mouse.x - camera.position.x) * 0.01;
+        camera.position.y += (mouse.y - camera.position.y) * 0.01;
 
         renderer.render(scene, camera);
         composer.render();
@@ -257,9 +231,6 @@ const Experience = () => {
     // clean up
 
     animate();
-    return () => {
-      mountRef.current.removeChild(renderer.domElement);
-    };
   }, []);
 
   return (
@@ -269,10 +240,10 @@ const Experience = () => {
         display: location.pathname === "/socialmedia" ? "none" : "block",
         width: "100dvw",
         height: "100dvh",
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
-        zIndex: -1,
+        zIndex: -5,
       }}
     ></div>
   );

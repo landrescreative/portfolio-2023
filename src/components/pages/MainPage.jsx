@@ -20,9 +20,8 @@ export default function MainPage() {
       <Header></Header>
       <Introduction></Introduction>
       <Work></Work>
-      <Separator separador_texto="ABOUT ME" />
+      {/* <Separator separador_texto="ABOUT ME" /> */}
       <About />
-      <Separator separador_texto="CONTACT" />
       <Contact />
     </Container>
   );

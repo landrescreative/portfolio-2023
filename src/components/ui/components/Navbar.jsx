@@ -17,7 +17,9 @@ const Navbar = (props) => {
         display: location.pathname === "/socialmedia" ? "none" : "grid",
       }}
     >
-      <h1>LANDRES CREATIVE</h1>
+      <Link className="link" to="/">
+        <h1>LANDRES CREATIVE</h1>
+      </Link>
       <div className={toggle ? "active" : ""}>
         <a href="https://www.linkedin.com/in/landrescreative/" target="_blank">
           LinkedIn
@@ -62,10 +64,23 @@ const Container_Navbar = styled.div`
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #edf0ff;
   z-index: 100;
 
   // LANDRES text
+
+  .link {
+    grid-column: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000000;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / 8;
+    }
+  }
 
   h1 {
     font-size: 22px;
@@ -86,8 +101,12 @@ const Container_Navbar = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    grid-column: 9/13;
+    grid-column: 8/13;
     z-index: 1;
+
+    @media (max-width: 1024px) {
+      grid-column: 5 / 13;
+    }
 
     // Media queries
     @media (max-width: 768px) {
