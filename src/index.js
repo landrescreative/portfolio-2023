@@ -9,11 +9,15 @@ import "./components/fonts/Geist-Thin.otf";
 import "./components/fonts/Geist-Regular.otf";
 import "./components/fonts/Geist-Bold.otf";
 import "./config/i18next.config";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Analytics />
+      <SpeedInsights />
       <App />
     </BrowserRouter>
   </React.StrictMode>
