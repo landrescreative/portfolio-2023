@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa6";
 import SocialButtons from "../components/SocialButtons";
 import { useTranslation } from "react-i18next";
-import profilepicture from "../../assets/test.jpg";
+import profilepicture from "../../assets/Paper-Profile-Pic.jpg";
 
 const Container = styled.div`
   margin: 0;
