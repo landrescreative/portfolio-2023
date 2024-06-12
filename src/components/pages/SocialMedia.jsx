@@ -6,6 +6,8 @@ import {
   FaBehance,
   FaLinkedin,
   FaWhatsapp,
+  FaYoutube,
+  FaTwitter,
 } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -89,8 +91,35 @@ const SocialMedia = () => {
             <a href="https://www.linkedin.com/in/landrescreative/">Linkedin</a>
           </div>
         </button>
+        <button className="social-button">
+          <div className="social-button-icons twitter">
+            <FaTwitter className="icon"></FaTwitter>{" "}
+          </div>
+          <div className="social-button-span">
+            <a href="https://x.com/landrescreative">Twitter</a>
+          </div>
+        </button>
+        <button className="social-button">
+          <div className="social-button-icons youtube">
+            <FaYoutube className="icon"></FaYoutube>{" "}
+          </div>
+          <div className="social-button-span">
+            <a href="https://www.youtube.com/@landrescreative">YouTube</a>
+          </div>
+        </button>
       </div>
-      <div className="social-projects"></div>
+      <div className="social-embed">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/yHKBqA1yWz0?si=FUZSl-7CATVEPKpS"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
       <div class="blob"></div>
     </Container>
   );
@@ -125,7 +154,6 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   position: relative;
-  overflow: hidden;
 
   @media (min-width: 1024px) {
     height: 100vh;
@@ -308,6 +336,14 @@ const Container = styled.div`
       background-color: #0077b5;
     }
 
+    .social-button-icons.twitter {
+      background-color: #00acee;
+    }
+
+    .social-button-icons.youtube {
+      background-color: #ff0000;
+    }
+
     .icon {
       color: #fff;
       font-size: 2rem;
@@ -333,7 +369,10 @@ const Container = styled.div`
     }
   }
 
-  .social-projects {
+  .social-embed {
+    width: 100%;
+    height: 100%;
+    padding: 22px 0;
     display: flex;
     justify-content: center;
     align-items: center;

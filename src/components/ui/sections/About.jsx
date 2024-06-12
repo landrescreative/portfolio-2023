@@ -72,6 +72,7 @@ const Container = styled.div`
       align-self: flex-start;
       font-size: 22px;
       color: #95beff;
+      text-shadow: 0px 2px 16px #95beff;
 
       @media (max-width: 768px) {
         align-self: center;
@@ -79,6 +80,7 @@ const Container = styled.div`
     }
 
     p {
+      font-size: 1.2rem;
       max-width: 80%;
     }
   }
