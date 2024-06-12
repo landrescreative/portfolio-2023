@@ -110,8 +110,7 @@ const SocialMedia = () => {
       </div>
       <div className="social-embed">
         <iframe
-          width="560"
-          height="315"
+          className="social-embed-iframe"
           src="https://www.youtube.com/embed/yHKBqA1yWz0?si=FUZSl-7CATVEPKpS"
           title="YouTube video player"
           frameborder="0"
@@ -376,6 +375,11 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .social-embed-iframe {
+      width: 90%;
+      aspect-ratio: 16/9;
+    }
   }
 `;
 
