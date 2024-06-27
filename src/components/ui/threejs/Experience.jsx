@@ -211,8 +211,8 @@ const Experience = () => {
         cubes.rotation.z = -elapsedTime * 0.05;
 
         // Camera parallax effect
-        camera.position.x += (mouse.x - camera.position.x) * 0.01;
-        camera.position.y += (mouse.y - camera.position.y) * 0.01;
+        camera.position.x += (mouse.x - camera.position.x) * 0.001;
+        camera.position.y += (mouse.y - camera.position.y) * 0.001;
 
         renderer.render(scene, camera);
         composer.render();

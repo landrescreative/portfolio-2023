@@ -11,6 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Preloader from "./components/pages/Preloader";
 import SocialMedia from "./components/pages/SocialMedia";
+import CustomCursor from "./components/ui/components/CustomCursor";
 
 function App() {
   const location = useLocation();
@@ -19,7 +20,7 @@ function App() {
     <div>
       {/* <Preloader></Preloader> */}
       <Navbar></Navbar>
-
+      <CustomCursor></CustomCursor>
       <Routes location={location} key={location.key}>
         <Route path="/" element={<MainPage />} />
         <Route path="/work" element={<Work_Page />} />

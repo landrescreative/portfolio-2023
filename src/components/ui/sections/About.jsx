@@ -98,8 +98,6 @@ const About = () => {
           <div className="about_texts_container">
             <h1>{t("aboutmeh1")}</h1>
             <p>{t("aboutmep1")}</p>
-            <h1>CV</h1>
-            <a>{t("aboutresume")}</a>
           </div>
         </div>
       </div>

@@ -64,12 +64,13 @@ const Container = styled.div`
     font-size: 4rem;
     font-weight: 600;
     font-family: "kallisto";
-
+    color: #1c1c1c;
+    width: 80%;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+
     @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
-    width: 80%;
   }
 
   .main-text:nth-child(2) {

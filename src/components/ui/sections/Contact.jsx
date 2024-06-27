@@ -40,7 +40,7 @@ const Container = styled.div`
 
     .contact_cta {
       display: flex;
-      background-color: #95beff;
+      background-color: #ffffff;
       border-radius: 50px;
       padding: 5px 20px;
       flex-direction: row;
@@ -52,20 +52,21 @@ const Container = styled.div`
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-      box-shadow: 0px 0px 10px 0px rgba(149, 190, 255, 0.9);
+      box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
 
       h1 {
         font-size: 20px;
         font-weight: 300;
         text-align: center;
-        color: #ffffff;
+        color: #1c1c1c;
       }
 
       &:hover {
-        background-color: hsla(0, 0%, 100%, 0.6);
-
+        background-color: #3f75ff;
+        box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
+        transform: scale(1.05);
         h1 {
-          color: #000000;
+          color: #ffffff;
         }
       }
     }
@@ -79,13 +80,25 @@ const Container = styled.div`
       flex-direction: row;
       justify-content: center;
       align-items: center;
-
       font-size: 30px;
       grid-column: 1 / 13;
       background-color: #fff;
       width: 100px;
       height: 100px;
       border-radius: 50%;
+      transition: all 0.3s ease;
+      box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+      color: inherit;
+
+      &:hover {
+        background-color: #3f75ff;
+        transform: scale(1.1);
+        box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
+
+        svg {
+          color: #ffffff;
+        }
+      }
     }
   }
 `;
@@ -102,8 +115,8 @@ const Contact = () => {
 
     setTimeout(() => {
       cta.innerHTML = "landres.creative@gmail.com";
-      cta.style.color = "#ffffff";
-      ctaBox.style.backgroundColor = "hsla(0, 0%, 0%, 0.2)";
+      cta.style.color = "#1c1c1c";
+      ctaBox.style.backgroundColor = "#ffffff";
     }, 3000);
 
     navigator.clipboard.writeText("landres.creative@gmail.com");
@@ -113,9 +126,9 @@ const Contact = () => {
     <Container>
       <div className="contact_container">
         <h1>{t("contacth1")}</h1>
-        <div className="contact_img">
+        <a className="contact_img" href="mailto:landres.creative@gmail.com">
           <FaRegPaperPlane />
-        </div>
+        </a>
         <div className="contact_cta">
           <div className="contact_cta_effect">
             <h1

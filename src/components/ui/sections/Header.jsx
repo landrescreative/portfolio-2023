@@ -52,7 +52,8 @@ const Container = styled.div`
     grid-row: 2 / 4;
     text-align: center;
     align-self: center;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 1024px) {
       grid-column: 1/6;
@@ -72,12 +73,19 @@ const Container = styled.div`
     .test {
       margin: 0 25px;
       width: 300px;
-      height: 300px;
+      height: 100%;
+      aspect-ratio: 1/1;
       border-radius: 50%;
       background-color: #f2f2f2;
       border: 2px solid #f2f2f2;
       align-self: center;
       justify-self: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
+      }
 
       @media (max-width: 1024px) {
         margin: 15px 0;
@@ -141,7 +149,7 @@ const Header = () => {
         <SocialButtons />
       </div>
       <div>
-        <h1>CREATIVE</h1>
+        <h1 className="">CREATIVE</h1>
       </div>
     </Container>
   );
