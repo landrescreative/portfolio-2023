@@ -80,8 +80,8 @@ const Container = styled.div`
     }
 
     p {
-      font-size: 1.2rem;
-      max-width: 80%;
+      font-size: 1.1rem;
+      max-width: 90%;
     }
   }
 `;

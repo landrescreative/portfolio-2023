@@ -21,6 +21,8 @@ const Experience = () => {
   useEffect(() => {
     const scene = new THREE.Scene();
 
+    // Check if component is mounted
+    console.log(mountRef.current);
     // Camera Values
     const camera = new THREE.PerspectiveCamera(
       75,

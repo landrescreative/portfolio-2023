@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import SocialButtons from "../components/SocialButtons";
+import useIsMobile from "../components/useIsMobile";
 
 const Container = styled.div`
   display: flex;
@@ -105,6 +106,7 @@ const Container = styled.div`
 
 const Contact = () => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
 
   function copyToClipboard() {
     var ctaBox = document.getElementsByClassName("contact_cta")[0];
@@ -134,7 +136,9 @@ const Contact = () => {
             <h1
               className="cta_text"
               onClick={() => {
-                copyToClipboard();
+                if (!isMobile) {
+                  copyToClipboard();
+                }
               }}
             >
               landres.creative@gmail.com

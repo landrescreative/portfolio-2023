@@ -32,6 +32,10 @@ const Cursor = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
   &.link-hover {
     width: 100px; /* Tamaño más grande */
     height: 100px; /* Tamaño más grande */
