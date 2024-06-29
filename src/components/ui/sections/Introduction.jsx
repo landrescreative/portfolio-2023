@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import Experience from "../threejs/Experience";
-
 import mask from "../../assets/123.png";
 import mask2 from "../../assets/1234.png";
+import { MdTouchApp } from "react-icons/md";
+import useIsMobile from "../components/useIsMobile";
+import { PiCursorClickFill } from "react-icons/pi";
 
 const Container = styled.div`
   display: grid;
@@ -33,7 +35,7 @@ const Container = styled.div`
       height: 100%;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      background-color: #edf0ff;
+      background-color: #ffffff;
       color: #f2f2f2;
       -webkit-mask-image: url(${mask});
       mask-image: url(${mask});
@@ -57,80 +59,45 @@ const Container = styled.div`
     border-bottom-right-radius: 50px;
     margin-bottom: 1rem;
   }
-  // First section
 
-  .main-text {
-    margin: 0;
-    font-size: 4rem;
-    font-weight: 600;
-    font-family: "kallisto";
-    color: #1c1c1c;
-    width: 80%;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-
-    @media screen and (max-width: 768px) {
-      font-size: 2rem;
-    }
-  }
-
-  .main-text:nth-child(2) {
-    width: 70%;
-  }
-
-  // Second section
-
-  .skills {
-    font-size: 4rem;
-    font-weight: 500;
-    font-family: "kallisto";
-    padding: 6rem 5rem;
-
-    @media screen and (max-width: 768px) {
-      padding: 3rem 3rem;
-      font-size: 2rem;
-    }
-  }
-
-  .skills:nth-child(1) {
-    align-self: flex-start;
-
-    @media screen and (max-width: 768px) {
-      align-self: flex-start;
-    }
-  }
-
-  .skills:nth-child(2) {
-    align-self: center;
-
-    @media screen and (max-width: 768px) {
-      align-self: flex-start;
-    }
-  }
-
-  .skills:nth-child(3) {
-    align-self: flex-end;
-
-    @media screen and (max-width: 768px) {
-      align-self: flex-start;
-    }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c;
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+    color: #f2f2f2;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
   }
 `;
 
 const Introduction = () => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
+
+  // First click changes the opacity of the text to 0
+
+  const handleClick = () => {
+    gsap.to(".buttontouch", {
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+  };
 
   return (
     <Container>
       <div className="section whocontainer">
-        <h1 className="main-text"> {t("who")} </h1>
-        <h1 className="main-text"> {t("what")} </h1>
+        <a onClick={handleClick} className="buttontouch">
+          {isMobile ? <MdTouchApp></MdTouchApp> : <PiCursorClickFill />}
+        </a>
         <Experience></Experience>
       </div>
-      {/* <div className="section">
-        <h1 className="skills">{t("skillsn1")}</h1>
-        <h1 className="skills">{t("skillsn2")}</h1>
-        <h1 className="skills">{t("skillsn3")}</h1>
-      </div> */}
     </Container>
   );
 };

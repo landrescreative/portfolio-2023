@@ -12,7 +12,7 @@ const Container = styled.div`
   grid-template-columns: repeat(12, 1fr);
   justify-items: center;
   align-content: center;
-  background-color: #edf0ff;
+  background-color: #ffffff;
   color: #000000;
 
   @media screen and (max-width: 768px) {

@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div>
-      {/* <Preloader></Preloader> */}
+      <Preloader></Preloader>
       <Navbar></Navbar>
       <CustomCursor></CustomCursor>
       <Routes location={location} key={location.key}>

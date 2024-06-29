@@ -5,6 +5,8 @@
   font-weight: 500;
  }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
  @font-face {
   font-family: "Geist";
   src: local("Geist"),
@@ -48,7 +50,7 @@
 
 /* Cambiar el estilo del pulgar de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
-  background-color: #f2f2f2; /* Color del pulgar */
+  background-color: #007bff; /* Color del pulgar */
   border-radius: 6px; /* Bordes redondeados del pulgar */
 }
 
@@ -65,9 +67,9 @@
 
 body {
 overflow-x: hidden;
-  background-color: #edf0ff;
+  background-color: #ffffff;
   margin: 0;
-  font-family: "Geist", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

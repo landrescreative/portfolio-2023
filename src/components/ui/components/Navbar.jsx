@@ -64,7 +64,7 @@ const Container_Navbar = styled.div`
   grid-template-rows: 1fr;
   align-content: center;
   justify-content: center;
-  background-color: #edf0ff;
+  background-color: #ffffff;
   z-index: 100;
 
   // LANDRES text

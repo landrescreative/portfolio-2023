@@ -6,6 +6,7 @@ import About from "../ui/sections/About";
 import Contact from "../ui/sections/Contact";
 import Introduction from "../ui/sections/Introduction";
 import { motion } from "framer-motion";
+import Services from "../ui/components/Services";
 
 const Container = styled(motion.div)`
   margin: 0;
@@ -17,8 +18,8 @@ export default function MainPage() {
     <Container>
       <Header></Header>
       <Introduction></Introduction>
+      {/* <Services></Services> */}
       <Work></Work>
-      {/* <Separator separador_texto="ABOUT ME" /> */}
       <About />
       <Contact />
     </Container>

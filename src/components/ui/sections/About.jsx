@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 100%;
   padding: 2rem 0;
   grid-template-columns: repeat(12, 1fr);
-  background-color: #edf0ff;
+  background-color: #ffffff;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #000000;

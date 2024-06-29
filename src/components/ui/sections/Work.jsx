@@ -14,8 +14,8 @@ import img6 from "../../assets/Powerkick-mockup.webp";
 
 const Container = styled.div`
   display: grid;
+  background-color: hsla(0, 0%, 100%, 1);
   grid-template-columns: repeat(12, 1fr);
-  background-color: #000000;
   backdrop-filter: blur(10px);
   .gallery {
     grid-column: 1 / 13;
@@ -37,7 +37,7 @@ const Container = styled.div`
       overflow: hidden;
       border-radius: 16px;
       transition: all 0.4s ease-in-out;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;

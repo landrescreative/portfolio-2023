@@ -231,8 +231,11 @@ const Experience = () => {
     });
 
     // clean up
-
     animate();
+
+    return () => {
+      mountRef.current.removeChild(renderer.domElement);
+    };
   }, []);
 
   return (
@@ -240,10 +243,7 @@ const Experience = () => {
       ref={mountRef}
       style={{
         display: location.pathname === "/socialmedia" ? "none" : "block",
-        width: "100dvw",
-        height: "100dvh",
         position: "absolute",
-        top: 0,
         left: 0,
         zIndex: -5,
       }}

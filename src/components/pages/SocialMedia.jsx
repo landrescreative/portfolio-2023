@@ -123,25 +123,6 @@ const SocialMedia = () => {
   );
 };
 
-const animate = keyframes`
-  0% {
-    translate: 40% -25%;
-    border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
-  }
-  50% {
-    translate: 0% 100%;
-    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
-    rotate: 41deg;
-    scale: 1.15;
-  }
-  100% {
-    translate: -45% 39%;
-    border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
-    rotate: -60deg;
-    scale: 1.05;
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   width: 100vw;
@@ -155,23 +136,6 @@ const Container = styled.div`
 
   @media (min-width: 1024px) {
     height: 100vh;
-  }
-
-  .blob {
-    position: absolute;
-    opacity: 0.2;
-    width: 400px;
-    aspect-ratio: 1/1;
-    animation: ${animate} 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
-      alternate forwards;
-    filter: blur(60px);
-    z-index: 1;
-    background: linear-gradient(
-      47deg,
-      rgba(45, 86, 255, 1) 40%,
-      rgba(255, 0, 110, 1) 55%,
-      rgba(255, 0, 110, 1) 100%
-    );
   }
 
   .social-user-info {

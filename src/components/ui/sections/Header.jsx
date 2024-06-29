@@ -1,150 +1,70 @@
 import React from "react";
 import styled from "styled-components";
-import SocialButtons from "../components/SocialButtons";
-import { useTranslation } from "react-i18next";
-import profilepicture from "../../assets/Paper-Profile-Pic.webp";
+import img1 from "../../assets/Paper-Profile-Pic.webp";
 
-const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-content: center;
+const Header = () => {
+  return (
+    <HeaderContainer>
+      <HeaderText>
+        <RoleText>Designer & Developer</RoleText>
+        <Description>
+          I'm Andres, passionate about crafting brand experiences through
+          design. Let's elevate your brand together.
+        </Description>
+      </HeaderText>
+    </HeaderContainer>
+  );
+};
+
+// Styled Components
+const HeaderContainer = styled.header`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: #edf0ff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  padding: 1rem 0;
+  text-align: center;
+  background-color: #ffffff;
+`;
+
+const HeaderText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter Tight", sans-serif;
   color: #000000;
+  max-width: 70%;
 
-  @media screen and (max-width: 1024px) {
-    height: auto;
-    grid-template-rows: repeat(1, 1fr);
-  }
-
-  div:nth-child(1) {
-    grid-column: 2/5;
-    grid-row: 1 / 2;
-    text-align: left;
-    align-self: center;
-    justify-content: center;
-    font-family: "kallisto";
-    font-weight: 800;
-    font-size: 50px;
-
-    @media (max-width: 1024px) {
-      text-align: center;
-      grid-column: 1/6;
-      font-size: 26px;
-    }
-  }
-
-  div:nth-child(2) {
-    display: flex;
-    grid-column: 3/4;
-    grid-row: 2 / 4;
-    text-align: center;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-
-    @media (max-width: 1024px) {
-      grid-column: 1/6;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    // Hello im alex text
-    h1 {
-      font-size: 20px;
-      font-weight: 300;
-      align-self: center;
-      font-family: "Montserrat";
-    }
-
-    // IMG
-    .test {
-      margin: 0 25px;
-      width: 300px;
-      height: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      background-color: #f2f2f2;
-      border: 2px solid #f2f2f2;
-      align-self: center;
-      justify-self: center;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
-      }
-
-      @media (max-width: 1024px) {
-        margin: 15px 0;
-        width: 200px;
-        height: 200px;
-      }
-    }
-
-    // Social media icons
-    a {
-      font-size: 34px;
-      align-self: center;
-      color: #000000;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-  }
-
-  div:nth-child(3) {
-    grid-column: 2/5;
-    grid-row: 4 / 5;
-    text-align: right;
-    align-self: center;
-    justify-content: center;
-    font-size: 50px;
-    font-family: "kallisto";
-    font-weight: 800;
-
-    @media (max-width: 1024px) {
-      text-align: center;
-      grid-column: 1/6;
-      font-size: 26px;
-    }
-  }
-
-  div:nth-child(4) {
-    text-align: center;
-    grid-column: 2/5;
-    grid-row: 5 / 6;
-    align-self: center;
-    font-size: 28px;
-
-    a {
-      color: #f2f2f2;
-      text-decoration: none;
-    }
+  @media (max-width: 768px) {
+    max-width: 90%;
   }
 `;
 
-const Header = () => {
-  const { t } = useTranslation();
+const RoleText = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0;
+  color: #007bff;
+`;
 
-  return (
-    <Container>
-      <div>
-        <h1 className="landres-text">LANDRES</h1>
-      </div>
-      <div>
-        <h1> {t("welcome")} </h1>
-        <img className="test" src={profilepicture}></img>
-        <SocialButtons />
-      </div>
-      <div>
-        <h1 className="">CREATIVE</h1>
-      </div>
-    </Container>
-  );
-};
+const Description = styled.p`
+  width: 90%;
+  margin: 1rem 0;
+  font-size: 3rem;
+  color: #333333;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+`;
+
+const HeaderImage = styled.img`
+  border-radius: 50%;
+  max-width: 100%;
+  width: 300px;
+
+  margin-top: 20px;
+`;
 
 export default Header;
