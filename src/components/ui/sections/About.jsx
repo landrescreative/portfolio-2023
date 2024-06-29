@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Separator from "../components/Separator";
 import { useTranslation } from "react-i18next";
 
 // Img
-import profilepicture from "../../assets/prof1.jpg";
+import profilepicture from "../../assets/prof1.webp";
 
 const Container = styled.div`
   display: grid;

@@ -12,8 +12,7 @@ import {
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-import profilepicture from "../assets/Paper-Profile-Pic.jpg";
-import backgroundImg from "../assets/LightBlue-Blue-Pink.png";
+import profilepicture from "../assets/Paper-Profile-Pic.webp";
 
 const SocialMedia = () => {
   function copyToClipboard() {

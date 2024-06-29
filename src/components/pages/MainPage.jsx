@@ -5,8 +5,6 @@ import Work from "../ui/sections/Work";
 import About from "../ui/sections/About";
 import Contact from "../ui/sections/Contact";
 import Introduction from "../ui/sections/Introduction";
-import Separator from "../ui/components/Separator";
-import SocialButtons from "../ui/components/SocialButtons";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`

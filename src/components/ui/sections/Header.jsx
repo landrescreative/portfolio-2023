@@ -1,16 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  FaInstagram,
-  FaBehance,
-  FaGithub,
-  FaLinkedinIn,
-  FaLinkedin,
-  FaArrowDownLong,
-} from "react-icons/fa6";
 import SocialButtons from "../components/SocialButtons";
 import { useTranslation } from "react-i18next";
-import profilepicture from "../../assets/Paper-Profile-Pic.jpg";
+import profilepicture from "../../assets/Paper-Profile-Pic.webp";
 
 const Container = styled.div`
   margin: 0;

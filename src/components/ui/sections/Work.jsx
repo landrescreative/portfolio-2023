@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import Separator from "../components/Separator";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 
 // Images
-import img1 from "../../assets/Gif2.gif";
-import img2 from "../../assets/Gif The Old.gif";
-import img3 from "../../assets/launchsark.png";
-import img4 from "../../assets/Pringles.png";
-import img5 from "../../assets/Software-Agecny.gif";
-import img6 from "../../assets/Powerkick-mockup.jpg";
+import img1 from "../../assets/veravitalizevideo.webm";
+import img2 from "../../assets/theold.webm";
+import img3 from "../../assets/launchsark.webp";
+import img4 from "../../assets/Pringles.webp";
+import img5 from "../../assets/codicavideo.webm";
+import img6 from "../../assets/Powerkick-mockup.webp";
 
 const Container = styled.div`
   display: grid;
@@ -44,7 +43,8 @@ const Container = styled.div`
         margin: 0px 15px;
       }
 
-      img {
+      img,
+      video {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -142,8 +142,9 @@ const Work = () => {
                 <span>GSAP</span>
               </div>
             </div>
-
-            <img src={img1}></img>
+            <video autoPlay loop muted>
+              <source src={img1} type="video/webm" />
+            </video>
           </Link>
         </div>
         <div className="thumbnails" id="work_images">
@@ -177,7 +178,9 @@ const Work = () => {
               </div>
             </div>
 
-            <img src={img2}></img>
+            <video autoPlay loop muted>
+              <source src={img2} type="video/webm" />
+            </video>
           </a>
         </div>
         <div className="thumbnails" id="work_images">
@@ -204,7 +207,9 @@ const Work = () => {
                 <span>ThreeJS</span>
               </div>
             </div>
-            <img src={img5}></img>
+            <video autoPlay loop muted>
+              <source src={img5} type="video/webm" />
+            </video>
           </a>
         </div>
         <div className="thumbnails" id="work_images">

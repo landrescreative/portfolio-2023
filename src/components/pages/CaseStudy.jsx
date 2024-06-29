@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 // Images
-import veravitalize from "../../components/assets/veravitalize.png";
-import mockup from "../../components/assets/Clay_Mockup.png";
-import mockup2 from "../../components/assets/mockup-vera.png";
+import veravitalize from "../../components/assets/veravitalize.webp";
+import mockup from "../../components/assets/Clay_Mockup.webp";
+import mockup2 from "../../components/assets/mockup-vera.webp";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
