@@ -18,7 +18,7 @@ const Container = styled(motion.div)`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #edf0ff;
+  background-color: #ffff;
 
   .website-name {
     height: 10vh;

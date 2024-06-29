@@ -234,7 +234,9 @@ const Experience = () => {
     animate();
 
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      if (mountRef.current && mountRef.current.contains(renderer.domElement)) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
     };
   }, []);
 

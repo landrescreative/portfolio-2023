@@ -15,11 +15,12 @@ const Container = styled.div`
   position: relative;
 
   .section {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
   }
 
   .section:nth-child(1) {
