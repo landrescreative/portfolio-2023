@@ -18,33 +18,41 @@ const ServicesContainer = styled.div`
 `;
 
 const LeftSection = styled.div`
-  flex: 1;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     margin-bottom: 0;
-    margin-right: 20px;
+    align-items: center;
   }
 `;
 
-const RightSection = styled.div`
-  flex: 1;
-`;
+const RightSection = styled.div``;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   margin: 0;
   color: ${(props) => props.theme.colors.primary};
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    text-align: center;
+  }
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2rem;
   color: #666;
   padding-right: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-right: 0;
+  }
 `;
 
 const ServicesList = styled.ul`
@@ -60,6 +68,10 @@ const ServiceContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &:hover {
+    background: #f9f9f9;
+  }
 `;
 
 const ServiceText = styled.div`
