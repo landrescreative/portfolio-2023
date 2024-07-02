@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import img1 from "../../assets/Paper-Profile-Pic.webp";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <HeaderContainer>
       <HeaderText>
-        <RoleText>Designer & Developer</RoleText>
-        <Description>
-          I'm Andres, passionate about crafting brand experiences through
-          design. Let's elevate your brand together.
-        </Description>
+        <RoleText>{t("who")}</RoleText>
+        <Description>{t("welcome")}</Description>
       </HeaderText>
     </HeaderContainer>
   );

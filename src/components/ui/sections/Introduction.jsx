@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import Experience from "../threejs/Experience";
@@ -9,6 +9,21 @@ import { MdTouchApp } from "react-icons/md";
 import useIsMobile from "../components/useIsMobile";
 import { PiCursorClickFill } from "react-icons/pi";
 
+// Animation
+const animation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+
+`;
+
+// Styling
 const Container = styled.div`
   display: grid;
   text-align: center;
@@ -61,7 +76,7 @@ const Container = styled.div`
     margin-bottom: 1rem;
   }
 
-  a {
+  .buttontouch {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,6 +89,7 @@ const Container = styled.div`
     cursor: pointer;
     border-radius: 50%;
     z-index: 2;
+    animation: ${animation} 2s infinite;
   }
 `;
 
@@ -93,8 +109,8 @@ const Introduction = () => {
 
   return (
     <Container>
-      <div className="section whocontainer">
-        <a onClick={handleClick} className="buttontouch">
+      <div onClick={handleClick} className="section whocontainer">
+        <a className="buttontouch">
           {isMobile ? <MdTouchApp></MdTouchApp> : <PiCursorClickFill />}
         </a>
         <Experience></Experience>

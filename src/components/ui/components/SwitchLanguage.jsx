@@ -40,7 +40,7 @@ export default function SwitchLanguage() {
 
   const animateText = () => {
     // Select all the H1 in the entire document
-    const h1 = document.querySelectorAll("h1");
+    const h1 = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, span");
 
     // Loop through all the H1 and change his background color
     h1.forEach((h) => {
