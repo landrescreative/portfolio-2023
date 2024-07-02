@@ -31,5 +31,10 @@
     "veravitalize_techt": "TECNOLOGÍA UTILIZADA",
     "veravitalize_tech": "Investigación: Analicé las tendencias actuales en la presentación de productos y recopilé comentarios de usuarios potenciales sobre sus expectativas en una tienda en línea. \n Modelado 3D: Colaboramos con expertos en modelado 3D para crear representaciones precisas y detalladas del producto. Esto incluyó texturización realista y animaciones que muestran el uso y los beneficios del aloe vera. \n Integración Web: Implementamos los modelos 3D en el sitio web utilizando tecnologías compatibles con la mayoría de los navegadores, asegurando una carga rápida y una navegación fluida.",
     "veravitalize_objetivet": "METAS Y OBJETIVOS",
-    "veravitalize_objetive": "Diferenciación: Crear una forma única de presentar el producto en línea para diferenciarse en un mercado saturado.\n Experiencia del usuario: Implementar modelos 3D para que los clientes interactúen de una mejor manera con el producto.\n Seguir la ideología de la marca: Su idea de ser una marca transparente, creando un producto transparente."
+    "veravitalize_objetive": "Diferenciación: Crear una forma única de presentar el producto en línea para diferenciarse en un mercado saturado.\n Experiencia del usuario: Implementar modelos 3D para que los clientes interactúen de una mejor manera con el producto.\n Seguir la ideología de la marca: Su idea de ser una marca transparente, creando un producto transparente.",
+    "services": "Servicios",
+    "services_p": "¿Qué necesita tu marca? Si no estás seguro, pregunta por una consultoría GRATUIRA.",	
+    "service_1": "Diseño Gráfico",
+    "service_2": "Desarrollo Web",
+    "service_3": "Diseño UI/UX"
 }

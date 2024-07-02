@@ -31,5 +31,10 @@
     "veravitalize_techt": "TECHNOLOGIES USED",
     "veravitalize_tech": "• Rearch: I analyzed current design and website trends.\n• 3D Modeling: The product has been modeled in 3D using Blender and Maya. This included realistic texturing and animations showing the use and benefits of aloe vera. \n • Web Integration: I implemented the 3D models on the website using technologies compatible with most browsers, ensuring fast loading and smooth navigation.",
     "veravitalize_objetivet": "GOALS AND OBJECTIVES",
-    "veravitalize_objetive": "• Differentiation: Create a unique way of presenting the product online, to differentiate yourself within a saturated market. \n • User Experience: Implement 3D models so that customers interact in a better way with the product. \n • Follow the brand ideology: Its idea of ​​being a transparent brand, creating a transparent product."
+    "veravitalize_objetive": "• Differentiation: Create a unique way of presenting the product online, to differentiate yourself within a saturated market. \n • User Experience: Implement 3D models so that customers interact in a better way with the product. \n • Follow the brand ideology: Its idea of ​​being a transparent brand, creating a transparent product.",
+    "services": "Services",
+    "services_p": "What does your brand need? If you're not sure, ask for a FREE consultation.",
+    "service_1": "Graphics Design",
+    "service_2": "Web Development",
+    "service_3": "UI/UX Design"
 }

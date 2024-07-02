@@ -28,6 +28,7 @@ const Container = styled.div`
   display: grid;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
 
   .section {
     min-height: 100vh;
@@ -49,8 +50,7 @@ const Container = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+
       background-color: #ffffff;
       color: #f2f2f2;
       -webkit-mask-image: url(${mask});

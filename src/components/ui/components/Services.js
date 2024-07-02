@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BsArrowRight } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 // Estilos del componente Services usando styled-components
 const ServicesContainer = styled.div`
@@ -8,7 +9,7 @@ const ServicesContainer = styled.div`
   flex-direction: column;
   align-items: stretch;
   background-color: #ffffff;
-  padding: 50px 20px;
+  padding: 50px 50px;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -19,6 +20,10 @@ const ServicesContainer = styled.div`
 const LeftSection = styled.div`
   flex: 1;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
   @media (min-width: 768px) {
     margin-bottom: 0;
@@ -32,14 +37,14 @@ const RightSection = styled.div`
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
+  margin: 0;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2rem;
   color: #666;
-  margin-bottom: 30px;
+  padding-right: 3rem;
 `;
 
 const ServicesList = styled.ul`
@@ -68,7 +73,7 @@ const ServiceTitle = styled.h2`
 `;
 
 const ContactButton = styled.a`
-  background-color: #333;
+  background-color: ${(props) => props.theme.colors.primary};
   color: #fff;
   text-decoration: none;
   display: inline-flex;
@@ -77,34 +82,50 @@ const ContactButton = styled.a`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   border: none;
-  cursor: pointer;
+  cursor: none;
 
   &:hover {
     background-color: #555;
+    transform: scale(1.1);
+  }
+
+  // modify background of parent on hover of child
+  &:hover ~ .containerservice {
+    background: #555;
   }
 
   svg {
+    transform: rotate(-45deg);
     font-size: 1.5rem;
   }
 `;
 
 const Services = () => {
+  // Traducción de textos
+  const { t } = useTranslation();
+
+  // This handle scroll event on click to contact button
+  const handleScroll = () => {
+    const contactSection = document.getElementById("contact_cta");
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <ServicesContainer>
       <LeftSection>
-        <Title>Services</Title>
-        <Subtitle>What does your brand need?</Subtitle>
+        <Title> {t("services")} </Title>
+        <Subtitle>{t("services_p")}</Subtitle>
       </LeftSection>
       <RightSection>
         <ServicesList>
-          <ServiceItem>
+          <ServiceItem className="containerservice">
             <ServiceContent>
               <ServiceText>
-                <ServiceTitle>Graphic Design</ServiceTitle>
+                <ServiceTitle>{t("service_1")}</ServiceTitle>
               </ServiceText>
-              <ContactButton href="#contact">
+              <ContactButton href="#contact" onClick={handleScroll}>
                 <BsArrowRight />
               </ContactButton>
             </ServiceContent>
@@ -113,9 +134,9 @@ const Services = () => {
           <ServiceItem>
             <ServiceContent>
               <ServiceText>
-                <ServiceTitle>Web Developer</ServiceTitle>
+                <ServiceTitle>{t("service_2")}</ServiceTitle>
               </ServiceText>
-              <ContactButton href="#contact">
+              <ContactButton href="#contact" onClick={handleScroll}>
                 <BsArrowRight />
               </ContactButton>
             </ServiceContent>
@@ -124,24 +145,14 @@ const Services = () => {
           <ServiceItem>
             <ServiceContent>
               <ServiceText>
-                <ServiceTitle>UI/UX Designer</ServiceTitle>
+                <ServiceTitle>{t("service_3")}</ServiceTitle>
               </ServiceText>
-              <ContactButton href="#contact">
+              <ContactButton href="#contact" onClick={handleScroll}>
                 <BsArrowRight />
               </ContactButton>
             </ServiceContent>
           </ServiceItem>
           <hr />
-          <ServiceItem>
-            <ServiceContent>
-              <ServiceText>
-                <ServiceTitle>Design Consultancy</ServiceTitle>
-              </ServiceText>
-              <ContactButton href="#contact">
-                <BsArrowRight />
-              </ContactButton>
-            </ServiceContent>
-          </ServiceItem>
           {/* Add more service items here as needed */}
         </ServicesList>
       </RightSection>

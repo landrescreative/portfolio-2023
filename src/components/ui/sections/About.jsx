@@ -70,8 +70,7 @@ const Container = styled.div`
     h1 {
       align-self: flex-start;
       font-size: 22px;
-      color: #95beff;
-      text-shadow: 0px 2px 16px #95beff;
+      color: ${(props) => props.theme.colors.primary};
 
       @media (max-width: 768px) {
         align-self: center;

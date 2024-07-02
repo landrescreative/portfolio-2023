@@ -131,7 +131,7 @@ const Contact = () => {
         <a className="contact_img" href="mailto:landres.creative@gmail.com">
           <FaRegPaperPlane />
         </a>
-        <div className="contact_cta">
+        <div className="contact_cta" id="contact_cta">
           <div className="contact_cta_effect">
             <h1
               className="cta_text"

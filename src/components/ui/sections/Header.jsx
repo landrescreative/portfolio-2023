@@ -45,7 +45,7 @@ const RoleText = styled.h2`
   font-size: 2.5rem;
   font-weight: 900;
   margin: 0;
-  color: #007bff;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 const Description = styled.p`
@@ -57,14 +57,6 @@ const Description = styled.p`
   @media (max-width: 768px) {
     font-size: 2rem;
   }
-`;
-
-const HeaderImage = styled.img`
-  border-radius: 50%;
-  max-width: 100%;
-  width: 300px;
-
-  margin-top: 20px;
 `;
 
 export default Header;

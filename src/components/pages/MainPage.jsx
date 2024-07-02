@@ -18,7 +18,7 @@ export default function MainPage() {
     <Container>
       <Header></Header>
       <Introduction></Introduction>
-      {/* <Services></Services> */}
+      <Services></Services>
       <Work></Work>
       <About />
       <Contact />

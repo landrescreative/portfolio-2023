@@ -11,6 +11,13 @@ import "./components/fonts/Geist-Bold.otf";
 import "./config/i18next.config";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { ThemeProvider } from "styled-components";
+
+const theme = {
+  colors: {
+    primary: "#0070f3",
+  },
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,7 +25,9 @@ root.render(
     <BrowserRouter>
       <Analytics />
       <SpeedInsights />
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
