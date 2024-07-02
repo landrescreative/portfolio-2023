@@ -4,6 +4,7 @@ import { FaArrowRightLong, FaRegPaperPlane } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import SocialButtons from "../components/SocialButtons";
 import useIsMobile from "../components/useIsMobile";
+import { keyframes } from "styled-components";
 
 const Container = styled.div`
   display: flex;
@@ -32,11 +33,12 @@ const Container = styled.div`
       margin: 0px 0.5rem;
     }
 
-    h1 {
+    .contact_h1 {
       grid-column: 1 / 13;
       text-align: center;
       font-size: 50px;
       font-weight: 800;
+      color: ${(props) => props.theme.colors.primary};
     }
 
     .contact_cta {
@@ -127,7 +129,7 @@ const Contact = () => {
   return (
     <Container>
       <div className="contact_container">
-        <h1>{t("contacth1")}</h1>
+        <h1 className="contact_h1">{t("contacth1")}</h1>
         <a className="contact_img" href="mailto:landres.creative@gmail.com">
           <FaRegPaperPlane />
         </a>

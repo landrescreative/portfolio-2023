@@ -18,6 +18,7 @@ const ServicesContainer = styled.div`
 `;
 
 const LeftSection = styled.div`
+  flex: 1;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -30,7 +31,9 @@ const LeftSection = styled.div`
   }
 `;
 
-const RightSection = styled.div``;
+const RightSection = styled.div`
+  flex: 1;
+`;
 
 const Title = styled.h1`
   font-size: 2.5rem;

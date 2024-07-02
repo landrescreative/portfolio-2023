@@ -6,6 +6,7 @@ import {
   FaGithub,
   FaLinkedinIn,
   FaLinkedin,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 const Container = styled.div`
@@ -30,7 +31,7 @@ const Container = styled.div`
     position: relative;
     top: 0;
     width: 100%;
-    background-color: hsla(0, 0%, 0%, 1);
+    background-color: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
     padding: 2px;
     height: 100%;
@@ -71,6 +72,12 @@ const Container = styled.div`
 const SocialButtons = () => {
   return (
     <Container>
+      <a className="icon" href="https://wa.me/525510492408">
+        <FaWhatsapp />
+        <div className="overlay">
+          <span>WhatsApp</span>
+        </div>
+      </a>
       <a className="icon" href="https://www.instagram.com/landrescreative/">
         <FaInstagram />
         <div className="overlay">
