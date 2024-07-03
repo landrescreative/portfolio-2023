@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import img1 from "../../assets/Paper-Profile-Pic.webp";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
@@ -11,6 +10,11 @@ const Header = () => {
       <HeaderText>
         <RoleText>{t("who")}</RoleText>
         <Description>{t("welcome")}</Description>
+        <SelfDescription>{t("description")}</SelfDescription>
+        <ButtonContainer>
+          <ActionButton>{t("cta1")}</ActionButton>
+          <ActionButton>{t("cta2")}</ActionButton>
+        </ButtonContainer>
       </HeaderText>
     </HeaderContainer>
   );
@@ -22,7 +26,7 @@ const HeaderContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 5rem 0;
   text-align: center;
   background-color: #ffffff;
 `;
@@ -42,20 +46,52 @@ const HeaderText = styled.div`
 `;
 
 const RoleText = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: 500;
   margin: 0;
   color: ${(props) => props.theme.colors.primary};
 `;
 
-const Description = styled.p`
+const Description = styled.h2`
   width: 90%;
   margin: 1rem 0;
-  font-size: 3rem;
+  font-size: 5rem;
+  font-weight: 600;
   color: #333333;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 5rem;
+  }
+`;
+
+const SelfDescription = styled.h3`
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #333333;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+`;
+
+const ActionButton = styled.button`
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  // Hover animation
+  &:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 16px rgba(0, 0, 255, 0.5);
   }
 `;
 

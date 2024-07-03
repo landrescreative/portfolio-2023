@@ -7,6 +7,7 @@ import Contact from "../ui/sections/Contact";
 import Introduction from "../ui/sections/Introduction";
 import { motion } from "framer-motion";
 import Services from "../ui/components/Services";
+import TechSlider from "../ui/components/TechSlider";
 
 const Container = styled(motion.div)`
   margin: 0;
@@ -18,6 +19,7 @@ export default function MainPage() {
     <Container>
       <Header></Header>
       <Introduction></Introduction>
+      <TechSlider></TechSlider>
       <Services></Services>
       <Work></Work>
       <About />

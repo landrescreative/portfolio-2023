@@ -63,6 +63,10 @@
  #root{
   white-space: pre-line;
   cursor: none;
+
+  @media (max-width: 768px) {
+    cursor: auto;
+  }
  }
 
 body {
