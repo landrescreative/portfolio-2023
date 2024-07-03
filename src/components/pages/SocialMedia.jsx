@@ -63,7 +63,7 @@ const SocialMedia = () => {
             <FaUser className="icon"></FaUser>
           </div>
           <div className="social-button-span">
-            <a href="https://landrescreative.tech">Portafolio Web</a>
+            <a href="https://landrescreative.com">Portafolio Web</a>
           </div>
         </button>
         <button className="social-button">
@@ -154,16 +154,14 @@ const Container = styled.div`
 
   .social-user {
     font-size: 20px;
-    font-weight: 400;
-    font-family: "Garet";
+    font-weight: 300;
     color: #1c1c1c;
   }
 
   .social-about {
     font-size: 18px;
-    font-weight: 600;
-    font-family: "Garet";
-    color: #2d56ff;
+    font-weight: 800;
+    color: ${(props) => props.theme.colors.primary};
     padding: 0 30px;
     text-transform: uppercase;
   }
@@ -173,13 +171,12 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    font-weight: 400;
-    font-family: "Garet";
+    font-weight: 300;
     color: #1c1c1c;
 
     svg {
       font-size: 23px;
-      color: #2d56ff;
+      color: ${(props) => props.theme.colors.primary};
       margin-right: 5px;
     }
   }
@@ -201,11 +198,10 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    background-color: #2d56ff;
+    background-color: ${(props) => props.theme.colors.primary};
     color: #f2f2f2;
     text-decoration: none;
     font-weight: 600;
-    font-family: "Garet";
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     outline: none;
@@ -326,7 +322,6 @@ const Container = styled.div`
       font-size: 20px;
       letter-spacing: 1px;
       font-weight: 400;
-      font-family: "Garet";
       color: #1c1c1c;
     }
   }

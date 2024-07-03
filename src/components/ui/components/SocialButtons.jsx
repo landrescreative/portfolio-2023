@@ -15,6 +15,7 @@ const Container = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 
   a {
     margin: 0 5px;
@@ -40,11 +41,13 @@ const Container = styled.div`
     transition: all 0.1s ease-in-out;
 
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 34px;
       align-self: center;
       color: #000000;
       text-decoration: none;
-      margin: 0 5px;
     }
 
     span {
@@ -74,33 +77,18 @@ const SocialButtons = () => {
     <Container>
       <a className="icon" href="https://wa.me/525510492408">
         <FaWhatsapp />
-        <div className="overlay">
-          <span>WhatsApp</span>
-        </div>
       </a>
       <a className="icon" href="https://www.instagram.com/landrescreative/">
         <FaInstagram />
-        <div className="overlay">
-          <span>Instagram</span>
-        </div>
       </a>
       <a className="icon" href="https://www.behance.net/luishernandez303">
         <FaBehance />
-        <div className="overlay">
-          <span>Behance</span>
-        </div>
       </a>
       <a className="icon" href="https://github.com/landrescreative">
         <FaGithub />
-        <div className="overlay">
-          <span>Github</span>
-        </div>
       </a>
       <a className="icon" href="https://www.linkedin.com/in/landrescreative/">
         <FaLinkedin />
-        <div className="overlay">
-          <span>Linkedin</span>
-        </div>
       </a>
     </Container>
   );

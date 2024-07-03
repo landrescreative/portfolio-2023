@@ -22,7 +22,6 @@ function App() {
   if (subDomain === "social") {
     return (
       <div>
-        <Navbar></Navbar>
         <Routes location={location} key={location.key}>
           <Route eaxt path="/" element={<SocialMedia />} />
         </Routes>

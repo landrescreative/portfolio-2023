@@ -60,7 +60,7 @@ const Description = styled.h2`
   color: #333333;
 
   @media (max-width: 768px) {
-    font-size: 5rem;
+    font-size: 3rem;
   }
 `;
 

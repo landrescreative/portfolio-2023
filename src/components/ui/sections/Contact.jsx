@@ -43,7 +43,7 @@ const Container = styled.div`
 
     .contact_cta {
       display: flex;
-      background-color: #ffffff;
+      background-color: ${(props) => props.theme.colors.primary};
       border-radius: 50px;
       padding: 5px 20px;
       flex-direction: row;
@@ -61,16 +61,7 @@ const Container = styled.div`
         font-size: 20px;
         font-weight: 300;
         text-align: center;
-        color: #1c1c1c;
-      }
-
-      &:hover {
-        background-color: #3f75ff;
-        box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
-        transform: scale(1.05);
-        h1 {
-          color: #ffffff;
-        }
+        color: #ffffff;
       }
     }
 
@@ -85,7 +76,7 @@ const Container = styled.div`
       align-items: center;
       font-size: 30px;
       grid-column: 1 / 13;
-      background-color: #fff;
+      background-color: ${(props) => props.theme.colors.primary};
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -93,14 +84,14 @@ const Container = styled.div`
       box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
       color: inherit;
 
+      svg {
+        color: #ffffff;
+      }
+
       &:hover {
         background-color: #3f75ff;
-        transform: scale(1.1);
         box-shadow: 0px 0px 10px 5px rgba(149, 190, 255, 0.6);
-
-        svg {
-          color: #ffffff;
-        }
+        transform: scale(1.05);
       }
     }
   }

@@ -1,9 +1,12 @@
 {
     "Navbar_Home": "INICIO",
     "Navbar_About": "ACERCA DE MI",
-    "welcome": "Soy Andrés, apasionado por crear experiencias de marcas a través del diseño. Elevemos tu marca juntos.",
-    "who": "Diseñador y Desarrollador",
+    "welcome": "Vamos a elevar tu marca juntos.",
+    "who": "Diseñador Gráfico y Desarrollador",
     "what": "Mejorando marcas con soluciones modernas e intuitivas.",
+    "description": "👋 Soy Andrés y me apasiona crear experiencias de marca a través del diseño.",
+    "cta1": "Mira mi trabajo",
+    "cta2": "Contáctame",
     "skillsn1": "Diseñador",
     "skillsn2": "Desarrollador",
     "skillsn3": "Artista",
@@ -33,7 +36,7 @@
     "veravitalize_objetivet": "METAS Y OBJETIVOS",
     "veravitalize_objetive": "Diferenciación: Crear una forma única de presentar el producto en línea para diferenciarse en un mercado saturado.\n Experiencia del usuario: Implementar modelos 3D para que los clientes interactúen de una mejor manera con el producto.\n Seguir la ideología de la marca: Su idea de ser una marca transparente, creando un producto transparente.",
     "services": "Servicios",
-    "services_p": "¿Qué necesita tu marca? Si no estás seguro, pregunta por una consultoría GRATUIRA.",	
+    "services_p": "Trabajemos juntos, mis servicios garantizan una comunicación transparente a través del canal que prefieras: email, WhatsApp, Instagram. ¿Qué necesita tu marca? Si no estás seguro, puedes pedirme una consulta gratuita.",	
     "service_1": "Diseño Gráfico",
     "service_2": "Desarrollo Web",
     "service_3": "Diseño UI/UX"
