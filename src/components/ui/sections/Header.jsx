@@ -36,7 +36,7 @@ const HeaderContainer = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0;
+  padding: 2rem 0;
   text-align: center;
   background-color: #ffffff;
 

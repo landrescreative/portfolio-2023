@@ -25,12 +25,12 @@ const Experience = () => {
     console.log(mountRef.current);
     // Camera Values
     const camera = new THREE.PerspectiveCamera(
-      75,
+      50,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 10;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -63,7 +63,6 @@ const Experience = () => {
 
     const particlesMaterial = new THREE.PointsMaterial({
       size: 0.1,
-      map: texture,
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
@@ -71,77 +70,6 @@ const Experience = () => {
     });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
-
-    // Creates a loop of cubes
-    const cubes = new THREE.Group();
-    const cubes2 = new THREE.Group();
-    const cubes3 = new THREE.Group();
-    scene.add(cubes2);
-    scene.add(cubes);
-    scene.add(cubes3);
-
-    const cubeGeometry = new THREE.DodecahedronGeometry(0.4, 0);
-    const cubeMaterial = new THREE.MeshPhysicalMaterial({
-      roughness: 0.1,
-      transmission: 1, // Add transparency
-      thickness: 0.5, // Add refraction!
-    });
-
-    const cubeGeometry2 = new THREE.TorusGeometry(1, 0.4, 16, 30);
-    const cubeMaterial2 = new THREE.MeshPhysicalMaterial({
-      roughness: 0.2,
-      transmission: 1, // Add transparency
-      thickness: 0.5, // Add refraction!
-    });
-
-    const cubeGeometry3 = new THREE.CapsuleGeometry(2, 3, 4, 18);
-    const cubeMaterial3 = new THREE.MeshPhysicalMaterial({
-      color: 0x2d56ff,
-      roughness: 0.2,
-      metalness: 0.2,
-      clearcoat: 1,
-      clearcoatRoughness: 0.1,
-      transmission: 1, // Add transparency
-      thickness: 0.5, // Add refraction!
-    });
-
-    for (let i = 0; i < 30; i++) {
-      const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-      cube.position.x = (Math.random() - 0.5) * 15;
-      cube.position.y = (Math.random() - 0.5) * 10;
-      cube.rotation.x = Math.random() * Math.PI;
-      cube.rotation.y = Math.random() * Math.PI;
-      cube.position.z = (Math.random() - 0.5) * 5;
-      const scale = Math.random() * 2;
-      cube.material.color.setHex(0x2d56ff);
-      cube.scale.set(scale, scale, scale);
-      cubes.add(cube);
-    }
-
-    for (let i = 0; i < 30; i++) {
-      const cube2 = new THREE.Mesh(cubeGeometry2, cubeMaterial2);
-      cube2.position.x = (Math.random() - 0.5) * 15;
-      cube2.position.y = (Math.random() - 0.5) * 10;
-      cube2.position.z = (Math.random() - 0.5) * 10;
-      cube2.rotation.x = Math.random() * Math.PI;
-      cube2.rotation.y = Math.random() * Math.PI;
-      const scale = Math.random() * 0.9;
-      cube2.scale.set(scale, scale, scale);
-      cubes2.add(cube2);
-    }
-
-    for (let i = 0; i < 30; i++) {
-      const cube3 = new THREE.Mesh(cubeGeometry3, cubeMaterial3);
-      cube3.position.x = (Math.random() - 0.5) * 15;
-      cube3.position.y = (Math.random() - 0.5) * 10;
-      cube3.position.z = (Math.random() - 0.5) * 2;
-      cube3.rotation.x = Math.random() * Math.PI;
-      cube3.rotation.y = Math.random() * Math.PI;
-      cube3.material.color.setHex(0x00ff1a);
-      const scale = Math.random() * 0.2;
-      cube3.scale.set(scale, scale, scale);
-      cubes3.add(cube3);
-    }
 
     // Post Processing
 
@@ -160,24 +88,6 @@ const Experience = () => {
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.position.z = -10;
     scene.add(plane);
-
-    // Click event
-    var container = document.getElementsByClassName("whocontainer");
-
-    if (container && container.length > 0) {
-      container[0].addEventListener("click", () => {
-        // Change color of cubes group
-        cubes.children.forEach((cube) => {
-          cube.material.color.setHex(Math.random() * 0xffffff);
-        });
-        cubes2.children.forEach((cube) => {
-          cube.material.color.setHex(Math.random() * 0xffffff);
-        });
-        cubes3.children.forEach((cube) => {
-          cube.material.color.setHex(Math.random() * 0xffffff);
-        });
-      });
-    } else;
 
     // Add html element
 
@@ -199,6 +109,24 @@ const Experience = () => {
 
     window.addEventListener("mousemove", onMouseMove);
 
+    // Load model
+    let mixer;
+    let model;
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load("/assets/testcharacter.glb", (gltf) => {
+      model = gltf.scene;
+      model.position.y = -9;
+      model.position.x = 0;
+      model.position.z = -3;
+      model.scale.set(1, 1, 1);
+      scene.add(model);
+
+      // Animation
+      mixer = new THREE.AnimationMixer(model);
+      const action = mixer.clipAction(gltf.animations[1]);
+      action.play();
+    });
+
     const clock = new THREE.Clock();
     const animate = () => {
       setTimeout(() => {
@@ -208,16 +136,28 @@ const Experience = () => {
         // Make particles follow mouse position but tiny movement
         particles.rotation.y = elapsedTime * 0.05;
 
-        // Make cubes rotate
-        cubes2.rotation.z = elapsedTime * 0.2;
-        cubes.rotation.z = -elapsedTime * 0.05;
+        // Camara parallax effect on mouse move
+        // camera.position.x += (mouse.x - camera.position.x) * 0.01;
+        // camera.position.y += (-mouse.y - camera.position.y) * 0.01;
 
-        // Camera parallax effect
-        camera.position.x += (mouse.x - camera.position.x) * 0.001;
-        camera.position.y += (mouse.y - camera.position.y) * 0.001;
+        // Animate gltf model
+        scene.children.forEach((child) => {
+          if ((child.name = "Scene")) {
+            child.children.forEach((child) => {
+              if (child.name === "Cube003") {
+                child.rotation.y = elapsedTime * 0.5;
+              }
+            });
+          }
+        });
 
         renderer.render(scene, camera);
         composer.render();
+
+        // Update mixer
+        if (mixer) {
+          mixer.update(0.02);
+        }
       }, 1000 / 72);
     };
 

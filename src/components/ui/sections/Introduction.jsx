@@ -31,12 +31,13 @@ const Container = styled.div`
   overflow-x: hidden;
 
   .section {
-    min-height: 100vh;
+    width: 100vw;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .section:nth-child(1) {
@@ -59,20 +60,11 @@ const Container = styled.div`
       mask-repeat: no-repeat;
       // ADd Shadow
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1024px) {
         -webkit-mask-image: url(${mask2});
         mask-image: url(${mask2});
       }
     }
-  }
-
-  .section:nth-child(2) {
-    background-color: hsla(0, 0%, 100%, 0.94);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    margin-bottom: 1rem;
   }
 
   .buttontouch {
