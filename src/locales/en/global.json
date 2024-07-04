@@ -43,6 +43,14 @@
     "service_1_description":"I turn your ideas into professional visuals. From logos to marketing materials, I create designs that capture your brand and communicate your message effectively.",
     "service_2_description":"I build custom websites that look great and work smoothly. Using the latest tech, I ensure your site is fast, secure, and scalable.",
     "service_3_description":"I design easy-to-use interfaces and engaging experiences. My user-focused approach makes sure every design is intuitive and visually appealing, boosting user satisfaction and retention.",
-    "socialTitle": "Luis Andres | Designer & Developer"
+    "socialTitle": "Luis Andres | Designer & Developer",
+    "veraVitalizeMision": "Project Mission",
+    "veraVitalizeMisionP": "VeraVitalize is an Aloe Vera cream. My mission was to design the product, create its online presence and develop an interactive website using 3D models with ThreeJS to improve the presentation of the product online",
+    "veraVitalizeObjetive": "Project Objectives",
+    "veraVitalizeObjetiveP": "Design a cream that reflects the benefits of Aloe Vera, create a website that educates and engages customers about the products and their benefits, and develop an interactive experience with 3D models to enhance online product visualization.",
+    "veraVitalizeProcess": "Design and Development Process",
+    "veraVitalizeProcessP": "We began researching the benefits of Aloe Vera and designed a product that reflected these properties. We then developed a website with educational and visual sections using 3D models created with ThreeJS for an immersive experience.",
+    "veraVitalizeResult": "Result",
+    "veraVitalizeResultP": "VeraVitalize has significantly improved its online presence, attracting more customers interested in the benefits of Aloe Vera and improving product visualization with interactive 3D models"
 
 }

@@ -29,12 +29,6 @@
     "veravitalize_role": "Role: Design & Web Developemnt",
     "veravitalize_length": "Duracion: 4 semanas",
     "veravitalize_tag": "Tag: Diseño UI/UX - Desarrollo Web - Modelado 3D",
-    "veravitalize_tmit": "IDEA PRINCIPAL",
-    "veravitalize_tmi": "VeraVitalize es una marca de productos para el cuidado de la piel con aloe vera. Querían mostrar su producto principal en internet de manera intuitiva y transparente. Existen muchos productos para el cuidado de la piel, incluyendo productos con aloe vera. Sin embargo, una forma de distinguir un buen producto de otro es su presentación en línea. Para VeraVitalize, la idea más atractiva fue exhibir su producto en la web utilizando modelado 3D, con el objetivo de inspirar confianza en los usuarios. Esta técnica no solo mejora la experiencia visual para los usuarios, sino que también les permite examinar el producto desde todos los ángulos, generando confianza y transparencia.",
-    "veravitalize_techt": "TECNOLOGÍA UTILIZADA",
-    "veravitalize_tech": "Investigación: Analicé las tendencias actuales en la presentación de productos y recopilé comentarios de usuarios potenciales sobre sus expectativas en una tienda en línea. \n Modelado 3D: Colaboramos con expertos en modelado 3D para crear representaciones precisas y detalladas del producto. Esto incluyó texturización realista y animaciones que muestran el uso y los beneficios del aloe vera. \n Integración Web: Implementamos los modelos 3D en el sitio web utilizando tecnologías compatibles con la mayoría de los navegadores, asegurando una carga rápida y una navegación fluida.",
-    "veravitalize_objetivet": "METAS Y OBJETIVOS",
-    "veravitalize_objetive": "Diferenciación: Crear una forma única de presentar el producto en línea para diferenciarse en un mercado saturado.\n Experiencia del usuario: Implementar modelos 3D para que los clientes interactúen de una mejor manera con el producto.\n Seguir la ideología de la marca: Su idea de ser una marca transparente, creando un producto transparente.",
     "services": "Servicios",
     "services_p": "Trabajemos juntos, mis servicios garantizan una comunicación transparente a través del canal que prefieras: email, WhatsApp, Instagram. ¿Qué necesita tu marca? Si no estás seguro, puedes pedirme una consulta gratuita.",	
     "service_1": "Diseño Gráfico",
@@ -43,5 +37,13 @@
     "service_1_description":"Transformo tus ideas en visuales profesionales. Desde logotipos hasta materiales de marketing, creo diseños que capturan tu marca y comunican tu mensaje de manera efectiva.",
     "service_2_description":"Construyo sitios web personalizados que se ven geniales y funcionan sin problemas. Utilizando la última tecnología, me aseguro de que tu sitio sea rápido, seguro y escalable.",
     "service_3_description":"Diseño interfaces fáciles de usar y experiencias atractivas. Mi enfoque centrado en el usuario garantiza que cada diseño sea intuitivo y visualmente atractivo, aumentando la satisfacción y retención de los usuarios.",
-    "socialTitle": "Luis Andrés | Diseñador y Desarrollador"
+    "socialTitle": "Luis Andrés | Diseñador y Desarrollador",
+    "veraVitalizeMision": "Misión del proyecto",
+    "veraVitalizeMisionP": "VeraVitalize es una crema de Aloe Vera. Mi misión fue diseñar el producto, crear su presencia en línea y desarrollar un sitio web interactivo utilizando modelos 3D con ThreeJS para mejorar la presentación del producto online",
+    "veraVitalizeObjetive": "Objetivos del proyecto",
+    "veraVitalizeObjetiveP": "Diseñar una crema que refleje los beneficios del Aloe Vera, crear un sitio web que eduque y atraiga a los clientes sobre los productos y sus beneficios, y desarrollar una experiencia interactiva con modelos 3D para mejorar la visualización del producto en línea.",
+    "veraVitalizeProcess": "Proceso de diseño y Desarrollo",
+    "veraVitalizeProcessP": "Comenzamos investigando los beneficios del Aloe Vera y diseñamos un producto que reflejara estas propiedades. Luego, desarrollamos un sitio web con secciones educativas y visuales utilizando modelos 3D creados con ThreeJS para una experiencia inmersiva.",
+    "veraVitalizeResult": "Resultado",
+    "veraVitalizeResultP": "VeraVitalize ha mejorado significativamente su presencia en línea, atrayendo a más clientes interesados en los beneficios del Aloe Vera y mejorando la visualización del producto con modelos 3D interactivos"
 }
