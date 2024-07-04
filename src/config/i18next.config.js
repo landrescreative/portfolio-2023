@@ -7,10 +7,12 @@ import detector from "i18next-browser-languagedetector";
 
 i18next
   .use(detector)
-  .use(Backend)
   .use(initReactI18next)
   .init({
-    lng: "en",
+    detection: {
+      order: ["path", "navigator"],
+      lookupQuerystring: "lng",
+    },
     fallbackLng: "en",
     debug: true,
     interpolation: {

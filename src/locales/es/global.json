@@ -39,5 +39,9 @@
     "services_p": "Trabajemos juntos, mis servicios garantizan una comunicación transparente a través del canal que prefieras: email, WhatsApp, Instagram. ¿Qué necesita tu marca? Si no estás seguro, puedes pedirme una consulta gratuita.",	
     "service_1": "Diseño Gráfico",
     "service_2": "Desarrollo Web",
-    "service_3": "Diseño UI/UX"
+    "service_3": "Diseño UI/UX",
+    "service_1_description":"Transformo tus ideas en visuales profesionales. Desde logotipos hasta materiales de marketing, creo diseños que capturan tu marca y comunican tu mensaje de manera efectiva.",
+    "service_2_description":"Construyo sitios web personalizados que se ven geniales y funcionan sin problemas. Utilizando la última tecnología, me aseguro de que tu sitio sea rápido, seguro y escalable.",
+    "service_3_description":"Diseño interfaces fáciles de usar y experiencias atractivas. Mi enfoque centrado en el usuario garantiza que cada diseño sea intuitivo y visualmente atractivo, aumentando la satisfacción y retención de los usuarios.",
+    "socialTitle": "Luis Andrés | Diseñador y Desarrollador"
 }

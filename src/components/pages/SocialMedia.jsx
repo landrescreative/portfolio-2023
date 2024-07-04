@@ -13,6 +13,7 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import profilepicture from "../assets/Paper-Profile-Pic.webp";
+import { useTranslation } from "react-i18next";
 
 const SocialMedia = () => {
   function copyToClipboard() {
@@ -30,14 +31,14 @@ const SocialMedia = () => {
     navigator.clipboard.writeText("landres.creative@gmail.com");
   }
 
+  const { t } = useTranslation();
+
   return (
     <Container>
       <div className="social-user-info">
         <img className="social-img" src={profilepicture}></img>
         <h1 className="social-user">@landrescreative</h1>
-        <h1 className="social-about">
-          Luis Andrés | Diseñador y Desarrollador Web
-        </h1>
+        <h1 className="social-about">{t("socialTitle")}</h1>
         <h1 className="social-location">
           {" "}
           <FaLocationDot> </FaLocationDot> Mexico
@@ -118,7 +119,6 @@ const SocialMedia = () => {
           allowfullscreen
         ></iframe>
       </div>
-      <div class="blob"></div>
     </Container>
   );
 };
@@ -133,6 +133,7 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #ffffff;
   position: relative;
+  cursor: default;
 
   @media (min-width: 1024px) {
     height: 100vh;
@@ -203,7 +204,7 @@ const Container = styled.div`
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
     outline: none;
     transition: all 0.2s;
 
@@ -236,7 +237,7 @@ const Container = styled.div`
     background-color: #ffffff;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0px 10px rgba(50, 0, 100, 0.2);
+    box-shadow: 0 0px 24px rgba(0, 0, 0, 0.1);
 
     .social-button-icons {
       display: flex;

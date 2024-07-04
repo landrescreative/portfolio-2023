@@ -37,7 +37,7 @@ const Subtitle = styled.p`
   color: #000000;
   text-align: center;
   padding: 0 10rem;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -75,7 +75,7 @@ const Card = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
 
   &::before {
     content: "";
@@ -92,7 +92,7 @@ const Card = styled.div`
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
     background-image: linear-gradient(#5d3fd3, #5d3fd3),
-      linear-gradient(#377af5, #377af5);
+      linear-gradient(#0070f3, #0070f3);
     animation: ${gradient} 4s linear infinite;
 
     @media (max-width: 768px) {
