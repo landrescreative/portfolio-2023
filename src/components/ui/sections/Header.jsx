@@ -29,6 +29,11 @@ const HeaderContainer = styled.header`
   padding: 5rem 0;
   text-align: center;
   background-color: #ffffff;
+
+  @media (max-width: 768px) {
+    padding-bottom: 2rem;
+    padding-top: 0;
+  }
 `;
 
 const HeaderText = styled.div`

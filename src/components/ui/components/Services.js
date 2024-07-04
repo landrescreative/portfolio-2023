@@ -16,7 +16,7 @@ const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 20px;
+  padding: 3rem 20px;
   @media (max-width: 768px) {
   }
 `;
