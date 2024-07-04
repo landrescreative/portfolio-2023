@@ -50,7 +50,6 @@ const Container = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-
       background-color: #ffffff;
       color: #f2f2f2;
       -webkit-mask-image: url(${mask});

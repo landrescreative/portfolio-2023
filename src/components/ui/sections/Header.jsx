@@ -5,6 +5,16 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
   const { t } = useTranslation();
 
+  const handleScroll = () => {
+    const contactSection = document.getElementById("contact_cta");
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScroll2 = () => {
+    const gallerySection = document.getElementById("work");
+    gallerySection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <HeaderContainer>
       <HeaderText>
@@ -12,8 +22,8 @@ const Header = () => {
         <Description>{t("welcome")}</Description>
         <SelfDescription>{t("description")}</SelfDescription>
         <ButtonContainer>
-          <ActionButton>{t("cta1")}</ActionButton>
-          <ActionButton>{t("cta2")}</ActionButton>
+          <ActionButton onClick={handleScroll2}>{t("cta1")}</ActionButton>
+          <ActionButton onClick={handleScroll}>{t("cta2")}</ActionButton>
         </ButtonContainer>
       </HeaderText>
     </HeaderContainer>

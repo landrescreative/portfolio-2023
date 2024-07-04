@@ -49,7 +49,7 @@ const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  width: 70%;
+  width: 80%;
 
   @media (max-width: 768px) {
     width: 100%;

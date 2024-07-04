@@ -76,14 +76,18 @@ const Container = styled.div`
         backdrop-filter: blur(16px);
         z-index: 1;
         border-radius: 0px;
-        padding: 20px;
+        padding: 10px;
         bottom: -100%;
 
         h1 {
-          font-size: 1.2rem;
+          font-size: 1rem;
           font-weight: 700;
           margin: 0px;
           padding: 0px;
+        }
+
+        p {
+          font-size: 1rem;
         }
 
         .tags {
@@ -93,13 +97,17 @@ const Container = styled.div`
         }
 
         .tags span {
-          font-size: 12px;
+          font-size: 1rem;
           font-weight: 500;
           color: #000;
           background-color: rgba(255, 255, 255, 1);
           padding: 5px 10px;
           border-radius: 5px;
           transition: background-color 0.2s ease;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.8rem;
+          }
 
           &:hover {
             background-color: rgba(255, 255, 255, 0.8);
@@ -130,7 +138,7 @@ const Work = () => {
 
   return (
     <Container>
-      <div className="gallery">
+      <div className="gallery" id="work">
         <div className="thumbnails veravitalize" id="work_images">
           <Link to="/veravitalize">
             <div className="overlay">
