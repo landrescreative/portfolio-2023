@@ -21,8 +21,8 @@ import mongoDB from "../../assets/MongoDB_Logo.svg";
 
 const techLogos = [
   { src: reactLogo, alt: "React" },
-  { src: wordpressLogo, alt: "Styled Components" },
-  { src: webflowLogo, alt: "Next.js" },
+  { src: wordpressLogo, alt: "WordPress" },
+  { src: webflowLogo, alt: "Webflow" },
   { src: nodeJsLogo, alt: "Node.js" },
   { src: nextJsLogo, alt: "Next.js" },
   { src: expressLogo, alt: "Express.js" },
@@ -37,12 +37,13 @@ const TechSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 0,
     cssEase: "linear",
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -92,9 +93,9 @@ const StyledSlider = styled(Slider)`
   .slick-slide img {
     display: flex;
     margin: auto;
-
     max-height: 80px;
     filter: grayscale(100%);
+    opacity: 0.5;
   }
 `;
 

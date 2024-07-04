@@ -1,90 +1,159 @@
 import React from "react";
 import styled from "styled-components";
 import { BsArrowRight } from "react-icons/bs";
+import { FaPaintBrush, FaCode, FaUserAlt } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+
+// animations rotation
+import { keyframes } from "styled-components";
+
+const gradient = keyframes`
+  100% {transform: rotate(1turn);}
+`;
 
 // Estilos del componente Services usando styled-components
 const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  background-color: #ffffff;
-  padding: 50px 50px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
-
-const LeftSection = styled.div`
-  flex: 1;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
+  align-items: center;
+  padding: 6rem 20px;
   @media (max-width: 768px) {
-    margin-bottom: 0;
-    align-items: center;
   }
-`;
-
-const RightSection = styled.div`
-  flex: 1;
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  margin: 0;
+  margin: 0 0 0 0;
   color: ${(props) => props.theme.colors.primary};
+  text-align: center;
 
   @media (max-width: 768px) {
-    font-size: 3rem;
-    text-align: center;
+    font-size: 2rem;
   }
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2rem;
-  color: #666;
-  padding-right: 3rem;
+  color: #000000;
+  text-align: center;
+  padding: 0 10rem;
+  margin-bottom: 30px;
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
-    text-align: center;
-    padding-right: 0;
+    font-size: 1rem;
+    padding: 0;
   }
 `;
 
-const ServicesList = styled.ul`
-  list-style: none;
-  padding: 0;
+const CardsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 70%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
-const ServiceItem = styled.li`
-  margin-bottom: 30px;
-`;
-
-const ServiceContent = styled.div`
+const Card = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &::before {
+    content: "";
+    opacity: 0;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #5d3fd3;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(#5d3fd3, #5d3fd3),
+      linear-gradient(#377af5, #377af5);
+    animation: ${gradient} 4s linear infinite;
+
+    @media (max-width: 768px) {
+      opacity: 1;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 3px;
+    top: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    background: white;
+    border-radius: 5px;
+    opacity: 0;
+
+    @media (max-width: 768px) {
+      opacity: 1;
+    }
+  }
 
   &:hover {
-    background: #f9f9f9;
+    transform: scale(1.05);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 1;
+    }
   }
 `;
 
-const ServiceText = styled.div`
-  flex: 1;
+const IconWrapper = styled.div`
+  font-size: 3.2rem;
+  color: ${(props) => props.theme.colors.primary};
+  margin-bottom: 10px;
 `;
 
-const ServiceTitle = styled.h2`
+const CardContent = styled.div`
+  text-align: center;
+`;
+
+const CardTitle = styled.h2`
   font-size: 1.5rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
+
+const CardText = styled.p`
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
 `;
 
 const ContactButton = styled.a`
@@ -99,16 +168,11 @@ const ContactButton = styled.a`
   border-radius: 50%;
   transition: all 0.3s ease;
   border: none;
-  cursor: none;
+  cursor: pointer;
 
   &:hover {
     background-color: #555;
     transform: scale(1.1);
-  }
-
-  // modify background of parent on hover of child
-  &:hover ~ .containerservice {
-    background: #555;
   }
 
   svg {
@@ -129,48 +193,47 @@ const Services = () => {
 
   return (
     <ServicesContainer>
-      <LeftSection>
-        <Title> {t("services")} </Title>
-        <Subtitle>{t("services_p")}</Subtitle>
-      </LeftSection>
-      <RightSection>
-        <ServicesList>
-          <ServiceItem className="containerservice">
-            <ServiceContent>
-              <ServiceText>
-                <ServiceTitle>{t("service_1")}</ServiceTitle>
-              </ServiceText>
-              <ContactButton href="#contact" onClick={handleScroll}>
-                <BsArrowRight />
-              </ContactButton>
-            </ServiceContent>
-          </ServiceItem>
-          <hr />
-          <ServiceItem>
-            <ServiceContent>
-              <ServiceText>
-                <ServiceTitle>{t("service_2")}</ServiceTitle>
-              </ServiceText>
-              <ContactButton href="#contact" onClick={handleScroll}>
-                <BsArrowRight />
-              </ContactButton>
-            </ServiceContent>
-          </ServiceItem>
-          <hr />
-          <ServiceItem>
-            <ServiceContent>
-              <ServiceText>
-                <ServiceTitle>{t("service_3")}</ServiceTitle>
-              </ServiceText>
-              <ContactButton href="#contact" onClick={handleScroll}>
-                <BsArrowRight />
-              </ContactButton>
-            </ServiceContent>
-          </ServiceItem>
-          <hr />
-          {/* Add more service items here as needed */}
-        </ServicesList>
-      </RightSection>
+      <Title>{t("services")}</Title>
+      <Subtitle>{t("services_p")}</Subtitle>
+      <CardsContainer>
+        <Card>
+          <IconWrapper>
+            <FaPaintBrush />
+          </IconWrapper>
+          <CardContent>
+            <CardTitle>{t("service_1")}</CardTitle>
+            <CardText>{t("service_1_description")}</CardText>
+            <ContactButton href="#contact" onClick={handleScroll}>
+              <BsArrowRight />
+            </ContactButton>
+          </CardContent>
+        </Card>
+        <Card>
+          <IconWrapper>
+            <FaCode />
+          </IconWrapper>
+          <CardContent>
+            <CardTitle>{t("service_2")}</CardTitle>
+            <CardText>{t("service_2_description")}</CardText>
+            <ContactButton href="#contact" onClick={handleScroll}>
+              <BsArrowRight />
+            </ContactButton>
+          </CardContent>
+        </Card>
+        <Card>
+          <IconWrapper>
+            <FaUserAlt />
+          </IconWrapper>
+          <CardContent>
+            <CardTitle>{t("service_3")}</CardTitle>
+            <CardText>{t("service_3_description")}</CardText>
+            <ContactButton href="#contact" onClick={handleScroll}>
+              <BsArrowRight />
+            </ContactButton>
+          </CardContent>
+        </Card>
+        {/* Add more cards as needed */}
+      </CardsContainer>
     </ServicesContainer>
   );
 };

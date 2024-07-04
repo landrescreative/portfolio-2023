@@ -15,6 +15,7 @@ const Container = styled.div`
   color: #000;
   font-size: 1.2rem;
   border-radius: 50px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
   z-index: 100;
 
   button {
