@@ -11,6 +11,7 @@ import { GlitchPass } from "../../assets/GlitchPass";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useLocation } from "react-router-dom";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const Experience = () => {
   const location = useLocation();
@@ -30,11 +31,18 @@ const Experience = () => {
       0.1,
       1000
     );
-    camera.position.z = 10;
+    camera.position.z = 15;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    // Controls
+    const controls = new OrbitControls(camera, mountRef.current);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = false;
+
+    const renderer = new THREE.WebGLRenderer({});
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
+    renderer.setClearColor(0xd9e7fc, 1);
 
     // Load hdr
     const hdriLoader = new RGBELoader();
@@ -45,31 +53,6 @@ const Experience = () => {
     // Textures
     const loader = new THREE.TextureLoader();
     const texture = loader.load("/assets/star_08.png");
-
-    // Add Particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const count = 100;
-
-    const positions = new Float32Array(count * 3);
-
-    for (let i = 0; i < count * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 15;
-    }
-
-    particlesGeometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(positions, 3)
-    );
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.1,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      color: 0x2d56ff,
-    });
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
 
     // Post Processing
 
@@ -86,7 +69,7 @@ const Experience = () => {
       side: THREE.DoubleSide,
     });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.position.z = -10;
+    plane.position.z = -30;
     scene.add(plane);
 
     // Add html element
@@ -117,7 +100,7 @@ const Experience = () => {
       model = gltf.scene;
       model.position.y = -9;
       model.position.x = 0;
-      model.position.z = -3;
+      model.position.z = 0;
       model.scale.set(1, 1, 1);
       scene.add(model);
 
@@ -134,25 +117,14 @@ const Experience = () => {
         const elapsedTime = clock.getElapsedTime();
 
         // Make particles follow mouse position but tiny movement
-        particles.rotation.y = elapsedTime * 0.05;
 
         // Camara parallax effect on mouse move
         // camera.position.x += (mouse.x - camera.position.x) * 0.01;
         // camera.position.y += (-mouse.y - camera.position.y) * 0.01;
 
-        // Animate gltf model
-        scene.children.forEach((child) => {
-          if ((child.name = "Scene")) {
-            child.children.forEach((child) => {
-              if (child.name === "Cube003") {
-                child.rotation.y = elapsedTime * 0.5;
-              }
-            });
-          }
-        });
-
         renderer.render(scene, camera);
         composer.render();
+        controls.update();
 
         // Update mixer
         if (mixer) {
@@ -187,7 +159,8 @@ const Experience = () => {
         display: location.pathname === "/socialmedia" ? "none" : "block",
         position: "absolute",
         left: 0,
-        zIndex: -5,
+        zIndex: 0,
+        borderRadius: "100px",
       }}
     ></div>
   );

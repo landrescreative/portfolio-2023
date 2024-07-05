@@ -77,10 +77,11 @@ const Container = styled.div`
     font-size: 3rem;
     color: #f2f2f2;
     padding: 1rem;
-    cursor: pointer;
+    cursor: none;
     border-radius: 50%;
     z-index: 2;
     animation: ${animation} 2s infinite;
+    pointer-events: none;
   }
 `;
 
