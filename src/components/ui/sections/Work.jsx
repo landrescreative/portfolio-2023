@@ -140,7 +140,10 @@ const Work = () => {
     <Container>
       <div className="gallery" id="work">
         <div className="thumbnails veravitalize" id="work_images">
-          <Link to="/veravitalize">
+          <a
+            href="https://www.behance.net/gallery/199553147/VeraVitalize-Skin-Care-Cream-3D-Landing-Page"
+            to="/veravitalize"
+          >
             <div className="overlay">
               <h1>{t("proyect1_h1")}</h1>
               <p>{t("proyect1_p")}</p>
@@ -153,7 +156,7 @@ const Work = () => {
             <video autoPlay loop muted>
               <source src={img1} type="video/webm" />
             </video>
-          </Link>
+          </a>
         </div>
         <div className="thumbnails" id="work_images">
           <a
