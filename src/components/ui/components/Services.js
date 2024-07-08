@@ -48,7 +48,7 @@ const Subtitle = styled.p`
 const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 40px;
   width: 80%;
 
   @media (max-width: 768px) {
@@ -75,7 +75,7 @@ const Card = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 0;
-  box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0);
 
   &::before {
     content: "";
@@ -119,6 +119,7 @@ const Card = styled.div`
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 36px rgba(0, 0, 0, 0.3);
 
     &::before {
       opacity: 1;

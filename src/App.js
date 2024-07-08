@@ -33,7 +33,6 @@ function App() {
       <div>
         <Preloader></Preloader>
         <Navbar></Navbar>
-        <CustomCursor></CustomCursor>
         <Routes location={location} key={location.key}>
           <Route eaxt path="/" element={<MainPage />} />
           <Route path="/veravitalize" element={<CaseStudy></CaseStudy>} />

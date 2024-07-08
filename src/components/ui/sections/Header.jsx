@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
 
 const Header = () => {
   const { t } = useTranslation();
+  const headerRef = useRef(null);
+  const roleTextRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const selfDescriptionRef = useRef(null);
+  const buttonRefs = useRef([]);
 
   const handleScroll = () => {
     const contactSection = document.getElementById("contact_cta");
@@ -15,15 +21,62 @@ const Header = () => {
     gallerySection.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const onLoad = () => {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 1 }
+      );
+      gsap.fromTo(
+        roleTextRef.current,
+        { opacity: 0, x: -50 },
+        { opacity: 1, x: 0, duration: 1, delay: 0.5 }
+      );
+      gsap.fromTo(
+        descriptionRef.current,
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 1, delay: 1 }
+      );
+      gsap.fromTo(
+        selfDescriptionRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1, delay: 1.5 }
+      );
+      buttonRefs.current.forEach((button, index) => {
+        gsap.fromTo(
+          button,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1, delay: 2 + index * 0.5 }
+        );
+      });
+    };
+
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, []);
+
   return (
-    <HeaderContainer>
+    <HeaderContainer ref={headerRef}>
       <HeaderText>
-        <RoleText>{t("who")}</RoleText>
-        <Description>{t("welcome")}</Description>
-        <SelfDescription>{t("description")}</SelfDescription>
+        <RoleText ref={roleTextRef}>{t("who")}</RoleText>
+        <Description ref={descriptionRef}>{t("welcome")}</Description>
+        <SelfDescription ref={selfDescriptionRef}>
+          {t("description")}
+        </SelfDescription>
         <ButtonContainer>
-          <ActionButton onClick={handleScroll2}>{t("cta1")}</ActionButton>
-          <ActionButton onClick={handleScroll}>{t("cta2")}</ActionButton>
+          <ActionButton
+            ref={(el) => (buttonRefs.current[0] = el)}
+            onClick={handleScroll2}
+          >
+            {t("cta1")}
+          </ActionButton>
+          <ActionButton
+            ref={(el) => (buttonRefs.current[1] = el)}
+            onClick={handleScroll}
+          >
+            {t("cta2")}
+          </ActionButton>
         </ButtonContainer>
       </HeaderText>
     </HeaderContainer>

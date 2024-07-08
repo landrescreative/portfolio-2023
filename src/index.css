@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "Geist";
   src: local("Geist"),
@@ -62,11 +66,6 @@
 
  #root{
   white-space: pre-line;
-  cursor: none;
-
-  @media (max-width: 768px) {
-    cursor: auto;
-  }
  }
 
 body {

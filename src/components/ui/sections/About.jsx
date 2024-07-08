@@ -37,6 +37,8 @@ const Container = styled.div`
       filter: grayscale(100%);
 
       &:hover {
+        transform: scale(1.2) rotate(-25deg);
+        border-radius: 16px;
         filter: grayscale(0%);
       }
     }
