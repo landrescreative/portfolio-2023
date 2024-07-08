@@ -9,7 +9,7 @@ const Container = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  padding: 2rem 0;
+  padding: 8rem 0;
   grid-template-columns: repeat(12, 1fr);
   background-color: #ffffff;
   backdrop-filter: blur(10px);

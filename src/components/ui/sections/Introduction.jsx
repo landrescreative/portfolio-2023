@@ -8,6 +8,7 @@ import mask2 from "../../assets/1234.png";
 import { MdTouchApp } from "react-icons/md";
 import useIsMobile from "../components/useIsMobile";
 import { PiCursorClickFill } from "react-icons/pi";
+import ModelViewer from "../components/ModelViewer";
 
 // Animation
 const animation = keyframes`
@@ -105,7 +106,7 @@ const Introduction = () => {
         <a className="buttontouch">
           {isMobile ? <MdTouchApp></MdTouchApp> : <PiCursorClickFill />}
         </a>
-        <Experience></Experience>
+        <ModelViewer />
       </div>
     </Container>
   );
