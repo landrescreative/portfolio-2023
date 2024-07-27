@@ -69,7 +69,7 @@ const Container = styled.div`
   }
 
   .buttontouch {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: #1c1c1c;
