@@ -11,7 +11,6 @@ import { GlitchPass } from "../../assets/GlitchPass";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useLocation } from "react-router-dom";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const Experience = () => {
   const location = useLocation();
@@ -32,14 +31,6 @@ const Experience = () => {
       1000
     );
     camera.position.z = 15;
-
-    // Controls
-    const controls = new OrbitControls(camera, mountRef.current);
-    controls.enableDamping = false;
-    controls.enableRotate = false;
-    controls.dampingFactor = 0.25;
-    controls.enableZoom = false;
-    controls.enablePan = false;
 
     const renderer = new THREE.WebGLRenderer({});
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -126,8 +117,6 @@ const Experience = () => {
 
         renderer.render(scene, camera);
         composer.render();
-        controls.update();
-
         // Update mixer
         if (mixer) {
           mixer.update(0.02);

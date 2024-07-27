@@ -79,6 +79,7 @@ const ModelViewer = () => {
         left: 0,
         zIndex: 0,
         borderRadius: "100px",
+        zIndex: -100,
       }}
       gl={{ alpha: true }}
     >
@@ -94,7 +95,11 @@ const ModelViewer = () => {
         />
         <Model />
       </Suspense>
-      <OrbitControls enableZoom={false} enablePan={false} />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={false}
+      />
     </Canvas>
   );
 };
