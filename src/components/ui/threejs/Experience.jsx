@@ -35,7 +35,8 @@ const Experience = () => {
 
     // Controls
     const controls = new OrbitControls(camera, mountRef.current);
-    controls.enableDamping = true;
+    controls.enableDamping = false;
+    controls.enableRotate = false;
     controls.dampingFactor = 0.25;
     controls.enableZoom = false;
     controls.enablePan = false;
