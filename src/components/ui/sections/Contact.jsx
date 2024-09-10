@@ -43,7 +43,7 @@ const Container = styled.div`
 
     .contact_cta {
       display: flex;
-      background-color: rgb(149, 190, 255);
+      background-color: ${(props) => props.theme.colors.primary};
       border-radius: 50px;
       padding: 5px 20px;
       flex-direction: row;
@@ -81,7 +81,7 @@ const Container = styled.div`
       align-items: center;
       font-size: 30px;
       grid-column: 1 / 13;
-      background-color: rgb(149, 190, 255);
+      background-color: ${(props) => props.theme.colors.primary};
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -116,7 +116,7 @@ const Contact = () => {
     setTimeout(() => {
       cta.innerHTML = "landres.creative@gmail.com";
       cta.style.color = "#1c1c1c";
-      ctaBox.style.backgroundColor = "#ffffff";
+      ctaBox.style.backgroundColor = "#2d56ff";
     }, 3000);
 
     navigator.clipboard.writeText("landres.creative@gmail.com");

@@ -58,7 +58,7 @@ const Experience = () => {
     // Add background plane
     const planeGeometry = new THREE.PlaneGeometry(100, 100);
     const planeMaterial = new THREE.MeshBasicMaterial({
-      color: 0xd9e7fc,
+      color: 0x000000,
       side: THREE.DoubleSide,
     });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);

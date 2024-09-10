@@ -22,8 +22,9 @@ const ServicesContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
-  margin: 0 0 0 0;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 20px 0px;
   color: ${(props) => props.theme.colors.primary};
   text-align: center;
 
@@ -195,7 +196,6 @@ const Services = () => {
   return (
     <ServicesContainer>
       <Title>{t("services")}</Title>
-      <Subtitle>{t("services_p")}</Subtitle>
       <CardsContainer>
         <Card>
           <IconWrapper>

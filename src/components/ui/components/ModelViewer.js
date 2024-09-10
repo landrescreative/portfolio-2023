@@ -81,7 +81,6 @@ const ModelViewer = () => {
         borderRadius: "100px",
         zIndex: -100,
       }}
-      gl={{ alpha: true }}
     >
       <ambientLight intensity={0.3} />
       <Suspense fallback={null}>

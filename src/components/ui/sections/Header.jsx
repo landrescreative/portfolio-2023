@@ -65,12 +65,12 @@ const Header = () => {
           {t("description")}
         </SelfDescription>
         <ButtonContainer>
-          <ActionButton
+          <ActionButton2
             ref={(el) => (buttonRefs.current[0] = el)}
             onClick={handleScroll2}
           >
             {t("cta1")}
-          </ActionButton>
+          </ActionButton2>
           <ActionButton
             ref={(el) => (buttonRefs.current[1] = el)}
             onClick={handleScroll}
@@ -114,10 +114,13 @@ const HeaderText = styled.div`
 `;
 
 const RoleText = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   margin: 0;
-  color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: #ffffff;
 `;
 
 const Description = styled.h2`
@@ -159,9 +162,28 @@ const ActionButton = styled.button`
 
   // Hover animation
   &:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 16px rgba(0, 0, 255, 0.5);
+    background-color: ${(props) => props.theme.colors.primary};
+    box-shadow: 0 5px 25px rgba(0, 40, 255, 0.3);
   }
 `;
 
+const ActionButton2 = styled.button`
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: ${(props) => props.theme.colors.primary};
+  border: none;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  // Hover animation
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primary};
+    box-shadow: 0 5px 25px rgba(0, 40, 255, 0.3);
+    color: white;
+  }
+`;
 export default Header;

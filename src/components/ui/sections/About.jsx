@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import useIsMobile from "../components/useIsMobile";
 
 // Img
 import profilepicture from "../../assets/prof1.webp";
@@ -40,6 +42,15 @@ const Container = styled.div`
         transform: scale(1.2) rotate(-25deg);
         border-radius: 16px;
         filter: grayscale(0%);
+      }
+
+      @media (max-width: 768px) {
+        filter: grayscale(0%);
+
+        &:hover {
+          transform: scale(1) rotate(0deg);
+          border-radius: 50%;
+        }
       }
     }
 
@@ -89,11 +100,42 @@ const Container = styled.div`
 
 const About = () => {
   const { t } = useTranslation();
+
+  // Create use state on click
+  const [clicked, setClicked] = React.useState(false);
+
+  var isMobile = useIsMobile();
+
+  function animateOnClick() {
+    gsap.to(".img", {
+      duration: 0.3,
+      scale: 1.2,
+      rotate: -25,
+      borderRadius: "16px",
+      filter: "grayscale(0%)",
+    });
+  }
+
+  function backToNormal() {
+    gsap.to(".img", {
+      duration: 0.3,
+      scale: 1,
+      rotate: 0,
+      borderRadius: "50%",
+      filter: "grayscale(100%)",
+    });
+  }
+
   return (
     <Container>
       <div className="about">
         <div className="about_img">
-          <img src={profilepicture} alt="profile"></img>
+          <img
+            className="img"
+            src={profilepicture}
+            onClick={isMobile ? animateOnClick : null}
+            alt="profile"
+          ></img>
         </div>
         <div className="about_texts">
           <div className="about_texts_container">

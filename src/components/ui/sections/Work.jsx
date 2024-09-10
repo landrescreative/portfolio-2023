@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import img1 from "../../assets/veravitalizevideo.webm";
 import img2 from "../../assets/theold.webm";
 import img3 from "../../assets/launchsark.webp";
-import img4 from "../../assets/Pringles.webp";
+import img4 from "../../assets/vivaviawebm.webm";
 import img5 from "../../assets/codicavideo.webm";
 import img6 from "../../assets/Powerkick-mockup.webp";
 
@@ -37,10 +37,16 @@ const Container = styled.div`
       position: relative;
       overflow: hidden;
       border-radius: 16px;
-      transition: all 0.4s ease-in-out;
+      transition: all 0.2s ease-in-out;
 
       @media screen and (max-width: 768px) {
         margin: 0px 15px;
+      }
+
+      &:hover {
+        transform: translateY(-20px);
+        z-index: 2;
+        box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.2);
       }
 
       img,
@@ -69,31 +75,28 @@ const Container = styled.div`
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: hsla(0, 0%, 0%, 0.3);
+        background-color: hsla(0, 0%, 0%, 0.4);
         transition: all 0.4s ease-in-out;
         color: #ffffff;
         opacity: 1;
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(24px);
         z-index: 1;
         border-radius: 0px;
-        padding: 10px;
-        bottom: -100%;
+        padding: 15px;
 
         h1 {
           font-size: 1rem;
           font-weight: 700;
           margin: 0px;
-          padding: 0px;
         }
 
         p {
+          margin: 0.5rem 0;
           font-size: 1rem;
         }
 
         .tags {
           display: flex;
-          gap: 10px;
-          margin-bottom: 10px;
         }
 
         .tags span {
@@ -103,6 +106,7 @@ const Container = styled.div`
           background-color: rgba(255, 255, 255, 1);
           padding: 5px 10px;
           border-radius: 5px;
+          margin-right: 5px;
           transition: background-color 0.2s ease;
 
           @media screen and (max-width: 768px) {
@@ -110,7 +114,8 @@ const Container = styled.div`
           }
 
           &:hover {
-            background-color: rgba(255, 255, 255, 0.8);
+            color: white;
+            background-color: rgba(0, 40, 255, 0.8);
           }
         }
 
@@ -120,16 +125,20 @@ const Container = styled.div`
         }
       }
 
-      &:hover .overlay {
-        left: 0;
-        bottom: 0;
-      }
-
       &:hover img {
         transform: scale(1.1);
         filter: grayscale(0%);
       }
     }
+  }
+
+  .texto-seccion {
+    grid-column: 1 / 13;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 20px 0;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 
@@ -138,6 +147,7 @@ const Work = () => {
 
   return (
     <Container>
+      <h1 className="texto-seccion">Galería</h1>
       <div className="gallery" id="work">
         <div className="thumbnails veravitalize" id="work_images">
           <a
@@ -158,23 +168,53 @@ const Work = () => {
             </video>
           </a>
         </div>
+
         <div className="thumbnails" id="work_images">
-          <a
-            href="https://www.behance.net/gallery/199282107/LaunchShark-Logo"
-            target="_blank"
-          >
+          <a>
             <div className="overlay">
-              <h1>{t("proyect3_h1")}</h1>
-              <p>{t("proyect3_p")}</p>
+              <h1>{t("proyect4_h1")}</h1>
+              <p>{t("proyect4_p")}</p>
               <div className="tags">
-                <span>Illustrator</span>
-                <span>Premiere</span>
-                <span>After Effects</span>
-                <span>Adobe Xd</span>
+                <span>Figma</span>
+                <span>NextJS</span>
+                <span>UI/UX Design</span>
+                <span>Web Development</span>
               </div>
             </div>
+            <video autoPlay loop muted>
+              <source src={img4} type="video/webm" />
+            </video>
+          </a>
+        </div>
 
-            <img src={img3}></img>
+        <div className="thumbnails" id="work_images">
+          <a href="https://powerkick.vercel.app/">
+            <div className="overlay">
+              <h1>Powerkick Website</h1>
+              <p>Snakers shop website | UNDER DEVELOPMENT</p>
+              <div className="tags">
+                <span>Figma</span>
+                <span>Blender</span>
+                <span>Web Development</span>
+              </div>
+            </div>
+            <img src={img6}></img>
+          </a>
+        </div>
+        <div className="thumbnails" id="work_images">
+          <a>
+            <div className="overlay">
+              <h1>Codica Landing Page</h1>
+              <p>Software Agency Website</p>
+              <div className="tags">
+                <span>Figma</span>
+                <span>React</span>
+                <span>ThreeJS</span>
+              </div>
+            </div>
+            <video autoPlay loop muted>
+              <source src={img5} type="video/webm" />
+            </video>
           </a>
         </div>
         <div className="thumbnails" id="work_images">
@@ -195,46 +235,22 @@ const Work = () => {
           </a>
         </div>
         <div className="thumbnails" id="work_images">
-          <a>
+          <a
+            href="https://www.behance.net/gallery/199282107/LaunchShark-Logo"
+            target="_blank"
+          >
             <div className="overlay">
-              <h1>{t("proyect4_h1")}</h1>
-              <p>{t("proyect4_p")}</p>
+              <h1>{t("proyect3_h1")}</h1>
+              <p>{t("proyect3_p")}</p>
               <div className="tags">
-                <span>Adobe Photoshop</span>
-                <span>Lightroom</span>
+                <span>Illustrator</span>
+                <span>Premiere</span>
+                <span>After Effects</span>
+                <span>Adobe Xd</span>
               </div>
             </div>
-            <img src={img4}></img>
-          </a>
-        </div>
-        <div className="thumbnails" id="work_images">
-          <a>
-            <div className="overlay">
-              <h1>Codica Landing Page</h1>
-              <p>Software Agency Website</p>
-              <div className="tags">
-                <span>Figma</span>
-                <span>React</span>
-                <span>ThreeJS</span>
-              </div>
-            </div>
-            <video autoPlay loop muted>
-              <source src={img5} type="video/webm" />
-            </video>
-          </a>
-        </div>
-        <div className="thumbnails" id="work_images">
-          <a>
-            <div className="overlay">
-              <h1>Powerkick Website</h1>
-              <p>Snakers shop website | UNDER DEVELOPMENT</p>
-              <div className="tags">
-                <span>Figma</span>
-                <span>Blender</span>
-                <span>Web Development</span>
-              </div>
-            </div>
-            <img src={img6}></img>
+
+            <img src={img3}></img>
           </a>
         </div>
       </div>

@@ -65,6 +65,7 @@ const Container_Navbar = styled.div`
   align-content: center;
   justify-content: center;
   background-color: #ffffff;
+  // add blur
   z-index: 100;
 
   // LANDRES text
@@ -116,7 +117,8 @@ const Container_Navbar = styled.div`
       justify-content: space-around;
       position: fixed;
       left: -100vw;
-      background-color: #070707;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(16px);
       transition: left 0.5s ease-in-out;
     }
 
